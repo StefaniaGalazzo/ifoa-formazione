@@ -11,7 +11,8 @@ a {
   text-transform: capitalize;
 }
 h3,
-h2 {
+h2,
+figure {
   margin: 0;
 }
 hr {
@@ -29,7 +30,7 @@ header > img {
 }
 
 header > p {
-  background-color: #fdfce9;
+  background-color: #fbfbf1;
   padding: 10px;
   border-top: 1px solid rgb(252, 204, 114);
   color: rgb(0, 135, 142);
@@ -49,24 +50,23 @@ h1 {
 }
 
 /*main element style*/
-main > video {
+main > figure > video {
   width: 100%;
   min-height: 348px;
   margin: 0;
-}
-
-main > video {
-  width: 100%;
   border-radius: 13px;
   box-shadow: 0 0 14px 3px #ccc;
 }
 
-main > video {
+main > figure > video {
   text-align: center;
   color: #bebdbd;
   object-fit: cover;
 }
-
+main > figure > figcaption {
+  color: #ccc;
+  text-align: center;
+}
 /* main > video[poster] {
   object-fit: cover;
 } */
