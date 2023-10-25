@@ -1,0 +1,99 @@
+/*base style*/
+* {
+  box-sizing: border-box;
+}
+*::first-letter:not(span) {
+  text-transform: capitalize;
+}
+
+a {
+  color: rgb(0, 149, 162);
+  text-transform: capitalize;
+}
+h3,
+h2 {
+  margin: 0;
+}
+hr {
+  border-color: rgb(73 212 224);
+  margin: 12px auto;
+  border-width: 0.003vw;
+}
+
+/*header element style*/
+header {
+  text-align: center;
+}
+header > img {
+  width: 150px;
+}
+
+header > p {
+  background-color: #fdfce9;
+  padding: 10px;
+  border-top: 1px solid rgb(252, 204, 114);
+  color: rgb(0, 135, 142);
+}
+header > p > span {
+  font-weight: bold;
+}
+main,
+section,
+aside {
+  width: 50vw;
+  max-width: 600px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+}
+
+/*main element style*/
+main > video {
+  width: 100%;
+  min-height: 348px;
+  margin: 0;
+}
+
+main > video {
+  width: 100%;
+  border-radius: 13px;
+  box-shadow: 0 0 14px 3px #ccc;
+}
+
+main > video {
+  text-align: center;
+  color: #bebdbd;
+  object-fit: cover;
+}
+
+main > video[poster] {
+  object-fit: cover;
+}
+
+/*aside*/
+aside {
+  margin: 50px auto;
+}
+
+/*footer*/
+footer > p {
+  font-weight: bold;
+}
+/*custom class*/
+.uppercase {
+  text-transform: uppercase;
+}
+.mb-30px {
+  margin-bottom: 30px;
+}
+
+#featured {
+  border-left: 2px solid rgb(252, 204, 114);
+  padding: 10px 20px;
+  color: rgb(204 94 0);
+  margin: 50px auto;
+}
+.bold {
+  font-weight: bold;
+}
