@@ -67,9 +67,9 @@ main > video {
   object-fit: cover;
 }
 
-main > video[poster] {
+/* main > video[poster] {
   object-fit: cover;
-}
+} */
 
 /*aside*/
 aside {
