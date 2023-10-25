@@ -66,6 +66,7 @@ main > figure > video {
 main > figure > figcaption {
   color: #ccc;
   text-align: center;
+  margin: 15px auto;
 }
 /* main > video[poster] {
   object-fit: cover;
