@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+/*BASE STYLE*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  line-height: 1.5;
+}
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  padding: 15px;
+  background-image: url(/week-1/day-4/assets/img/sfondo.png);
+  background-position: center;
+  background-size: contain;
+}
+
+p {
+  margin: 15px auto;
+}
+
+a,
+span {
+  color: #000;
+  font-weight: 400;
+  margin: 0 auto;
+}
+a {
+  color: rgb(38, 178, 233);
+  font-weight: 500;
+  /* font-size: 1.1rem; */
+}
+ul {
+  margin: 10px auto;
+}
+header,
+.container,
+footer {
+  max-width: 900px;
+  min-width: 320px;
+  margin: 20px auto;
+}
+header,
+.container {
+  box-shadow: 0px 4px 6px #0000009c;
+  border-radius: 3px;
+}
+/* HEADER */
+header {
+  text-align: center;
+  background: rgb(0, 101, 153);
+  background: linear-gradient(
+    180deg,
+    rgb(0, 172, 214) 0% 30%,
+    rgb(0, 96, 120) 100%
+  );
+  color: #fff;
+  font-weight: 700;
+  border-radius: 3px;
+  padding: 40px;
+  width: 100%;
+  gap: 1.2rem;
+  margin-top: 0;
+}
+header > img {
+  width: 75%;
+  margin: 0 auto;
+  max-width: 300px;
+}
+header > h1 {
+  font-size: 1.8rem;
+}
+header > nav {
+  gap: 0.2rem;
+}
+nav > ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav > ul > li {
+  cursor: pointer;
+  color: #fff;
+}
+nav > ul > li > h3 > a {
+  cursor: pointer;
+  color: #fff;
+}
+nav > ul > li:hover {
+  color: fuchsia;
+  color: #fff;
+}
+.nav-icon::before {
+  content: "\21D2";
+}
+.nav-icon::after {
+  content: "\21D0";
+}
+
+/* MAIN */
+.container {
+  background-color: #fff;
+  padding: 25px;
+}
+.ul-with-tag > li {
+  line-height: 1.8;
+}
+/* ELEMENTI NEL MAIN - ARTICLE */
+.developer {
+  display: grid;
+  place-content: center;
+}
+iframe {
+  max-width: 600px;
+  min-height: 300px;
+  margin: 0;
+  border-radius: 13px;
+  margin: 20px auto;
+}
+
+.author-info {
+  margin: 30px auto;
+}
+.author-info > p {
+  color: #a9a7a7;
+}
+.tag {
+  background-color: #e4e4e4;
+  border-radius: 5px;
+  border: 1px solid #858585;
+  padding: 0 3px;
+  white-space: nowrap;
+}
+
+/* TABELLE */
+.table {
+  text-align: center;
+  margin: 30px auto;
+}
+.table > table > tbody > tr:nth-child(odd) {
+  background-color: #e8e8e8;
+}
+.table > table > tbody > tr > th {
+  background-color: rgb(3, 100, 197);
+  color: #fff;
+  font-weight: normal;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 3px solid rgb(3, 100, 197);
+}
+th,
+td {
+  width: 33.3%;
+  padding: 8px;
+}
+
+/* FORM */
+.form-section > form {
+  height: 30px;
+}
+.form-section > p {
+  margin-bottom: 15px;
+}
+.form-section > form > button,
+.form-section > form > input {
+  height: 100%;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 3px;
+}
+.form-section > form > input {
+  border-bottom: 1px dashed #000;
+  width: 50%;
+}
+.form-section > form > button {
+  background-color: rgb(3, 100, 197);
+  color: #fff;
+}
+/* ELEMENTI NELL' ASIDE */
+aside,
+.form-section {
+  margin: 50px auto;
+}
+.article,
+.form-section {
+  background-color: #e8e8e8;
+  padding: 20px 30px;
+  margin: 13px auto;
+}
+.article > p > i {
+  margin-right: 5px;
+}
+.article > a {
+  font-size: 1.1rem;
+}
+.article > a:hover {
+  color: rgb(6, 90, 173);
+}
+
+.correlati > h3,
+.form-section > h3 {
+  text-align: center;
+  font-weight: 500;
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(
+    180deg,
+    rgb(0, 96, 120) 0% 30%,
+    rgb(0, 43, 53) 100%
+  );
+  padding: 20px;
+  text-align: center;
+  border-radius: 3px;
+  margin-bottom: 0;
+}
+footer p,
+footer span {
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+footer p a {
+}
+/*CUSTOM & SUPPORT CLASSES*/
+.uppercase {
+  text-transform: uppercase;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.bold {
+  font-weight: 500;
+}
+.bolder {
+  font-weight: 700;
+}
+.italic {
+  font-style: italic;
+}
+.light {
+  font-weight: 300;
+}
+.right {
+  text-align: right !important;
+}
+.regular {
+  font-weight: 400;
+}
+.colored {
+  color: purple;
+}
+.fuchsia {
+  color: fuchsia;
+}
