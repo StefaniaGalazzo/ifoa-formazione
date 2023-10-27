@@ -66,7 +66,8 @@ address {
 .logo > img {
   width: 120px;
 }
-.double-background {
+/*MAIN & main elements*/
+main > .double-background {
   padding: 50px 30%;
   /* margin: 15px auto 0 auto; */
   text-align: center;
@@ -80,7 +81,7 @@ address {
   height: 80vh;
 }
 
-.double-background > .cta > a > button {
+main > .double-background > .cta > a > button {
   border: none;
   background-color: #f04c2f;
   padding: 8px 15px;
@@ -90,7 +91,6 @@ address {
 .cta {
   padding-top: 20vh;
 }
-/*MAIN & main elements*/
 .row {
   margin: 1.5rem 10% 1rem 10%;
   text-align: center;
