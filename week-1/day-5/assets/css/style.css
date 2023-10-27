@@ -152,6 +152,7 @@ aside {
   border: 1px solid #dee1e3;
   height: 327px;
   max-width: 275px;
+  box-shadow: 0 0 8px 0px #889295ad;
 }
 .card > .img-card-container {
   height: 55%;
