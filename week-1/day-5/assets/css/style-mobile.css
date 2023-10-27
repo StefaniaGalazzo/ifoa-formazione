@@ -149,6 +149,9 @@ aside {
   width: 90%;
   margin: 50px auto;
 }
+.card > .card-texts {
+  text-align: center;
+}
 .card > .card-texts > h4 {
   margin: 20px auto;
 }
@@ -207,24 +210,6 @@ footer > .contacts > p > i {
 .uppercase {
   text-transform: uppercase;
 }
-/* .bold {
-  font-weight: 500;
-} */
-/* .bolder {
-  font-weight: 700;
-} */
-/* .italic {
-  font-style: italic;
-} */
-/* .light {
-  font-weight: 300;
-} */
-/* .right {
-  text-align: right !important;
-} */
-/* .regular {
-  font-weight: 400;
-} */
 .small {
   font-size: 0.9rem;
 }
