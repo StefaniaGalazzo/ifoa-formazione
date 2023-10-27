@@ -217,6 +217,7 @@ footer > .contacts > p > i {
 }
 .to-top {
   color: #fff;
+  box-shadow: 0 0 15px 4px #016f8f7a;
   position: sticky;
   top: 10px;
   left: 100%;
@@ -230,8 +231,9 @@ footer > .contacts > p > i {
 .to-top > a {
   color: #fff;
 }
-.to-top > a:hover {
-  color: #bdfffd;
+.to-top:hover {
+  background-color: #2fb0d4;
+  box-shadow: inset 0 0 10px #b4fff4a8;
 }
 /*end footer*/
 
