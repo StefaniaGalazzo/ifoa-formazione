@@ -1,0 +1,264 @@
+/* --- Specifics ---
+Font
+Body: #393d41 – 1.2rem – Open Sans – interlinea 1.65
+Headings: #25a2c3 – Montserrat (bold) – interlinea 1.5
+Footer: #c8e7f0
+Footer Heading: white
+Footer link: #c8e7f0
+
+Colori sfondo
+Header: black
+Pulsante: #f04c2f – Montserrat (bold) – bold
+Testimonianze: #e22d0e
+Footer: #25a2c3
+
+Bordi
+Bordo schede: #dee1e3
+
+*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 10px auto;
+  color: #393d41;
+}
+h1::first-letter,
+h2::first-letter,
+h3::first-letter,
+h4::first-letter,
+p::first-letter {
+  text-transform: capitalize;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #25a2c3;
+}
+p {
+  font-family: "Open Sans", sans-serif;
+}
+/*HEADER*/
+/* header {
+  padding: 15px;
+} */
+.logo {
+  background-color: black;
+  padding: 15px 40px;
+}
+.logo > img {
+  width: 120px;
+}
+.double-background {
+  padding: 50px 30%;
+  /* margin: 15px auto 0 auto; */
+  text-align: center;
+  background-image: linear-gradient(
+      15deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 60%
+    ),
+    url(/week-1/day-5/assets/media/banner.jpg);
+  background-size: cover;
+  height: 80vh;
+}
+
+.double-background > .cta > a > button {
+  border: none;
+  background-color: #f04c2f;
+  padding: 8px 15px;
+  color: #fff;
+  border-radius: 3px;
+}
+.cta {
+  padding-top: 20vh;
+}
+/*MAIN & main elements*/
+.row {
+  margin: 1.5rem 10% 1rem 10%;
+  text-align: center;
+  /* padding: 0 10%; */
+}
+.row-content {
+  vertical-align: middle;
+}
+.round-img {
+  border-radius: 500px;
+  width: 400px;
+  height: 400px;
+  max-width: 400px;
+  max-height: 400px;
+  overflow: hidden;
+  background-image: url(/week-1/day-5/assets/media/notebook.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+ul.texts {
+  text-align: left;
+  list-style: none;
+  padding: 50px;
+}
+ul.texts > li > h3 {
+  color: rgb(0, 197, 197);
+  margin-bottom: 0;
+}
+/*end main*/
+
+/*banner*/
+.banner {
+  background-color: #f04c2f;
+  padding: 50px;
+  text-align: center;
+  color: #fff;
+  margin: 100px auto;
+}
+.banner > h3 {
+  color: #fff;
+  font-size: 2rem;
+}
+.banner > figure > blockquote > p {
+  font-style: italic;
+  font-size: 1.3rem;
+}
+.banner > figure > blockquote > p,
+.banner > figure > figcaption > p {
+  color: #fff;
+}
+/*ASIDE*/
+aside {
+  margin: 150px auto;
+}
+.card {
+  border: 1px solid #dee1e3;
+  height: 327px;
+  max-width: 275px;
+}
+.card > .img-card-container {
+  height: 55%;
+  overflow: hidden;
+}
+.card > .img-card-container:nth-child(1) img {
+  width: 100%;
+}
+.card > .img-card-container > img {
+  height: 100%;
+  width: auto;
+}
+.card > .card-texts > h4 {
+  margin: 20px auto;
+}
+
+.card > .card-texts > p {
+  margin-bottom: 30px;
+  font-size: 0.85rem;
+}
+/*fine aside*/
+
+/*FOOTER*/
+footer {
+  background-color: #25a2c3;
+  color: #fff;
+  padding: 40px;
+}
+footer > p {
+  color: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 25px auto 0 auto;
+}
+footer > p > a {
+  color: #fff;
+}
+
+footer > .contacts {
+  text-align: left;
+  width: fit-content;
+  margin: 0 auto;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 15px;
+}
+footer > .contacts > h4 {
+  color: #fff;
+  text-align: center;
+  font-size: 2.8rem;
+  margin: 0 auto 20px auto;
+}
+footer > .contacts > p:hover,
+footer > .contacts > p > a:hover,
+footer > .contacts > p > a > span:hover {
+  color: #fff;
+}
+footer > .contacts > p,
+footer > .contacts > p > a,
+footer > .contacts > p > a > span {
+  color: #c8e7f0;
+}
+footer > .contacts > p > i {
+  color: #fff;
+}
+/*end footer*/
+
+/*CUSTOM & SUPPORT CLASS*/
+/*text*/
+.uppercase {
+  text-transform: uppercase;
+}
+.bold {
+  font-weight: 500;
+}
+.bolder {
+  font-weight: 700;
+}
+.italic {
+  font-style: italic;
+}
+.light {
+  font-weight: 300;
+}
+.right {
+  text-align: right !important;
+}
+.regular {
+  font-weight: 400;
+}
+.small {
+  font-size: 0.9rem;
+}
+.bigger {
+  font-size: 1.3rem;
+}
+/*positioning, width, margin*/
+.inline-block {
+  display: inline-block;
+}
+.w-49 {
+  width: 49%;
+}
+.w-30 {
+  width: 30%;
+}
+.ml-8px {
+  margin-left: 8px;
+}
+.mr-ml-15px {
+  margin: 0 15px;
+}
+.pl-pr-15px {
+  padding: 0 15px;
+}
+/**/
