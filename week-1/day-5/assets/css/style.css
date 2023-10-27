@@ -179,6 +179,7 @@ footer {
   color: #fff;
   padding: 40px;
   position: relative;
+  text-align: right;
 }
 footer > p {
   color: #fff;
@@ -205,7 +206,10 @@ footer > h4 {
 }
 footer > .contacts > p:hover,
 footer > .contacts > p > a:hover,
-footer > .contacts > p > a > span:hover {
+footer > .contacts > p > a > span:hover,
+.credits > p,
+.credits > p > a,
+footer > .contacts > p > i {
   color: #fff;
 }
 footer > .contacts > p,
@@ -213,15 +217,14 @@ footer > .contacts > p > a,
 footer > .contacts > p > a > span {
   color: #c8e7f0;
 }
-footer > .contacts > p > i {
-  color: #fff;
-}
+
 .to-top {
   color: #fff;
   box-shadow: 0 0 15px 4px #016f8f7a;
-  position: sticky;
+  /* position: sticky;
   top: 10px;
-  left: 100%;
+  left: 100%; */
+  display: inline-block;
   padding: 10px;
   border-radius: 20px;
   height: 40px;
@@ -274,6 +277,9 @@ footer > .contacts > p > i {
 /*positioning, width, margin*/
 .inline-block {
   display: inline-block;
+}
+.txt-center {
+  text-align: center;
 }
 .w-49 {
   width: 49%;
