@@ -88,6 +88,7 @@ main > .double-background > .cta > a > button {
   padding: 8px 15px;
   color: #fff;
   border-radius: 3px;
+  margin-top: 15px;
 }
 .cta {
   padding-top: 20vh;
