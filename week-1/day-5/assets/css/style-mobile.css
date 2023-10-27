@@ -52,6 +52,9 @@ button {
 p {
   font-family: "Open Sans", sans-serif;
 }
+address {
+  font-style: normal;
+}
 /*HEADER*/
 /* header {
   padding: 15px;
@@ -184,7 +187,7 @@ footer > .contacts {
   border-bottom: 1px solid #fff;
   padding-bottom: 15px;
 }
-footer > .contacts > h4 {
+footer > h4 {
   color: #fff;
   text-align: center;
   font-size: 2.8rem;
@@ -213,8 +216,11 @@ footer > .contacts > p > i {
 .small {
   font-size: 0.9rem;
 }
-.bigger {
+.big {
   font-size: 1.3rem;
+}
+.bigger {
+  font-size: 2.5rem;
 }
 .txt-center {
   text-align: center;
