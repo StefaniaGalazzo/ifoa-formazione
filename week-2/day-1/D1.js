@@ -12,7 +12,7 @@ REGOLE
 */
 /* SCRIVI QUI LA TUA RISPOSTA */
 let jsDatatype =
-  "I principali data type i JS sono: le stringhe di testo, i numeri (interi o decimali), e un valore vero/falso che prende il nome di booleano.";
+  "I principali data type i JS sono: le stringhe di testo, i numeri (interi o decimali), e un valore vero/falso che prende il nome di booleano. Altri due valori che fanno parte di questo gruppo, ovvero il gruppo dei dati primitivi, sono null e undefined.";
 console.log(jsDatatype);
 /* ESERCIZIO 2
  Crea una variable chiamata "name" e assegna ad essa il tuo nome, sotto forma di stringa.
