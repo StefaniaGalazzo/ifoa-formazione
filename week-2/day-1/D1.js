@@ -70,25 +70,20 @@ console.log(sub());
  EXTRA: verifica che la loro uguaglianza diventi true se entrambe vengono trasformate in lowercase (senza cambiare il valore di name2!).
 */
 /* SCRIVI QUI LA TUA RISPOSTA */
-let name1 = "jhon";
+let name1 = "john";
 let name2 = "John";
-let equivalents;
+let equivalents = name1 === name2;
+let equivalents2 = name1 === name2.toLocaleLowerCase();
 
-const verifiedName =
-  name1 != name2
-    ? "Verificato: I nomi sono diversi"
-    : "Verificato: I nomi sono uguali";
+console.log(name1, name2, "I due nomi sono uguali? " + equivalents);
+console.log(
+  name1,
+  name2.toLocaleLowerCase(),
+  "I due nomi sono uguali? " + equivalents2
+);
 
-const newVerifiedName =
-  name1 === name2.toLowerCase()
-    ? "Nuovo Verificato: I nomi sono uguali"
-    : "Nuovo Verificato: I nomi sono diversi";
-
-if (name1 != name2) equivalents = false;
-else equivalents = true;
-console.log(verifiedName, equivalents);
-console.log(newVerifiedName, equivalents);
-
+let printEquivalents1 = [name1, name2];
+let printEquivalents2 = [name1.toLocaleLowerCase(), name2.toLocaleLowerCase()];
 /*EXTRA*/
 // definisco i miei elementi di interesse
 let header = window.document.getElementById("myName");
@@ -106,4 +101,13 @@ header.innerHTML = "Hi! my name is " + "Stefania " + myName;
 explanationParagraph.innerText = jsDatatype;
 sumSection.innerText = somma().toString();
 subSection.innerText = sub().toString();
-verifiedNameSection.innerHTML = verifiedName + " / " + equivalents;
+verifiedNameSection.innerHTML =
+  "questi due nomi: " +
+  printEquivalents1 +
+  " sono uguali? " +
+  equivalents +
+  "<br>" +
+  "questi due nomi: " +
+  printEquivalents2 +
+  " sono uguali? " +
+  equivalents2;
