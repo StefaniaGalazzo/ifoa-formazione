@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main > section,
+main p {
+  padding: 30px;
+}
+
+#myName {
+  color: dodgerblue;
+}
+
+#explanation {
+  color: aquamarine;
+  background-color: rgb(37, 96, 76);
+}
+
+#sum {
+  color: violet;
+  background-color: rgb(164, 70, 164);
+}
+
+#sub {
+  color: fuchsia;
+  background-color: rgb(255, 209, 255);
+}
+
+#verifiedName {
+  background-color: bisque;
+}

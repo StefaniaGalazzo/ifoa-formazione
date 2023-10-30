@@ -99,17 +99,8 @@ explanation.appendChild(explanationParagraph);
 // applico il contenuto
 header.innerHTML = "Hi! my name is " + "Stefania " + myName;
 explanationParagraph.innerText = jsDatatype;
-sumSection.innerText =
-  "Il risultato della mia operazione è:" + " " + somma().toString();
-subSection.innerText =
-  "Il risultato della mia operazione è:" + " " + sub().toString();
-verifiedNameSection.innerHTML =
-  "questi due nomi: " +
-  printEquivalents1 +
-  " sono uguali? " +
-  equivalents +
-  "<br>" +
-  "questi due nomi: " +
-  printEquivalents2 +
-  " sono uguali? " +
-  equivalents2;
+sumSection.innerHTML =
+  "<p>Il risultato della mia addizione è:<p>" + somma().toString();
+subSection.innerHTML =
+  "<p>Il risultato della mia sottrazione è:<p>" + sub().toString();
+verifiedNameSection.innerHTML = `<p>Questi due nomi: ${printEquivalents1} sono uguali? ${equivalents}</p><p>Questi due nomi: ${printEquivalents2} sono uguali? ${equivalents2}</p>`;
