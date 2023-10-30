@@ -13,7 +13,7 @@ REGOLE
 /* SCRIVI QUI LA TUA RISPOSTA */
 let jsDatatype =
   "I principali data type i JS sono: le stringhe di testo, i numeri (interi o decimali), e un valore vero/falso che prende il nome di booleano.";
-
+console.log(jsDatatype);
 /* ESERCIZIO 2
  Crea una variable chiamata "name" e assegna ad essa il tuo nome, sotto forma di stringa.
 */
@@ -72,16 +72,19 @@ console.log(sub());
 /* SCRIVI QUI LA TUA RISPOSTA */
 let name1 = "jhon";
 let name2 = "John";
+let equivalents;
 
 const verifiedName =
   name1 != name2
     ? "Verificato: I nomi sono diversi"
     : "Verificato: I nomi sono uguali";
 
-console.log(verifiedName);
-
 const newVerifiedName =
   name1 === name2.toLowerCase()
     ? "Nuovo Verificato: I nomi sono uguali"
     : "Nuovo Verificato: I nomi sono diversi";
-console.log(newVerifiedName);
+
+if (name1 != name2) equivalents = false;
+else equivalents = true;
+console.log(verifiedName, equivalents);
+console.log(newVerifiedName, equivalents);
