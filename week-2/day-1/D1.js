@@ -88,3 +88,19 @@ if (name1 != name2) equivalents = false;
 else equivalents = true;
 console.log(verifiedName, equivalents);
 console.log(newVerifiedName, equivalents);
+
+/*EXTRA*/
+// definisco i miei elementi di interesse
+let header = window.document.getElementById("myName");
+let explanation = window.document.getElementById("explanation");
+let subSection = window.document.getElementById("sub");
+let sumSection = window.document.getElementById("sum");
+
+//creo nuovi elementi
+const explanationParagraph = document.createElement("p");
+explanation.appendChild(explanationParagraph);
+
+// applico il contenuto
+header.innerHTML = "Hi! my name is " + "Stefania " + myName;
+explanationParagraph.innerText = jsDatatype;
+sumSection.innerText = somma().toString();
