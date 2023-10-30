@@ -95,6 +95,7 @@ let header = window.document.getElementById("myName");
 let explanation = window.document.getElementById("explanation");
 let subSection = window.document.getElementById("sub");
 let sumSection = window.document.getElementById("sum");
+let verifiedNameSection = window.document.getElementById("verifiedName");
 
 //creo nuovi elementi
 const explanationParagraph = document.createElement("p");
@@ -104,3 +105,5 @@ explanation.appendChild(explanationParagraph);
 header.innerHTML = "Hi! my name is " + "Stefania " + myName;
 explanationParagraph.innerText = jsDatatype;
 sumSection.innerText = somma().toString();
+subSection.innerText = sub().toString();
+verifiedNameSection.innerHTML = verifiedName + " / " + equivalents;
