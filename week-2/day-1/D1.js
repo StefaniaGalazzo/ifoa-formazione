@@ -99,8 +99,10 @@ explanation.appendChild(explanationParagraph);
 // applico il contenuto
 header.innerHTML = "Hi! my name is " + "Stefania " + myName;
 explanationParagraph.innerText = jsDatatype;
-sumSection.innerText = somma().toString();
-subSection.innerText = sub().toString();
+sumSection.innerText =
+  "Il risultato della mia operazione è:" + " " + somma().toString();
+subSection.innerText =
+  "Il risultato della mia operazione è:" + " " + sub().toString();
 verifiedNameSection.innerHTML =
   "questi due nomi: " +
   printEquivalents1 +
