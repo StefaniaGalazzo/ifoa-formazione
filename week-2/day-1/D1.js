@@ -82,9 +82,9 @@ console.log(
   "I due nomi sono uguali? " + equivalents2
 );
 
+/*****************EXTRA****************/
 let printEquivalents1 = [name1, name2];
 let printEquivalents2 = [name1.toLocaleLowerCase(), name2.toLocaleLowerCase()];
-/*EXTRA*/
 // definisco i miei elementi di interesse
 let header = window.document.getElementById("myName");
 let explanation = window.document.getElementById("explanation");
