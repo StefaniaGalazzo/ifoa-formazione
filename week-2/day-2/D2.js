@@ -9,13 +9,15 @@ if (num1 > num2) {
   console.log("Il numero più grande è:" + num1);
 } else if (num2 > num1) {
   console.log("Il numero più grande è:" + num2);
+} else {
+  console.log("I numeri sono uguali");
 }
 
 /* ESERCIZIO 2
   Scrivi un algoritmo che mostri "not equal" in console se un numero intero fornito è diverso da 5.
 */
 /* SCRIVI QUI LA TUA RISPOSTA */
-if (num2 != 5) console.log("Il numero fornito è != da 5");
+if (num2 !== 5) console.log("Il numero fornito è != da 5");
 
 /* ESERCIZIO 3
   Scrivi un algoritmo che mostri "divisibile per 5" in console se un numero fornito è perfettamente divisibile per 5 (suggerimento: cerca l'operatore modulo su un motore di ricerca)
@@ -29,21 +31,9 @@ if (isDivisibleByFive) console.log("il numero dato è divisibile per 5");
   Scrivi un algoritmo per verificare che, dati due numeri interi, il valore di uno di essi sia 8 oppure se la loro addizione/sottrazione sia uguale a 8.
 */
 /* SCRIVI QUI LA TUA RISPOSTA */
-if (num1 == 8) {
-  console.log("num1 è uguale a 8");
-} else if (num2 == 8) {
-  console.log("num2 è uguale a 8");
-}
-if (num1 + num2 == 8) {
-  console.log("La somma dei due numeri è 8");
-} else {
-  console.log("La somma dei due numeri NON è 8");
-}
-if (num1 - num2 == 8) {
-  console.log("La sottrazione dei due numeri è 8");
-} else {
-  console.log("La sottrazione dei due numeri NON è 8");
-}
+if (num1 === 8 || num2 === 8 || num1 + num2 === 8 || num1 - num2 === 8)
+  console.log("Verificato");
+else console.log("Non verificato");
 
 /* ESERCIZIO 5
   Stai lavorando su un sito di e-commerce. Stai salvando il saldo totale del carrello dell'utente in una variabile "totalShoppingCart".
@@ -52,10 +42,10 @@ if (num1 - num2 == 8) {
 */
 /* SCRIVI QUI LA TUA RISPOSTA */
 let totalShoppingCart = 250;
-// let totalShoppingCart = 40;
+let tot = totalShoppingCart;
 let shippingAmount;
 
-if (totalShoppingCart > 50) {
+if (tot > 50) {
   shippingAmount = 0;
   console.log(
     "COMPLIMENTI! Hai diritto alla spedizione gratuita!" +
@@ -63,17 +53,22 @@ if (totalShoppingCart > 50) {
       "Le tue spese di spedizione ammontano a:" +
       " " +
       shippingAmount +
-      "€"
+      "€" +
+      "  il tot del tuo carrello è: " +
+      tot
   );
 } else {
   shippingAmount = 10;
+  tot = shippingAmount + totalShoppingCart;
   console.log(
     "Purtroppo non hai diritto alla spedizione gratuita!" +
       " " +
       "Le tue spese di spedizione ammontano a:" +
       " " +
       shippingAmount +
-      "€"
+      "€" +
+      "  il tot del tuo carrello è: " +
+      tot
   );
 }
 
@@ -84,10 +79,10 @@ if (totalShoppingCart > 50) {
 /* SCRIVI QUI LA TUA RISPOSTA */
 let discount = 20;
 const newTotalShoppingCart = (totalShoppingCart * discount) / 100;
-// console.log(newTotalShoppingCart, "newtotalship");
 
-if (newTotalShoppingCart >= 50) {
+if (newTotalShoppingCart > 50) {
   shippingAmount = 0;
+  tot = newTotalShoppingCart + shippingAmount;
   console.log(
     "BLACK FRIDAY DISCOUNT " +
       discount +
@@ -101,10 +96,11 @@ if (newTotalShoppingCart >= 50) {
       "€" +
       "   " +
       "Il tot dei tuoi acquisti è: " +
-      newTotalShoppingCart
+      tot
   );
 } else {
   shippingAmount = 10;
+  tot = newTotalShoppingCart + shippingAmount;
   console.log(
     "BLACK FRIDAY DISCOUNT!" +
       discount +
@@ -116,7 +112,7 @@ if (newTotalShoppingCart >= 50) {
       "€" +
       "   " +
       "Il tot dei tuoi acquisti è: " +
-      newTotalShoppingCart
+      tot
   );
 }
 
@@ -126,17 +122,16 @@ if (newTotalShoppingCart >= 50) {
   Alla fine mostra il risultato in console.
 */
 /* SCRIVI QUI LA TUA RISPOSTA */
-let a = 13;
-let b = 21;
-let c = 34;
-let array = [];
+// let a = 13;
+// let b = 21;
+// let c = 34;
 
-if (c > b && b > a) {
-  array = [c, b, a];
-  console.log(array, "arrai di numeri decrescenti");
-} else {
-  console.log("I numeri forniti non sono in sequenza decrescente");
-}
+// if (c > b && b > a) {
+//   array = [c, b, a];
+//   console.log(array, "arrai di numeri decrescenti");
+// } else {
+//   console.log("I numeri forniti non sono in sequenza decrescente");
+// }
 
 /* ESERCIZIO 8
   Crea un algoritmo per verificare che un valore fornito sia un numero oppure no (suggerimento: cerca su un motore di ricerca "typeof").
