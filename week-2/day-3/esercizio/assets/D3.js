@@ -114,6 +114,7 @@ let characters = [];
 let ese1 = document.querySelector("#ese-1");
 for (let i = 0; i < starWarsCharacters.length; i++) {
   characters.push(starWarsCharacters[i].name);
+  // characters[i] = starWarsCharacters[i].name;
 }
 let printName = document.createElement("p");
 printName.classList.add("name");
@@ -130,7 +131,6 @@ let ese2 = document.querySelector("#ese-2");
 for (let i = 0; i < starWarsCharacters.length; i++) {
   if (starWarsCharacters[i].gender === "female") {
     femaleCharacters.push(starWarsCharacters[i]);
-
     console.log(starWarsCharacters[i], "starWarsCharacters[i]");
   }
 }
@@ -220,6 +220,27 @@ if (spaceshipMass < 500) {
   console.log("Warning: Load is over 700");
 } else if (spaceshipMass > 500) {
   console.log("Ship is alf loaded");
+}
+
+switch (true) {
+  case spaceshipMass < 500:
+    console.log("Ship is under loaded");
+    break;
+  case spaceshipMass > 1000:
+    console.log("Ship is under loaded");
+    break;
+  case spaceshipMass > 900:
+    console.log("Ship is under loaded");
+    break;
+  case spaceshipMass > 700:
+    console.log("Ship is under loaded");
+    break;
+  case spaceshipMass > 500:
+    console.log("Ship is under loaded");
+    break;
+
+  default:
+    break;
 }
 //
 /* ESERCIZIO 8
