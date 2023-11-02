@@ -241,9 +241,13 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
 */
 console.log(characters.length, "characters length BEFORE");
 
-for (let i = 0; i < starWarsCharacters.length; i++) {
-  if (femaleCharacters[i] === characters[i]) {
-    delete characters[i];
+for (let char = 0; char < characters.length; char++) {
+  const currentChar = characters[char];
+  for (let fem = 0; fem < femaleCharacters.length; fem++) {
+    const currentFemChar = femaleCharacters[fem];
+    if (currentFemChar.name === currentChar) {
+      characters.splice(char, 1);
+    }
   }
 }
 console.log(characters.length, "characters length AFTER");
@@ -257,7 +261,7 @@ let randomCharacter = starWarsCharacters[randomIndx];
 console.log(
   "The random character is:" +
     randomCharacter.name +
-    "and it's a " +
+    " and it's a " +
     randomCharacter.gender
 );
 
