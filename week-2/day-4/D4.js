@@ -19,7 +19,7 @@ console.log("L'area del rettangolo è di:", area(3, 5) + "mt");
 function crazySum(n1, n2) {
   let sum = n1 + n2;
   if (n1 === n2) {
-    sum = (n1 + n2) * 3;
+    sum *= 3;
   }
   return sum;
 }
@@ -31,12 +31,9 @@ console.log("Il risultato dell'operazione è:", crazySum(5, 5));
 */
 /* SCRIVI QUI LA TUA RISPOSTA */
 function crazyDiff(num) {
-  let diff = num - 19;
-  if (num < 19) {
-    return Math.abs(diff) * 3;
-  } else {
-    return Math.abs(diff);
-  }
+  let diff = Math.abs(num - 19);
+  if (num > 19) return (diff *= 3);
+  else return diff;
 }
 console.log("La crazyDiff da risultato: ", crazyDiff(9));
 //
@@ -59,17 +56,13 @@ console.log("The boundary is:", boundary(400));
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 function epify(myString) {
-  let originalString = " è veramente pazzesco";
-  let entireString = String(myString).toUpperCase() + originalString;
+  let entireString = String(myString).toUpperCase() + myString;
   //   console.log(originalString.indexOf(myString) === -1);
-  if (originalString.indexOf(myString) != -1) {
-    let wordToReplace = "EPICODE";
-    return originalString.replace(wordToReplace, "");
-  } else {
-    return entireString;
-  }
+  if (myString.startsWith("EPICODE")) return myString;
+  else return entireString;
 }
-console.log(epify("epicode"));
+console.log(epify("EPICODERS are the best developers!"));
+console.log(epify("Corso Front-End IFOA"));
 
 //
 /* ESERCIZIO 6
@@ -78,10 +71,13 @@ console.log(epify("epicode"));
 */
 /* SCRIVI QUI LA TUA RISPOSTA */
 function check3and7(n) {
-  if (n % 3 === 0 || n % 7 === 0) return true;
+  if (n % 3 === 0 || n % 7 === 0 || (n % 3 === 0 && n % 7 === 0)) return true;
   else return false;
 }
-console.log("Il numero fornito è un multiplo di 3 o di 7?", check3and7(57));
+console.log(
+  "Il numero fornito è un multiplo di 3 o di 7 o di entrambi?",
+  check3and7(57)
+);
 //
 /* ESERCIZIO 7
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
@@ -103,8 +99,7 @@ function upperFirst(myString) {
     stingToArray[i] =
       stingToArray[i].charAt(0).toUpperCase() + stingToArray[i].slice(1);
   }
-  const capitalizedString = stingToArray.join(" ");
-  return capitalizedString;
+  return [...stingToArray];
 }
 console.log(upperFirst("provo a mettere il capitalize con JS"));
 //
@@ -127,9 +122,7 @@ function giveMeRandom(n) {
   let randomArray = [];
   while (randomArray.length < n) {
     let randomNum = Math.floor(Math.random() * 10) + 1;
-    if (!randomArray.includes(randomNum)) {
-      randomArray.push(randomNum);
-    }
+    if (!randomArray.includes(randomNum)) randomArray.push(randomNum);
   }
   return randomArray;
 }
