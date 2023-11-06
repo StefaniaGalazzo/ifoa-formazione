@@ -116,6 +116,8 @@ console.log(
     Cicla l'array "cars" e costruisci un if/else statament per mostrare due diversi messaggi in console. Se la prima lettera della proprietà
     "color" ha valore "b", mostra in console "Fizz". Altrimenti, mostra in console "Buzz".
 */
+console.log("Esercizio 8");
+
 let color = "";
 for (let i = 0; i < cars.length; i++) {
   color = cars[i].color;
@@ -127,6 +129,8 @@ for (let i = 0; i < cars.length; i++) {
 /* ESERCIZIO 9
     Utilizza un ciclo while per stampare in console i valori del seguente array numerico fino al raggiungimento del numero 32.
 */
+console.log("Esercizio 9");
+
 const numericArray = [
   6, 90, 45, 75, 84, 98, 35, 74, 31, 2, 8, 23, 100, 32, 66, 313, 321, 105,
 ];
@@ -144,6 +148,8 @@ while (n <= stopCount) {
     dell'alfabeto italiano.
     es. [f, b, e] --> [6, 2, 5]
 */
+console.log("Esercizio 10");
+
 const charactersArray = ["g", "n", "u", "z", "d"];
 const letterPosition = [];
 
@@ -152,11 +158,11 @@ const alphabet = "abcdefghilmnopqrstuvz".split("");
 console.log("alphabet", alphabet);
 
 // definisco la corrispondenza delle lettere con gli indici
-let indxG = alphabet.indexOf("g");
-let indxN = alphabet.indexOf("n");
-let indxU = alphabet.indexOf("u");
-let indxZ = alphabet.indexOf("z");
-let indxD = alphabet.indexOf("d");
+let indxG = alphabet.indexOf("g") + 1;
+let indxN = alphabet.indexOf("n") + 1;
+let indxU = alphabet.indexOf("u") + 1;
+let indxZ = alphabet.indexOf("z") + 1;
+let indxD = alphabet.indexOf("d") + 1;
 
 console.log(indxG, indxD, indxN, indxU, indxZ);
 
