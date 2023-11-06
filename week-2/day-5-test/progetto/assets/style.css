@@ -87,8 +87,8 @@ header nav ul li {
 #cards-container .card {
   border-radius: var(--main-radius);
   box-shadow: 0px 0px 20px 0px #a1a1a1cc;
-  width: 245px;
-  height: 300px;
+  width: 260px;
+  height: 320px;
   overflow: hidden;
 }
 /* #cards-container .card img {
@@ -156,11 +156,11 @@ footer {
   display: inline-block;
 }
 .ml-mr-3perc {
-  margin: 0 3%;
+  margin: 0 4.3vw;
 }
 .ml-3perc {
-  margin-left: 3%;
+  margin-left: 4.3vw;
 }
 .mr-3perc {
-  margin-right: 3%;
+  margin-right: 4.3vw;
 }
