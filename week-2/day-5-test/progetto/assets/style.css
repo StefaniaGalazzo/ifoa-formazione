@@ -91,11 +91,30 @@ header nav ul li {
   height: 300px;
   overflow: hidden;
 }
-#cards-container .card img {
+/* #cards-container .card img {
   height: 100%;
   max-height: 300px;
+} */
+#cards-container .card {
+  background-size: cover;
+  background-position: center;
 }
-
+#cards-container .card:nth-child(1) {
+  background-image: url(/week-2/day-5-test/progetto/assets/images/img_1.jpg);
+  background-size: cover;
+}
+#cards-container .card:nth-child(2) {
+  background-image: url(/week-2/day-5-test/progetto/assets/images/img_2.jpg);
+  background-size: cover;
+}
+#cards-container .card:nth-child(3) {
+  background-image: url(/week-2/day-5-test/progetto/assets/images/img_3.jpg);
+  background-size: cover;
+}
+#cards-container .card:nth-child(4) {
+  background-image: url(/week-2/day-5-test/progetto/assets/images/img_4.jpg);
+  background-size: cover;
+}
 /*full image*/
 #full-img {
   text-align: center;
