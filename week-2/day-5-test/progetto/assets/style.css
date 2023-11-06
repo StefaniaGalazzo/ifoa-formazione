@@ -1,0 +1,135 @@
+/*SETTINGS*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(225, 225, 226);
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+}
+a:not(.top-btn) {
+  text-decoration: none;
+  color: var(--green);
+  font-weight: bold;
+}
+/*colors variables*/
+:root {
+  --dark-blue: rgb(1, 43, 69);
+  --minor-dark-blue: rgb(21, 79, 115);
+  --green: rgb(25, 122, 139);
+  --white: #fff;
+  --border-padding: 8px 15px;
+  --thirtyPX-padding: 30px;
+  --margin15-auto: 15px auto;
+  --margin30-auto: 30px auto;
+  --padding15: 15px;
+  --main-radius: 13px;
+}
+
+/*main elements*/
+#top-header {
+  background-color: var(--dark-blue);
+  padding: var(--border-padding);
+}
+header nav {
+  background-color: var(--minor-dark-blue);
+}
+
+header nav ul {
+  display: flex;
+  font-size: 0.9rem;
+  padding: var(--border-padding);
+}
+header nav ul li {
+  color: var(--white);
+  padding: 0 8px;
+}
+#gift-card-banner {
+  margin: 15px auto;
+  text-align: center;
+  color: var(--white);
+  padding: var(--border-padding);
+}
+#gift-banner {
+  background-image: url(/week-2/day-5-test/progetto/assets/images/bg-image.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--green);
+  padding: var(--thirtyPX-padding);
+  text-align: center;
+  color: var(--white);
+}
+#gift-banner .cta h3 {
+  margin: var(--margin15-auto);
+}
+#main-section {
+  padding: var(--border-padding);
+}
+#cards-section {
+  background-color: var(--white);
+  padding: var(--padding15);
+  margin: var(--margin15-auto);
+}
+#cards-section h4 {
+  margin-bottom: 15px;
+}
+/*cards*/
+#cards-container {
+  display: flex;
+  justify-content: space-between;
+}
+#cards-container .card {
+  border-radius: var(--main-radius);
+  box-shadow: 0px 0px 20px 0px #a1a1a1cc;
+  width: 245px;
+  height: 300px;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+}
+#cards-container .card img {
+  height: 100%;
+  max-height: 300px;
+}
+
+/*full image*/
+#full-img {
+  text-align: center;
+  margin: var(--margin30-auto);
+}
+#full-img img {
+  width: 100%;
+}
+
+footer {
+  text-align: center;
+}
+#to-top {
+  padding: var(--padding15);
+  color: var(--white);
+  background-color: var(--minor-dark-blue);
+}
+.top-btn {
+  color: var(--white);
+  text-decoration: none;
+}
+.logo-section {
+  background-color: var(--dark-blue);
+  padding: var(--thirtyPX-padding);
+}
+/***end main elements style***/
+
+/*SUPPORT CLASS*/
+.logo {
+  width: 110px;
+}
+.bg-orange {
+  background-color: rgb(255, 89, 0);
+}
