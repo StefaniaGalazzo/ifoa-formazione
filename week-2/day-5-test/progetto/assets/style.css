@@ -42,7 +42,7 @@ header nav {
 }
 
 header nav ul {
-  display: flex;
+  /* display: flex; */
   font-size: 0.9rem;
   padding: var(--border-padding);
 }
@@ -82,8 +82,7 @@ header nav ul li {
 }
 /*cards*/
 #cards-container {
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
 }
 #cards-container .card {
   border-radius: var(--main-radius);
@@ -91,8 +90,6 @@ header nav ul li {
   width: 245px;
   height: 300px;
   overflow: hidden;
-  display: grid;
-  place-content: center;
 }
 #cards-container .card img {
   height: 100%;
@@ -132,4 +129,13 @@ footer {
 }
 .bg-orange {
   background-color: rgb(255, 89, 0);
+}
+.row-content {
+  vertical-align: middle;
+}
+.inline-block {
+  display: inline-block;
+}
+.ml-mr-20px {
+  margin: 0 20px;
 }
