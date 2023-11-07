@@ -1,0 +1,127 @@
+/*SETTINGS*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1b1b1b;
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+}
+a:not(.top-btn) {
+  text-decoration: none;
+  color: var(--green);
+  font-weight: bold;
+}
+
+p::first-letter,
+h1::first-letter,
+h2::first-letter,
+h3::first-letter,
+h4::first-letter {
+  text-transform: uppercase;
+}
+/*colors variables*/
+:root {
+  --red: red;
+  --white: #fff;
+  --vulcano: rgb(40, 39, 39);
+  --border-padding: 15px 50px;
+  --thirtyPX-padding: 30px;
+  --margin15-auto: 15px auto;
+  --margin30-auto: 30px auto;
+  --padding15: 15px;
+  --main-radius: 13px;
+
+  --navbar-height: 70px;
+}
+
+#nav-bar {
+  display: flex;
+  background-color: var(--vulcano);
+  padding: var(--border-padding);
+  height: var(--navbar-height);
+}
+#nav-logo {
+  width: 130px;
+  margin-right: 33%;
+}
+#nav-logo img {
+  width: 100%;
+}
+#nav-items {
+  display: flex;
+  color: var(--white);
+}
+
+#nav-items li {
+  padding: 8px;
+}
+#main-container {
+  height: calc(100vh - var(--navbar-height));
+  /* padding: var(--border-padding); */
+}
+
+.title {
+  padding: 20% 50px;
+
+  width: 100vw;
+  height: calc(100vh - var(--navbar-height));
+  color: var(--white);
+  background: linear-gradient(to top, #020202c7, #eeeeee84);
+}
+.title h3 {
+  font-size: 3rem;
+  width: 80%;
+}
+.title p {
+  font-size: 1.5rem;
+  width: 50%;
+}
+
+#cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 25%);
+  row-gap: 30px;
+  place-items: center;
+  padding: var(--border-padding);
+  justify-content: start;
+  margin: 30px auto;
+}
+.card {
+  cursor: pointer;
+  width: 280px;
+  height: 310px;
+  box-shadow: 0 0 21px 5px rgba(255, 255, 255, 0.15);
+  background-size: cover;
+  /* margin: 20px auto; */
+}
+.card:hover {
+  box-shadow: 0 0 21px 5px rgba(255, 255, 255, 0.3);
+}
+.card-overlay:hover {
+  background: linear-gradient(to top, #020202c7, rgba(255, 255, 255, 0.5));
+}
+.card-overlay {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, #020202c7, #eeeeee84);
+}
+.card-overlay p {
+  margin-top: 50%;
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+footer {
+  background-color: var(--vulcano);
+  padding: var(--border-padding);
+  text-align: center;
+  color: var(--white);
+}

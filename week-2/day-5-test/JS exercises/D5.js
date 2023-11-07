@@ -21,7 +21,6 @@ for (let i = 0; i < pets.length; i++) {
     Scrivi del codice per ordinare alfabeticamente gli elementi dell'array "pets".
 */
 console.log("Esercizio 2");
-
 console.log("Elementi dell'array in ordine alfabetico", pets.sort());
 //
 /* ESERCIZIO 3
@@ -41,7 +40,7 @@ console.log("Esercizio 4");
 // const firstEl = pets.splice(0, 1);// no perchè restituisce un nuovo arrai con il contenuto selezionato
 const firstEl = pets.shift();
 pets.push(firstEl);
-console.log(" Ho spostato il primo elemento alla fine dell'array", pets);
+console.log("Ho spostato il primo elemento alla fine dell'array", pets);
 //
 /* ESERCIZIO 5
     Dato il seguente array di oggetti, scrivi del codice per aggiungere ad ognuno di essi una proprietà "licensePlate" con valore a tua scelta.
@@ -70,7 +69,7 @@ const cars = [
 ];
 
 for (let i = 0; i < cars.length; i++) {
-  cars[i].licensePlate = "XY123AB";
+  cars[i].licensePlate = "XY12" + i + "00";
 }
 console.log("Ho aggiunto la proprietà licensePlate", cars);
 /* ESERCIZIO 6
@@ -136,8 +135,6 @@ const numericArray = [
 ];
 let n = 0;
 let stopCount = numericArray.indexOf(32);
-// console.log("stop", stopCount);
-// console.log("numericarray.length", numericArray.length);
 while (n <= stopCount) {
   console.log(numericArray[n]);
   n++;
