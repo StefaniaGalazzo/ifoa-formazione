@@ -65,6 +65,7 @@ h4::first-letter {
 #main-container {
   height: calc(100vh - var(--navbar-height));
   /* padding: var(--border-padding); */
+  background-position-y: 18%;
 }
 
 .title {
