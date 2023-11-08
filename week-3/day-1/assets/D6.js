@@ -40,6 +40,7 @@ myFilteredArray();
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+
 const mySummedArray = () => {
   let tot = 0;
   myArray.forEach((el) => {
@@ -259,30 +260,20 @@ moviesTitles(movies);
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
-const thisYearMovies = () => {
-  let currentYearMovies = [];
-  let minYear = 2000;
-  let maxYear = new Date().getFullYear();
 
-  console.log(minYear, "minyear");
-  console.log(maxYear, "max");
-  movies.filter((el) => {
-    if (parseInt(el.Year) >= minYear && parseInt(el.Year) < maxYear) {
-      currentYearMovies.push(el);
-    }
-  });
-  console.log("array con film di questo millennio", currentYearMovies);
+const thisYearMovies = (array) => {
+  array.filter((el) => parseInt(el.Year) >= 2000);
 };
-thisYearMovies();
+console.log("array con film di questo millennio", thisYearMovies(movies));
 
+//
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
-const initialValue = 0;
 const sumAllYears = (array) =>
   array.reduce(
     (accumulator, currentValue) => accumulator + parseInt(currentValue.Year),
-    initialValue
+    0
   );
 
 console.log("Somma degli anni:", sumAllYears(movies));
@@ -290,6 +281,7 @@ console.log("Somma degli anni:", sumAllYears(movies));
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
+
 const myFavouriteFilm = (array, filmID) => {
   return array.find((el) => el.imdbID === filmID);
 };
@@ -306,3 +298,18 @@ console.log(
   "il primo film dell'anno selezionato è",
   firstFilmOfYear(movies, "1990")
 );
+
+movies.forEach((movie) => {
+  document.getElementById(
+    "imdbID"
+  ).innerHTML += `<option value=${movie.imdbID}>${movie.Title}</option>`;
+});
+console.log(select, "select");
+
+function cerca() {
+  let imdbID = document.getElementById("imdbID").value;
+  myMovie = movies.find((el) => el.imdbID === imdbID);
+  document.getElementById("titolo").innerHTML = myMovie.Title;
+  document.getElementById("poster").src = myMovie.Poster;
+  document.getElementById("poster").alt = myMovie.Title;
+}
