@@ -125,10 +125,13 @@ movies.forEach((el) => {
   cardsContainer.appendChild(card);
   card.style.backgroundImage = `url(${el.Poster})`;
 
-  let cardOverlay = document.createElement("div");
+  let cardOverlay = document.createElement("a");
   cardOverlay.classList.add("card-overlay");
   cardOverlay.innerHTML = `<p>${el.Title}</p>`;
   card.appendChild(cardOverlay);
+  let url = el.Title.replaceAll(" ", "-");
+  cardOverlay.href = `/${url}`;
+  // card.addEventListener("click", cardClickHandler(movies, el.title));
 });
 
 console.log(movies);

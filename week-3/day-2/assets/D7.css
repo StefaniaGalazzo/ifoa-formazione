@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+body div,
+footer {
+  padding: 1rem;
+}
+
+footer {
+  padding: 1rem;
+  background-color: black;
+  color: white;
+}
+
+.myHeading {
+  color: #ff00d6;
+}
+.green {
+  background-color: green;
+}
+h1 {
+  cursor: pointer;
+}
+table {
+  border-collapse: collapse;
+}
+#tableArea table tbody tr th,
+#tableArea table tbody tr td {
+  border: 1px solid;
+}
+#tableArea table tbody tr td:not(.no-class) {
+  padding: 15px;
+}
+#tableArea table tbody tr td img {
+  max-width: 80px;
+}
