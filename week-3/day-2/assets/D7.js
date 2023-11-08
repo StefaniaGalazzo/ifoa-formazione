@@ -27,10 +27,8 @@ changePcontent();
 */
 
 const changeUrls = function () {
-  let aGroup = document.querySelectorAll("a");
-  for (i = 0; i < aGroup.length - 1; i++) {
-    aGroup[i].setAttribute("href", "https://www.google.com");
-  }
+  let aGroup = document.querySelectorAll("a:not(footer a)");
+  aGroup.setAttribute("href", "https://www.google.com");
 };
 changeUrls();
 
