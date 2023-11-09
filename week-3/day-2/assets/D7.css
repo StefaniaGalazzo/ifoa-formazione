@@ -28,16 +28,19 @@ footer {
 h1 {
   cursor: pointer;
 }
-table {
+#myTableArea {
   border-collapse: collapse;
 }
-#tableArea table tbody tr th,
-#tableArea table tbody tr td {
+#tableArea table tr th,
+#tableArea table tr td {
   border: 1px solid;
 }
-#tableArea table tbody tr td:not(.no-class) {
+#tableArea table tr td,
+#tableArea table tr th {
   padding: 15px;
+  background-size: cover;
 }
-#tableArea table tbody tr td img {
-  max-width: 80px;
+
+.img-table {
+  display: "block";
 }
