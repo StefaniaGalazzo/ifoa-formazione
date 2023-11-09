@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My To Do List</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>My To Do List</h1>
+    </header>
+    <main>
+      <form>
+        <label for="item" id="myLabel"
+          ><input
+            type="text"
+            id="item"
+            name="item"
+            placeholder="Inserisci un'attività"
+        /></label>
+        <button type="button" id="addBtn">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </form>
+      <div class="myTasklist">
+        <h2>My Tasks</h2>
+        <ul id="myList"></ul>
+      </div>
+      <button type="button" id="deleteBtn" title="Elimina lista">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </main>
+    <script src="assets/script.js"></script>
+  </body>
+</html>
