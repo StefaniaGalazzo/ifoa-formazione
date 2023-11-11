@@ -1,7 +1,12 @@
 const stratBTN = document.getElementById("start");
 const myCardBTN = document.getElementById("chooseNumToPlay");
 const extractionBTN = document.getElementById("extract");
+const input = document.getElementById("choosenCard");
+
 const extractNumbers = [];
+let numbersInCard = [];
+
+//eventi
 stratBTN.addEventListener("click", init);
 document.addEventListener("click", checkStartGame);
 myCardBTN.addEventListener("click", createCard);
@@ -9,15 +14,15 @@ extractionBTN.addEventListener("click", function () {
   extraction();
 }); // estraggo i numeri casuali
 
+//
+//
+//funzioni
 function checkStartGame() {
-  if (extractionBTN.disabled) {
-    const input = document.getElementById("choosenCard");
-    input.disabled = true;
-    document.querySelector("#start").innerHTML = "Start the game!";
+  if (extractNumbers.length === 0) {
+    document.querySelector("#displayExtracted").innerHTML = "Start the game!";
   }
 }
 function init() {
-  const input = document.getElementById("choosenCard");
   input.disabled = false;
   const totalCells = 90;
   const bingoBoard = document.getElementById("bingoBoard");
@@ -28,7 +33,6 @@ function init() {
     bingoBoard.appendChild(cell);
   }
   stratBTN.style.display = "none";
-  extractionBTN.disabled = false;
   createCard();
 }
 
@@ -37,6 +41,7 @@ function extraction() {
   let extractedNumber = document.getElementById("extractedNumber");
   let randomNum = Math.floor(Math.random() * 91);
   let invalidNum = extractNumbers.find((n) => n === randomNum);
+
   if (invalidNum || randomNum === 0) {
     extraction();
   } else {
@@ -58,6 +63,7 @@ function colorCell(n) {
     }
   });
 }
+
 function colorCardCell(n) {
   const cardCells = document.querySelectorAll(".cardCell");
   cardCells.forEach((el) => {
@@ -68,20 +74,11 @@ function colorCardCell(n) {
     }
   });
   youWin();
-  console.log(
-    document.querySelectorAll(".cardCell"),
-    ' document.querySelectorAll(".cardCell")'
-  );
-  console.log(
-    document.querySelectorAll(".extracted"),
-    ' document.querySelectorAll(".extracted")'
-  );
 }
 
 function createCard() {
   const cardContainer = document.querySelector("#userCard");
   const input = document.getElementById("choosenCard");
-  let numbersInCard = [];
   let myValues = [];
   let myValue = input.value;
   myValues.push(Number(myValue));
@@ -96,6 +93,7 @@ function createCard() {
       cardCell.innerHTML = `<p>${numbersInCard[i]}</p>`;
       cardContainer.appendChild(cardCell);
       input.disabled = true;
+      extractionBTN.disabled = false;
       error.innerHTML = "";
     } else {
       error.innerHTML = "Scegli i numeri per la tua cartella!";
