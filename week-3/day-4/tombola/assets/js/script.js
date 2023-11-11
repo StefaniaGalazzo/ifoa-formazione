@@ -8,7 +8,7 @@ let numbersInCard = [];
 
 //eventi
 stratBTN.addEventListener("click", init);
-document.addEventListener("click", checkStartGame);
+// document.addEventListener("click", checkStartGame);
 myCardBTN.addEventListener("click", createCard);
 extractionBTN.addEventListener("click", function () {
   extraction();
@@ -17,12 +17,15 @@ extractionBTN.addEventListener("click", function () {
 //
 //
 //funzioni
-function checkStartGame() {
-  if (extractNumbers.length === 0) {
-    document.querySelector("#displayExtracted").innerHTML = "Start the game!";
-  }
-}
+// function checkStartGame() {
+//   if (input.disabled) {
+//     document.querySelector(
+//       "#error-start"
+//     ).innerHTML = ` <i class="fa-solid fa-turn-up flipped"></i>   Start the game!   <i class="fa-solid fa-turn-up"></i> `;
+//   }
+// }
 function init() {
+  document.querySelector("#error-start").remove();
   input.disabled = false;
   const totalCells = 90;
   const bingoBoard = document.getElementById("bingoBoard");
@@ -47,6 +50,8 @@ function extraction() {
   } else {
     extractNumbers.push(randomNum);
     extractedNumber.innerHTML = randomNum;
+    // document.querySelector("#error-start").innerHTML = "";
+
     colorCell(randomNum);
     colorCardCell(randomNum);
   }

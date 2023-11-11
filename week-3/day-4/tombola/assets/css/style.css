@@ -159,3 +159,7 @@ input {
   margin: 30vh auto;
   font-size: 3rem;
 }
+.flipped {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
