@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --border-padding: 10px;
+  --darkest: rgb(0, 0, 5);
+  --darkest-blue: rgb(0, 0, 60);
+  --main-blue: rgb(33, 33, 143);
+  --light-purple: rgb(188, 134, 255);
+  --dark-purple: rgb(156, 81, 248);
+}
+
+html,
+body {
+  font-family: "Outfit", Helvetica, sans-serif;
+  color: var(--dark-purple);
+}
+button,
+input {
+  cursor: pointer;
+}
+/*container and main element*/
+#bingoBoard {
+  margin: 20px auto;
+  width: 50%;
+  max-width: 500px;
+  min-width: 500px;
+  min-height: 500px;
+  background-color: var(--light-purple);
+  padding: var(--border-padding);
+  border-radius: 8px;
+}
+#userCardContainer {
+  width: 50%;
+  margin: 0 auto;
+}
+#userCard {
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--light-purple);
+  border: 2px solid var(--dark-purple);
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100px;
+}
+
+/*cells */
+.cell,
+.cardCell {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  max-height: 50px;
+  max-width: 50px;
+  color: var(--dark-purple);
+  background-color: #fff;
+  /* cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🌈</text></svg>")
+      16 0,
+    auto; !emojicursor.app */
+  border: 1px solid;
+}
+.extracted {
+  background: var(--light-purple);
+  color: #fff;
+}
+.cardCell {
+  border-radius: 50px;
+  position: relative;
+}
+.cardCell p {
+  position: absolute;
+  text-align: center;
+  top: 33%;
+  width: 100%;
+}
+
+label,
+input {
+  display: block;
+  margin: 5px;
+}
+#chooseNumToPlay {
+  display: inline-block;
+}
+input {
+  width: 250px;
+  height: 30px;
+  padding: 15px;
+  border: 1px solid var(--dark-purple);
+
+  border-radius: 3px;
+}
+#start,
+#re-start,
+#extract,
+#chooseNumToPlay {
+  margin: 29%;
+  padding: 10px;
+  border-radius: 8px;
+  border-style: none;
+  color: rgb(188, 134, 255);
+  background: rgb(86 0 193);
+  font-weight: 700;
+  font-size: 1.3rem;
+  width: 200px;
+}
+
+#extract,
+#chooseNumToPlay {
+  line-height: 0;
+  margin: 0 auto;
+  font-size: 1rem;
+  height: 30px;
+}
+#re-start {
+  color: #fff;
+  margin: 0;
+  background-color: pink;
+}
+
+#chooseNumToPlay {
+  width: fit-content;
+  line-height: 0;
+}
+#chooseNumToPlay i {
+  line-height: 0;
+}
+.displayExtracted {
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
+  min-height: 100px;
+}
+.displayExtracted h4 {
+  border-bottom: 3px solid var(--dark-purple);
+  font-size: 2rem;
+  width: fit-content;
+  margin: 0 auto;
+}
+.inline-block {
+  display: inline-block;
+}
+
+#winScreen {
+  display: none;
+  position: fixed;
+  background-color: var(--dark-purple);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+#winScreen h4 {
+  color: #fff;
+  width: fit-content;
+  margin: 30vh auto;
+  font-size: 3rem;
+}

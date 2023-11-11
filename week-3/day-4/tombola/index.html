@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tombola!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <main>
+        <div id="bingoBoard">
+          <button id="start">Start Game</button>
+          <!--qui creo le celle del tabellone-->
+        </div>
+        <div class="displayExtracted">
+          <button type="submit" id="extract" disabled>Extract number</button>
+          <h4 id="extractedNumber"></h4>
+        </div>
+
+        <section id="userCardContainer">
+          <div class="inline-block">
+            <label for="choosenCard">Choose your bingo card</label>
+            <input
+              type="number"
+              id="choosenCard"
+              placeholder="How many number?"
+              min="3"
+              max="20"
+              required
+            />
+          </div>
+
+          <button type="submit" id="chooseNumToPlay">
+            <i class="fa-solid fa-check"></i>
+          </button>
+          <h4 id="error"></h4>
+          <div id="userCard">
+            <!--qui la tabellina del giocatore-->
+          </div>
+        </section>
+      </main>
+      <section id="winScreen">
+        <h4>YOU WIN!</h4>
+        <button id="re-start">Restart Game!</button>
+      </section>
+    </div>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

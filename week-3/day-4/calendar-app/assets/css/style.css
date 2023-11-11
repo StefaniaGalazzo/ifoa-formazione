@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --border-padding: 30px;
+  --darkest: rgb(0, 0, 5);
+  --darkest-blue: rgb(0, 0, 60);
+  --main-blue: rgb(33, 33, 143);
+  --light-purple: rgb(188, 134, 255);
+  --dark-purple: rgb(156, 81, 248);
+}
+
+html,
+body {
+  /*cosa è consigliato mettere nel body?*/
+  font-family: "Outfit", Helvetica, sans-serif;
+  background-color: var(--darkest-blue);
+  color: #ebebeb;
+}
+#calendarHeader {
+  padding: var(--border-padding);
+  background-color: var(--main-blue);
+  border-radius: 13px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem 0;
+  line-height: 0;
+}
+h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+h4 {
+  margin: 0 0 10px 0;
+}
+form {
+  display: inline;
+}
+.container {
+  max-width: 80vw;
+  margin-inline: auto;
+}
+#calendar {
+  color: #ebebeb;
+  border-radius: 10px;
+  border: 10px solid var(--darkest);
+  background-color: var(--darkest);
+}
+
+/*support class*/
+.color-epic {
+  background-color: var(--dark-purple);
+}
+.day {
+  display: inline-block;
+  width: 14%;
+  max-width: 100px;
+  height: 100px;
+  border: 1px solid var(--dark-purple);
+  position: relative;
+  cursor: pointer;
+  padding: 30px;
+  border: 1px solid var(--dark-purple);
+}
+.day:hover {
+  background-color: var(--main-blue);
+}
+.day.selected {
+  color: rgb(15, 15, 66);
+}
+.day h3 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+#addMeeting div {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 50px;
+  vertical-align: top;
+}
+
+input {
+  width: 125px;
+  min-height: 35px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: var(--darkest);
+  border-style: none;
+  border: 1px solid var(--main-blue);
+  font-weight: 700;
+}
+input:focus {
+  color: var(--dark-purple);
+}
+input::placeholder {
+  color: #ebebeb;
+}
+input::-webkit-calendar-picker-indicator {
+  background-color: var(--dark-purple);
+  border-radius: 20px;
+}
+
+#newMeetingDay {
+  display: inline-block;
+  min-height: 36px;
+}
+
+#newMeetingDay.hasDay {
+  font-size: 28px;
+  background-color: var(--darkest);
+  border-radius: 10px;
+  color: #ebebeb;
+  padding: 0px 5px;
+}
+
+#newMeetingTime::-webkit-calendar-picker-indicator {
+  background-color: var(--dark-purple);
+  border-radius: 50%;
+}
+
+#newMeetingName {
+  width: 200px;
+}
+
+form button {
+  cursor: pointer;
+  background-color: var(--dark-purple);
+  color: #ebebeb;
+  padding: 8px 13px;
+  border-radius: 8px;
+  height: 35px;
+  border: none;
+}
+form button:hover {
+  background-color: var(--light-purple);
+}
+
+#appointments {
+  display: none;
+}
+#appointments ul {
+  padding-inline-start: 16px;
+}
+#appointments ul li {
+  min-height: 30px;
+}
