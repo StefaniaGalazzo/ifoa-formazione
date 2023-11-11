@@ -45,7 +45,6 @@ function extraction() {
     colorCell(randomNum);
     colorCardCell(randomNum);
   }
-  youWin();
 }
 
 function colorCell(n) {
@@ -68,6 +67,15 @@ function colorCardCell(n) {
       el.classList.add("extracted");
     }
   });
+  youWin();
+  console.log(
+    document.querySelectorAll(".cardCell"),
+    ' document.querySelectorAll(".cardCell")'
+  );
+  console.log(
+    document.querySelectorAll(".extracted"),
+    ' document.querySelectorAll(".extracted")'
+  );
 }
 
 function createCard() {
