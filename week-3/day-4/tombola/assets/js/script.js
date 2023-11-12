@@ -8,22 +8,29 @@ let numbersInCard = [];
 
 //eventi
 stratBTN.addEventListener("click", init);
-// document.addEventListener("click", checkStartGame);
+document.addEventListener("click", checkStartGame);
 myCardBTN.addEventListener("click", createCard);
 extractionBTN.addEventListener("click", function () {
   extraction();
 }); // estraggo i numeri casuali
 
-//
+// CIAO STEFANIA DEL FUTURO, PROVA A CREARE UNA FUNZIONE RICORSIVA(?)
+// CHE RICHIAMA UN REMOVEEVENTLISTENER
 //
 //funzioni
-// function checkStartGame() {
-//   if (input.disabled) {
-//     document.querySelector(
-//       "#error-start"
-//     ).innerHTML = ` <i class="fa-solid fa-turn-up flipped"></i>   Start the game!   <i class="fa-solid fa-turn-up"></i> `;
-//   }
-// }
+function checkStartGame() {
+  if (input.disabled) {
+    document.querySelector(
+      "#error-start"
+    ).innerHTML = ` <i class="fa-solid fa-turn-up flipped"></i>   Start the game!   <i class="fa-solid fa-turn-up"></i> `;
+  } else {
+    document.removeEventListener("click", checkStartGame);
+    console.log(
+      document.removeEventListener("click", checkStartGame, false),
+      " remove event"
+    );
+  }
+}
 function init() {
   document.querySelector("#error-start").remove();
   input.disabled = false;
@@ -50,8 +57,6 @@ function extraction() {
   } else {
     extractNumbers.push(randomNum);
     extractedNumber.innerHTML = randomNum;
-    // document.querySelector("#error-start").innerHTML = "";
-
     colorCell(randomNum);
     colorCardCell(randomNum);
   }
