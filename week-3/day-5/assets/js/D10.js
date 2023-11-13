@@ -602,7 +602,7 @@ console.log("ESERCIZIO 27");
 
 function halfTree(n) {
   for (i = 0; i <= n; i++) {
-    let txt = "x";
+    let txt = "";
     for (k = 0; k < i + 1; k++) {
       txt += "*";
     }
