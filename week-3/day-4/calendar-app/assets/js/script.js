@@ -1,44 +1,13 @@
-//1. prendere il valore del mese corrente, scriverlo nell'h1,  e dei giorni del mese per generare le celle del calendario
-//
-const now = new Date(); // mi restituisce la data corrente
-console.log(now);
+const now = new Date();
 
-// const getYear = new.getFullYear();
-// const getMonth = new.getMonth();
-// const lastDayDate = new Date(getYear, getMonth +1, 0)
-
-// for (let i = 1; i <= totalCells; i++) {
-//   const cell = document.createElement("div");
-//   cell.classList.add("cell");
-//   isCellEven = i % 2 === 0;
-// }
-
-//per salvare gli appuntamenti avrò bisogno di salvarli in un array
-//ogni appuntamento è una stringa
-//ogni giorno può avere diversi appuuntamenti
-//il numero dei mesi è variabile a seconda del mese
-
-/*
-es:
-[ array del mese
-    [day 1],[day 2],[day 3], ...
-]
-
-[ mese di novembre
-    ['appuntamento 1 di giorno 1','appuntamento 2 di giorno 1','appuntamento 3 di giorno 1',],
-    ['appuntamento 1 di giorno 2','appuntamento 2 di giorno 2','appuntamento 3 di giorno 2',],
-    [...],
-    [...],
-]
-*/
-// dentro array appointments pushiamo tanti sotto array quanti giorni del mese
 const appointments = [];
+
 const monthNames = [
   "Gennaio",
   "Febbraio",
   "Marzo",
   "Aprile",
-  "Marggio",
+  "Maggio",
   "Giugno",
   "Luglio",
   "Agosto",
@@ -48,59 +17,97 @@ const monthNames = [
   "Dicembre",
 ];
 
-const writeMonth = function () {
+const scriviMese = function () {
   const title = document.querySelector("h1");
-  const monthIndex = now.getMonth(); //restituisce il numero del mese
-  const monthName = monthNames[monthIndex]; //prendo il nome del mese dall'array creato attraverso l'index
-  title.innerText = monthName;
-};
-writeMonth();
-
-// calcoliamo i giorni del mese per ogni mese
-const numberOfDays = function () {
-  const year = now.getFullYear();
-  const month = now.getMonth();
-  const lastDay = new Date(year, month + 1, 0); // è come se prendessi il valore dello 0 dicembre. ovvero l'ultimo giorno di novembre.
-  const dayNumber = lastDay.getDate();
-  console.log(dayNumber, lastDay, "numero dei gg", "last day");
-  return dayNumber;
-};
-numberOfDays();
-
-const deselectCells = function () {
-  const cells = document.querySelectorAll("day");
-  cells.forEach((el) => el.classList.remove("selected"));
+  const indiceMese = now.getMonth(); // 10 perché siamo a novembre
+  const nomeMese = monthNames[indiceMese]; // novembre
+  title.innerText = nomeMese;
 };
 
-const dayAppointment = function (dayIndx) {
-  const day = document.getElementById("newMeetingDay");
-  day.classList.add("hasDay");
-  day.innerText = dayIndx;
+scriviMese();
+
+const giorniTotali = function () {
+  const anno = now.getFullYear(); // 2023 perché siamo nel 2023
+  const mese = now.getMonth(); // 10 perché siamo a novembre
+
+  let ultimoGiorno = new Date(anno, mese + 1, 0);
+  const numeroGiorni = ultimoGiorno.getDate();
+  return numeroGiorni;
 };
 
-const createGrid = function (numDays) {
-  //giorni del mese corrente
+const creaGriglia = function (numeroGiorni) {
   const calendarDiv = document.getElementById("calendar");
-  for (i = 0; i > numDays; i++) {
-    const dayCell = document.createElement("div");
-    dayCell.classList.add("day");
-    dayCell.addEventListener("click", dayClickHandler(dayCell, i));
-    const cellValue = document.createElement("h4");
-    cellValue.innerText = i + 1;
-    calendarDiv.appendChild(dayCell);
-    cellValue.appendChild(cellValue);
+
+  for (let i = 0; i < numeroGiorni; i++) {
+    // Creazione griglia e array
+    const cellaGiorno = document.createElement("div"); // ad ogni giorno associo un div
+    cellaGiorno.classList.add("day"); // stilizzo il div come definito in css
+    const valoreCella = document.createElement("h3");
+    valoreCella.innerText = i + 1;
+    cellaGiorno.appendChild(valoreCella);
+    calendarDiv.appendChild(cellaGiorno);
+    appointments.push([]);
+
+    // Evento click sul singolo giorno
+    cellaGiorno.addEventListener("click", function (e) {
+      deselezionaCelle(); // deseleziono l'eventuale altra cella selezionata
+      cellaGiorno.classList.add("selected"); // aggiungo la classe css per mostrare la selezione del giorno cliccato
+      giornoAppuntamento(i); // scrivo il giorno cliccato nella sezione Giorno del form
+      if (appointments[i].length > 0) {
+        mostraAppuntamenti(i);
+      } else {
+        const divAppuntamenti = document.getElementById("appointments");
+        divAppuntamenti.style.display = "none";
+      }
+    });
   }
 };
-createGrid(numberOfDays());
 
-function dayClickHandler(cell, i) {
-  console.log("dayclickhandler");
-  deselectCurrentCell();
-  cell.classList.add("selected");
-  dayAppointment(i);
-  if (appointments[i].length > 0) showAppointments(i);
-  else {
-    const divAppointmets = document.getElementById("appointments");
-    divAppointmets.style.display = "none";
+const deselezionaCelle = function () {
+  const celle = document.querySelectorAll(".day");
+  celle.forEach((element) => {
+    element.classList.remove("selected");
+  });
+};
+
+const giornoAppuntamento = function (indiceGiorno) {
+  const giorno = document.getElementById("newMeetingDay");
+  giorno.classList.add("hasDay");
+  giorno.innerText = indiceGiorno + 1;
+};
+
+creaGriglia(giorniTotali());
+
+const mostraAppuntamenti = function (indiceGiorno) {
+  const appuntamentiGiorno = appointments[indiceGiorno];
+  const lista = document.querySelector("#appointments ul");
+  lista.innerHTML = "";
+
+  appuntamentiGiorno.forEach((element) => {
+    const newLi = document.createElement("li");
+    newLi.innerText = element;
+    lista.appendChild(newLi);
+  });
+
+  const divAppuntamenti = document.getElementById("appointments");
+  divAppuntamenti.style.display = "block";
+};
+
+const meetingForm = document.querySelector("form");
+meetingForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const selectedDay = document.getElementById("newMeetingDay").innerText;
+  const meetingTime = document.getElementById("newMeetingTime").value;
+  const meetingName = document.getElementById("newMeetingName").value;
+  const stringaAppuntamento = `${meetingTime} - ${meetingName}`;
+  const indiceArray = parseInt(selectedDay) - 1;
+  appointments[indiceArray].push(stringaAppuntamento);
+
+  const pallino = document.createElement("div");
+  pallino.classList.add("pallino");
+  const divSelezionato = document.querySelector(".selected");
+  if (!divSelezionato.querySelector(".pallino")) {
+    divSelezionato.appendChild(pallino);
   }
-}
+  mostraAppuntamenti(indiceArray);
+});
