@@ -243,13 +243,8 @@ const isTodayMyBirthday = () => {
   const day = newDate.getDate();
   const today = `${month}/${day}`;
   const isMyBirthday = myBridthDate === today;
-  if (isMyBirthday) {
-    return true;
-  } else {
-    console.log(today, "today");
-    console.log(myBridthDate, "myBridthDate");
-    return false;
-  }
+  if (isMyBirthday) return true;
+  else return false;
 };
 console.log("oggi è il mio compleanno?", isTodayMyBirthday());
 
@@ -266,7 +261,7 @@ console.log("ESERCIZIO 11");
 console.log(me, "my obj");
 
 function deleteProp(obj, str) {
-  delete obj[`${str}`];
+  delete obj[str];
   return obj;
 }
 console.log(deleteProp(me, "surname"));
