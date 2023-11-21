@@ -31,16 +31,21 @@ header {
   color: white;
   box-shadow: 0 3px 3px #444;
   margin-bottom: 1.5em;
-  padding: 2em 1.5em;
+  padding: 1em 2em;
 }
 header div img {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+  width: 120px;
+}
+header div p,
+header nav ul {
+  font-size: 10px;
+  letter-spacing: 1px;
 }
 header nav ul {
-  margin: 0;
-}
-header nav li {
   list-style: none;
+  padding: 0px;
+  margin: 0;
 }
 header nav li a {
   color: white;
@@ -59,6 +64,7 @@ main {
   box-shadow: 0 3px 3px #444;
   padding: 2em 1em;
   margin-bottom: 1.5em;
+  font-size: 10px;
 }
 section {
   background-color: #e3e3e3;
@@ -76,11 +82,13 @@ section h2 {
 
 /* ELEMENTI NEL MAIN - ARTICLE */
 h1 {
-  font-size: 2.6rem;
+  /* font-size: 2.6rem; */
+  font-size: 22px;
   font-weight: bold;
   letter-spacing: -0.03em;
   margin-bottom: 0.7em;
 }
+
 p,
 address,
 ul,
@@ -111,11 +119,25 @@ code {
 }
 iframe {
   width: 100%;
-  height: auto;
+  height: 100px;
   margin-bottom: 2em;
   border-radius: 20px;
 }
-
+article h2,
+section h2 {
+  font-size: 15px;
+  font-weight: normal;
+}
+section h2 {
+  background-color: #a5a5a5;
+  padding: 2px;
+}
+section h2 {
+  text-transform: lowercase;
+}
+section h2::first-letter {
+  text-transform: uppercase;
+}
 /* TABELLE */
 table {
   margin-bottom: 2em;
@@ -180,6 +202,17 @@ aside div p:last-child {
   font-size: 0.8em;
   text-align: right;
 }
+#user_email {
+  width: 60%;
+  padding: 5px;
+}
+aside h2 {
+  font-size: 18px;
+}
+fieldset button {
+  width: fit-content;
+  padding: 3px;
+}
 
 /* FOOTER */
 footer {
@@ -193,65 +226,14 @@ footer {
   color: #f0f0f0;
   padding: 1em;
   text-align: center;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
+  font-size: 10px;
 }
 footer a {
   color: fuchsia;
 }
 
 /*************** MEDIA QUERY ******************/
-@media only screen and (max-width: 320px) {
-  header {
-    padding: 1em 2em;
-  }
-  header div img {
-    margin-bottom: 0px;
-    width: 120px;
-  }
-  header div p,
-  header nav ul {
-    font-size: 10px;
-    letter-spacing: 1px;
-  }
-  main {
-    font-size: 10px;
-  }
-  iframe {
-    height: 100px;
-  }
-  article h1 {
-    font-size: 22px;
-  }
-  article h2 {
-    font-size: 10px;
-    font-weight: normal;
-  }
-  section h2 {
-    background-color: #a5a5a5;
-    font-size: 15px;
-    padding: 2px;
-  }
-  section h2 {
-    text-transform: lowercase;
-  }
-  section h2::first-letter {
-    text-transform: uppercase;
-  }
-  #user_email {
-    width: 60%;
-    padding: 5px;
-  }
-  aside h2 {
-    font-size: 18px;
-  }
-  fieldset button {
-    width: fit-content;
-    padding: 3px;
-  }
-  footer {
-    font-size: 10px;
-  }
-}
 @media only screen and (min-width: 321px) and (max-width: 576px) {
   nav ul {
     display: flex;
@@ -285,7 +267,7 @@ footer a {
     width: 20%;
   }
 }
-@media only screen and (min-width: 577px) {
+@media only screen and (min-width: 577px) and (max-width: 1200px) {
   header {
     padding: 3rem;
   }
@@ -346,6 +328,11 @@ footer a {
 
   footer {
     font-size: 18px;
+  }
+  header,
+  main,
+  footer {
+    max-width: 1200px;
   }
 }
 @media print {
