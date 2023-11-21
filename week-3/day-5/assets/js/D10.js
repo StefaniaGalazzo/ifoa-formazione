@@ -134,9 +134,9 @@ console.log(deleteOne("adoro programmare", false));
 */
 console.log("ESERCIZIO 5");
 
-const stringa = "I have 1 cat";
+const stringa = "I have 1 cat e 3 dog";
 const onlyLetters = (str) => {
-  return str.replace(/\d+/g, "");
+  return str.replaceAll(/\d+/g, "");
 };
 console.log(onlyLetters(stringa));
 /* ESERCIZIO 6
@@ -147,14 +147,12 @@ console.log("ESERCIZIO 6");
 const myEmail = "stefania@gmail.com";
 
 const isThisAnEmail = (email) => {
-  if (
-    String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      )
-  )
-    return true;
+  let myEmail = String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  if (myEmail) return true;
   else return console.log("inserisci una mail valida");
 };
 console.log("Hai fornito una mail valida?", isThisAnEmail(myEmail));

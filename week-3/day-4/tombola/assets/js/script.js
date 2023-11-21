@@ -116,7 +116,7 @@ function youWin() {
   const extractedCardCells = document.querySelectorAll(".extracted");
   let winScreen = document.querySelector("#winScreen");
   if (cardCells.length === extractedCardCells.length)
-    setTimeout((winScreen.style.display = "block"), 1000);
+    setTimeout((winScreen.style.display = "block"), 3000);
   playAgain();
 }
 
