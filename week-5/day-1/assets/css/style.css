@@ -348,3 +348,12 @@ footer a {
     font-size: 18px;
   }
 }
+@media print {
+  header,
+  footer {
+    display: none;
+  }
+  * {
+    background: none;
+  }
+}
