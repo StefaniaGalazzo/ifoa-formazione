@@ -183,7 +183,6 @@ h1 + p {
   position: fixed;
   right: 20px;
   z-index: 5;
-  padding-top: 7px;
   width: 50px;
   height: 50px;
   border-radius: 8px;
@@ -191,21 +190,15 @@ h1 + p {
   border: 2px solid white;
   text-align: center;
   box-shadow: 0 0 28px -10px #000000bd;
+  font-size: 30px;
 }
 .add {
   top: 20px;
 }
-.add a,
-.to-top a {
-  border: 3px solid #00a0c6;
-  border-radius: 5px;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-}
 .calendar {
   top: 80px;
+  font-size: 20px;
+  padding-top: 7px;
 }
 .to-top {
   bottom: 20px;
@@ -213,13 +206,8 @@ h1 + p {
 .to-top div {
   box-shadow: 0 0 15px black;
 }
-.to-top a {
-  border: 3px solid salmon;
-}
 .to-top a i {
   color: salmon;
-  position: relative;
-  top: 5px;
 }
 @media screen and (max-width: 700px) {
   .calendar {
