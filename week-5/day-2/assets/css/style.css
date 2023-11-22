@@ -152,6 +152,7 @@ h1 + p {
 /* sottolineatura titolo*/
 .marker-wrapper {
   position: relative;
+  display: inline-block;
 }
 .marker {
   width: 100%;
