@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --yellow: rgb(254 221 101);
+  --light-yellow: rgb(255 243 207);
+  --brown: rgb(89, 3, 3);
+}
+/*base styles*/
+html,
+body {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  color: var(--brown);
+}
+button {
+  color: var(--brown);
+}
+p {
+  line-height: 120%;
+}
+h1,
+h2 {
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+h4 {
+  line-height: 120%;
+}
+h1::first-letter,
+h2::first-letter,
+h3::first-letter,
+h4::first-letter,
+h5::first-letter,
+p::first-letter,
+button::first-letter,
+li::first-letter {
+  text-transform: uppercase;
+}
+
+/* HEADER */
+header {
+  background-color: var(--light-yellow);
+  padding: 20px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul li {
+  flex-basis: 15%;
+  text-align: center;
+  min-width: fit-content;
+  white-space: nowrap;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: bold;
+  background-color: var(--yellow);
+}
+nav ul li#first-li {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+nav ul li#first-li img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+/* MAIN */
+main {
+  padding: 30px;
+}
+#cards {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+.card {
+  min-width: 180px;
+  text-align: center;
+  border-radius: 35px;
+  background-color: var(--light-yellow);
+}
+
+.card img {
+  width: 100%;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+}
+.card button {
+  background-color: var(--yellow);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: var(--brown);
+}
+.main-text-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+article h2 {
+  margin-bottom: 10px;
+}
+.article-content {
+  display: flex;
+  background-color: var(--light-yellow);
+  border-radius: 20px;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap-reverse;
+  justify-content: start;
+}
+
+.img-wrapper {
+  flex: 1 1 45%;
+  min-width: 400px;
+  min-height: 350px;
+  background-image: url(../imgs/honey.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.text-article {
+  flex: 1 1 45%;
+}
+.text-article h4 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+/*support classes*/
+.uppercase {
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 480px) {
+  .card {
+    flex-basis: 47%;
+  }
+  #n4 {
+    display: block !important;
+  }
+}
+@media screen and (max-width: 576px) {
+  header {
+    margin: 10px;
+    border-radius: 80px;
+    padding: 8%;
+  }
+  nav ul {
+    flex-wrap: wrap !important;
+  }
+  nav ul li {
+    flex-basis: 48%;
+    height: fit-content;
+    margin-bottom: 10px;
+  }
+  nav ul li#first-li {
+    flex-basis: 100%;
+    order: -1;
+  }
+  h1,
+  h2 {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  #page-container {
+    display: block;
+  }
+  #first-li {
+    flex-basis: 20vw;
+    height: 80px;
+  }
+  nav ul {
+    flex-wrap: nowrap;
+  }
+  nav ul li {
+    height: fit-content;
+    font-size: calc(0.5rem + 1vw);
+  }
+  nav ul li:nth-child(1) {
+    flex-basis: 25%;
+    height: 90px;
+  }
+  nav ul li:nth-child(2),
+  nav ul li:nth-child(3) {
+    order: -1;
+  }
+  #n5,
+  #n4 {
+    display: none;
+  }
+}
+@media screen and (min-width: 769px) {
+  #page-container {
+    display: flex;
+  }
+  header {
+    width: 240%;
+  }
+
+  nav ul li {
+    flex-basis: 100%;
+    margin-bottom: 15px;
+    width: fit-content;
+  }
+  .card {
+    flex-basis: 23%;
+    border-radius: 45px;
+    background-color: var(--light-yellow);
+  }
+  .card img {
+    border-top-right-radius: 45px;
+    border-top-left-radius: 45px;
+  }
+  .products p {
+    font-size: 10px;
+  }
+  .products h4,
+  .price {
+    font-size: 14px;
+  }
+  #n5,
+  #n4 {
+    display: none;
+  }
+  article h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .card {
+    flex-basis: 15%;
+    max-width: none;
+  }
+  #n5 {
+    display: none;
+  }
+  #n4 {
+    display: block;
+  }
+}
+@media screen and (min-width: 1200px) {
+  header {
+    width: 70%;
+  }
+  .card {
+    flex-basis: 18%;
+  }
+  #n5 {
+    display: block;
+  }
+}
+/* PUNTI INTERRUZIONE MEDIA QUERY STANDARD
+    For Mobile Devices – 320px — 480px
+    iPads and Tablets – 481px — 768px
+    Laptops and small screen – 769px — 1024px
+    Large screens and Desktops – 1025px — 1200px
+    TV and Extra Large Screens – 1201px and more 
+*/
