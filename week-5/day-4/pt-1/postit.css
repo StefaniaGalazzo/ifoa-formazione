@@ -53,12 +53,12 @@ p {
 
 @keyframes rotate {
   0% {
-    transform: rotate();
+    transform: rotate() scale(1);
   }
   5% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1.2);
   }
   90% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1.2);
   }
 }
