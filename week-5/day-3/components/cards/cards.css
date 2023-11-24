@@ -11,6 +11,7 @@ body {
 }
 .card {
   min-width: 180px;
+  flex: 2 1 265px;
   text-align: center;
   border-radius: 35px;
   background-color: rgb(255 243 207);
@@ -37,9 +38,6 @@ body {
 }
 
 @media screen and (min-width: 480px) {
-  .card {
-    flex-basis: 47%;
-  }
   #n4 {
     display: block !important;
   }
@@ -53,7 +51,7 @@ body {
 }
 @media screen and (min-width: 769px) {
   .card {
-    flex-basis: 23%;
+    max-width: 23%;
     border-radius: 45px;
     background-color: rgb(255 243 207);
   }
@@ -74,9 +72,6 @@ body {
   }
 }
 @media screen and (min-width: 1025px) {
-  .card {
-    flex-basis: 15%;
-  }
   #n5 {
     display: block;
   }

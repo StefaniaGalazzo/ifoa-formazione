@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h3 {
+  font-weight: bolder;
+  font-size: 30px;
+}
+h3,
+p {
+  font-family: "Comic Neue", cursive;
+}
+#container {
+  font-family: Helvetica, sans-serif;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 80px;
+  gap: 50px;
+  background-color: azure;
+  justify-content: center;
+}
+.postit-text {
+  height: 250px;
+  width: 250px;
+  padding-top: 100px;
+  text-align: center;
+  box-shadow: 3px 3px 8px black;
+  background-image: linear-gradient(to bottom, #00000000 60%, #0000003a);
+}
+.postit-text:hover {
+  animation: rotate 3s ease-in-out;
+}
+.postit-text:nth-child(1),
+.postit-text:nth-child(5),
+.postit-text:nth-child(7) {
+  background-color: rgb(245, 240, 179);
+  transform: rotate(-8deg);
+}
+.postit-text:nth-child(2),
+.postit-text:nth-child(4),
+.postit-text:nth-child(8) {
+  background-color: rgb(204, 243, 204);
+  transform: rotate(8deg);
+}
+.postit-text:nth-child(3),
+.postit-text:nth-child(6) {
+  background-color: rgb(238, 209, 244);
+  transform: rotate(5deg);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate();
+  }
+  5% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}
