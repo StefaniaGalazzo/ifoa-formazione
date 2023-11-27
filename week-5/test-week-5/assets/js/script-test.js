@@ -1,25 +1,24 @@
-const paths = document.querySelectorAll("g");
-const mArray = [];
-
-[...paths].forEach((el) => {
-  if (el.style.opacity !== 0 || el.style.opacity !== "0") {
-    mArray.push(el);
-    console.log(mArray, "marray");
-  }
-  return mArray;
-});
-
-function hideM() {
-  let getRandom = Math.floor(Math.random() * paths.length);
-  if (
-    paths[getRandom].style.opacity !== 0 ||
-    paths[getRandom].style.opacity !== "0"
-  ) {
-    paths[getRandom].style.fill = "blue";
-    console.log(paths[getRandom]);
+// prendo tutti i tag g che rappresentano le M (anche nascoste)
+function getChars() {
+  const char = document.querySelectorAll("g[stroke-linecap=butt]");
+  let getRandom = Math.floor(Math.random() * char.length);
+  let selectedChar = char[getRandom];
+  return selectedChar;
+}
+// prendo tutti i tag g che rappresentano le M (anche nascoste)
+function hideChars() {
+  let myChar = getChars();
+  let opacity = parseInt(myChar.getAttribute("opacity"));
+  if (opacity === 0) {
+    myChar.setAttribute("opacity", 1);
+  } else {
+    myChar.setAttribute("opacity", 0);
   }
 }
-hideM();
-// for (let i =0; i<= mArray.length; i++){
+//creo un setinterval per far ripartire ciclicamente la funzione
+const intervalOpacity = () => setInterval(() => hideChars(), 100);
 
-// }
+window.onload = function () {
+  hideChars();
+  intervalOpacity();
+};
