@@ -1,9 +1,5 @@
-const stringLength = [18, 20, 26, 15, 23];
-//
-
 // animazione header cambio colore
 const windowHeight = window.innerHeight;
-
 window.addEventListener("scroll", onScroll);
 function onScroll() {
   let header = document.querySelector("header");
@@ -27,7 +23,7 @@ function getChars() {
   let selectedChar = char[getRandom];
   return selectedChar;
 }
-// prendo tutti i tag g che rappresentano le M (anche nascoste)
+// se stanno a opacity 0 allora....
 function hideChars() {
   let myChar = getChars();
   let opacity = parseInt(myChar.getAttribute("opacity"));
@@ -48,11 +44,13 @@ window.onload = function () {
 //
 //
 // ALTERNATIVA ALL'SVG ---- animazione stringhe di M (per testarla commentare l'svg interno al div#letters)
+// const stringLength = [18, 20, 26, 15, 23];
 // let intervalId;
 // stampaStringhe(stringLength, 3);
 // countDown();
 // let spanArray = document.querySelectorAll("#letters span");
 // hideLetters(spanArray, 180);
+
 // function generateString(length) {
 //   const pContainer = document.createElement("p");
 //   const myString = `${"M".repeat(length)}`;
@@ -64,7 +62,6 @@ window.onload = function () {
 //   pContainer.appendChild(document.createElement("br"));
 //   return pContainer;
 // }
-
 // function stampaStringhe(arrayLengths, reps) {
 //   const divContainer = document.querySelector("#letters");
 //   for (let i = 0; i < reps; i++) {
@@ -74,7 +71,6 @@ window.onload = function () {
 //     }
 //   }
 // }
-
 // function countDown() {
 //   if (intervalId) clearInterval(intervalId);
 //   intervalId = setInterval(function timer() {
@@ -82,7 +78,6 @@ window.onload = function () {
 //     animateLetters(10);
 //   }, 1300);
 // }
-
 // function animateLetters(step) {
 //   for (let spn = 0; spn < spanArray.length; spn += step) {
 //     let getRandomSpan = Math.floor(Math.random() * step) + spn;
