@@ -1,0 +1,43 @@
+@import "./partials/colors";
+@import "./partials/reset";
+@import "./partials/spacings";
+@import "./partials/flex";
+@import "./partials/fonts";
+html,
+body {
+  font-family: "Outfit", Helvetica, sans-serif;
+  background: $bg;
+}
+nav ul li {
+  color: $secondary;
+  &:hover {
+    color: $primary;
+  }
+}
+h1 {
+  @include title-big;
+}
+#hero {
+  background: $bg_hero;
+}
+#logo {
+  flex-basis: 80px;
+  img {
+    width: 100%;
+  }
+}
+.col-1 {
+  flex-basis: 50%;
+}
+.col-2 {
+  flex-basis: 50%;
+  img {
+    width: 100%;
+  }
+}
+.card {
+  flex-basis: 24%;
+  img {
+    width: 100%;
+  }
+}

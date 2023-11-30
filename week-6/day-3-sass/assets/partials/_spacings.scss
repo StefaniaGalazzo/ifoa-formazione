@@ -1,0 +1,50 @@
+// padding
+$padding-sizes: (
+  sm: 8px,
+  normal: 16px,
+  md: 24px,
+  lg: 32px,
+  xl: 45px,
+  xxl: 60px,
+);
+
+$padding-contexts: (
+  p: "",
+  pt: -top,
+  pb: -bottom,
+  pl: -left,
+  pr: -right,
+);
+
+@each $context, $context-value in $padding-contexts {
+  @each $size, $size-value in $padding-sizes {
+    .#{$context}-#{$size} {
+      padding#{$context-value}: $size-value;
+    }
+  }
+}
+
+// margin
+$margin-sizes: (
+  sm: 8px,
+  normal: 16px,
+  md: 24px,
+  lg: 40px,
+  xl: 55px,
+  xxl: 80px,
+);
+$margin-contexts: (
+  m: "",
+  mt: -top,
+  mb: -bottom,
+  ml: -left,
+  mr: -right,
+);
+
+@each $cntx, $cntx-val in $margin-contexts {
+  @each $size, $size-val in $margin-sizes {
+    .#{$cntx}-#{$size} {
+      margin#{$cntx-val}: $size-val;
+    }
+  }
+}

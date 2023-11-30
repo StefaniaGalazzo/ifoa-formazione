@@ -1,0 +1,21 @@
+// hero section
+$bg_hero: linear-gradient(#f86ca4, rgb(108, 117, 215));
+$main-light: #ebebeb;
+$bg: linear-gradient(#e7e9fe, #fff);
+$primary: #0e6cff;
+$secondary: #f86ca4;
+// bottoni
+$colori-bottoni: #0e6cff, #ff8700, #4caf50;
+$colori: (
+  primary: nth($colori-bottoni, 1),
+  accent: nth($colori-bottoni, 2),
+  vivid: nth($colori-bottoni, 3),
+);
+@each $nome-colore, $colore in $colori {
+  .btn-#{$nome-colore} {
+    background-color: $colore;
+    &:hover {
+      background-color: lighten($colore, 13);
+    }
+  }
+}

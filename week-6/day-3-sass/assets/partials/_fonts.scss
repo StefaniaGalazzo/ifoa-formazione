@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap");
+$font-family: (
+  title: "Poppins",
+  body: "Roboto",
+);
+$dimensioni-font: (
+  titolo-lg: 28px,
+  titolo: 24px,
+  sottotitolo: 18px,
+  base: 16px,
+);
+
+$pesi-font: (
+  bolder: 900,
+  bold: 700,
+  normal: 400,
+  light: 300,
+);
+@each $nome-font, $dimensione-font in $dimensioni-font {
+  .fsz-#{$nome-font} {
+    font-size: $dimensione-font;
+  }
+}
+@each $nome-font, $pesi-font in $pesi-font {
+  .fw-#{$nome-font} {
+    font-weight: $pesi-font;
+  }
+}
+@each $nome-font, $font-family in $font-family {
+  .ff-#{$nome-font} {
+    font-family: $font-family, sans-serif;
+  }
+}
+@mixin title-big {
+  font-size: map-get($font-family, title-big);
+  font-weight: map-get($pesi-font, bolder);
+  font-family: map-get($font-family, title);
+  line-height: 120%;
+}

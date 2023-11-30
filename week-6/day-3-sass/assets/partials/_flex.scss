@@ -1,0 +1,49 @@
+$flex-direction: (
+  row: row,
+  column: column,
+);
+$justify: (
+  justify-1: center,
+  justify-2: space-between,
+  justify-3: start,
+);
+$align: (
+  center: center,
+  start: start,
+  end: end,
+);
+$wrap: (
+  wrap: wrap,
+  nowrap: nowrap,
+);
+$gap: (
+  gp-1: 0.5rem,
+  gp-2: 1rem,
+  gp-3: 1.5rem,
+);
+@each $flex-dir, $direction in $flex-direction {
+  .flx-#{$flex-dir} {
+    display: flex;
+    flex-direction: $direction;
+  }
+}
+@each $jst, $jst-val in $justify {
+  .justify-#{$jst-val} {
+    justify-content: $jst-val;
+  }
+}
+@each $algn, $algn-val in $align {
+  .align-#{$algn} {
+    align-items: $algn-val;
+  }
+}
+@each $wrp, $wrp-val in $wrap {
+  .#{$wrp-val} {
+    flex-wrap: $wrp-val;
+  }
+}
+@each $gp, $gp-val in $gap {
+  .#{$gp} {
+    gap: $gp-val;
+  }
+}
