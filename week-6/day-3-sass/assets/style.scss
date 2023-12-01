@@ -1,24 +1,28 @@
-@import "./partials/colors";
 @import "./partials/reset";
+@import "./partials/misc";
+@import "./partials/animatons";
+@import "./partials/colors";
 @import "./partials/spacings";
 @import "./partials/flex";
 @import "./partials/fonts";
-html,
-body {
-  font-family: "Outfit", Helvetica, sans-serif;
-  background: $bg;
-}
-nav ul li {
-  color: $secondary;
-  &:hover {
-    color: $primary;
-  }
-}
+
 h1 {
   @include title-big;
+  @include animate(1s, 10px, 0, 300ms);
 }
 #hero {
   background: $bg_hero;
+  @include grid(2);
+  div {
+    img {
+      width: 60%;
+      @include floatCard();
+      @include animate(1s, -50%, 20%, 500ms);
+    }
+  }
+}
+#cards {
+  @include grid(4, 1rem);
 }
 #logo {
   flex-basis: 80px;
@@ -26,17 +30,10 @@ h1 {
     width: 100%;
   }
 }
-.col-1 {
-  flex-basis: 50%;
-}
-.col-2 {
-  flex-basis: 50%;
-  img {
-    width: 100%;
-  }
-}
+
 .card {
-  flex-basis: 24%;
+  @include floatCard();
+  overflow: hidden;
   img {
     width: 100%;
   }

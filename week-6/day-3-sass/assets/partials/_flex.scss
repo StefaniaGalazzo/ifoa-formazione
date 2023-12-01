@@ -47,3 +47,14 @@ $gap: (
     gap: $gp-val;
   }
 }
+
+@mixin grid($number, $gap: null) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $gap;
+  & > div {
+    width: calc(100 / $number) * 1%;
+    flex-grow: 1;
+  }
+}

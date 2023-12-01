@@ -1,9 +1,23 @@
-// hero section
+// color pallette
 $bg_hero: linear-gradient(#f86ca4, rgb(108, 117, 215));
 $main-light: #ebebeb;
 $bg: linear-gradient(#e7e9fe, #fff);
 $primary: #0e6cff;
 $secondary: #f86ca4;
+
+//base style
+html,
+body {
+  font-family: "Outfit", Helvetica, sans-serif;
+  background: $bg;
+}
+nav ul li {
+  color: $secondary;
+  &:hover {
+    color: $primary;
+  }
+}
+
 // bottoni
 $colori-bottoni: #0e6cff, #ff8700, #4caf50;
 $colori: (
@@ -14,6 +28,7 @@ $colori: (
 @each $nome-colore, $colore in $colori {
   .btn-#{$nome-colore} {
     background-color: $colore;
+    color: $main-light;
     &:hover {
       background-color: lighten($colore, 13);
     }
