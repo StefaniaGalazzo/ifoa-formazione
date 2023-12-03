@@ -1,3 +1,22 @@
 .bg-purple {
   background: #754ffe;
 }
+.card {
+  min-height: 445px !important;
+}
+.card-footer {
+  position: absolute;
+  bottom: 15px;
+  width: 87%;
+}
+.carousel-prev {
+  left: -55px !important;
+}
+.carousel-next {
+  right: -75px !important;
+}
+button.carousel-next,
+button.carousel-prev {
+  width: 60px;
+  height: 60px;
+}
