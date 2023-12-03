@@ -16,7 +16,8 @@
   right: -75px !important;
 }
 button.carousel-next,
-button.carousel-prev {
+button.carousel-prev,
+.circle-60px {
   width: 60px;
   height: 60px;
 }
