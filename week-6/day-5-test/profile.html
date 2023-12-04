@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix - Profile Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./assets/custom-css/style.css" />
+  </head>
+  <body class="bg-dark text-white">
+    <head>
+      <nav class="navbar navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><img
+              src="./assets/media/netflix_logo.png"
+              alt="netflix_logo"
+              width="100px"
+          /></a>
+        </div>
+      </nav>
+    </head>
+    <main>
+      <div class="container col-6">
+        <h1 class="display-2">Edit Profile</h1>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <img src="./assets/media/avatar.png" alt="avatar" />
+          </div>
+
+          <div class="col">
+            <div class="bg-secondary p-2 mb-4">
+              <p class="mb-0">Strive Student</p>
+            </div>
+            <label for="languages">
+              <select
+                name="languages"
+                id="languages"
+                class="bg-dark p-1 text-white border-white"
+              >
+                <option selected value="1">English</option>
+                <option value="2">Italian</option>
+                <option value="3">Spanish</option>
+              </select>
+            </label>
+            <hr />
+            <p>Maturity Settings:</p>
+            <p class="text-uppercase">all Maturity ratings</p>
+            <div class="bg-secondary p-2 mb-4">
+              <p class="mb-0">Strive Student</p>
+            </div>
+            <p>Show titles of all maturity ratings fot this profile.</p>
+            <button
+              class="prof-btn px-4 rounded-0 btn border border-secondary text-uppercase text-secondary"
+            >
+              edit
+            </button>
+            <hr />
+            <h4>Autoplay controls</h4>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Autoplay next episode in a series on all devices.
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckChecked"
+                checked
+              />
+              <label class="form-check-label" for="flexCheckChecked">
+                Autoplay previews while browsing on all devices.
+              </label>
+            </div>
+          </div>
+          <!--fine col-->
+        </div>
+        <hr />
+      </div>
+    </main>
+    <footer class="container col-6 pt-3 pb-5">
+      <div class="row g-3">
+        <div class="col">
+          <button
+            class="prof-btn rounded-0 d w-100 py-2 btn border bg-light border-secondary text-uppercase text-secondary"
+          >
+            save
+          </button>
+        </div>
+        <div class="col">
+          <button
+            class="prof-btn rounded-0 w-100 py-2 btn border border-secondary text-uppercase text-secondary"
+          >
+            cancel
+          </button>
+        </div>
+        <div class="col">
+          <button
+            class="prof-btn rounded-0 d w-100 py-2 btn border border-secondary text-uppercase text-secondary"
+          >
+            delete profile
+          </button>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
