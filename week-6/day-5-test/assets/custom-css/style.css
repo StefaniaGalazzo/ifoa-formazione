@@ -44,3 +44,6 @@ body {
 .mat-ras {
   width: fit-content !important;
 }
+.bg-custom {
+  background: none;
+}
