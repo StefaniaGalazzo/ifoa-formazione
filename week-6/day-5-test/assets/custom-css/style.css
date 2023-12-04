@@ -6,12 +6,12 @@ body {
   );
 }
 .carousel-prev {
-  left: -23px !important;
+  left: -48px !important;
   width: 150px;
   background-image: linear-gradient(to right, #000 30%, #00000016);
 }
 .carousel-next {
-  right: -23px !important;
+  right: -48px !important;
   width: 150px;
   background-image: linear-gradient(to left, #000 30%, #00000016);
 }
