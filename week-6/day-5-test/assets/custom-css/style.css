@@ -1,8 +1,8 @@
 body {
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(0, 0, 0, 0.5971638655462185) 55%
+    rgba(27, 27, 27, 0.3) 0%,
+    rgba(0, 0, 0, 0.6) 55%
   );
 }
 .carousel-prev {
@@ -28,4 +28,19 @@ body {
 }
 .prof-btn:hover {
   background-color: #f8f9fa !important;
+}
+#flexCheckChecked,
+#flexCheckDefault {
+  appearance: none;
+  background-color: transparent;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.8em;
+  height: 1.8em;
+  border: 1px solid #fff;
+  border-radius: 0;
+}
+.mat-ras {
+  width: fit-content !important;
 }

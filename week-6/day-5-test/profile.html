@@ -53,40 +53,53 @@
             </label>
             <hr />
             <p>Maturity Settings:</p>
-            <p class="text-uppercase">all Maturity ratings</p>
-            <div class="bg-secondary p-2 mb-4">
-              <p class="mb-0">Strive Student</p>
+            <p class="text-uppercase">Maturity Settings</p>
+            <div class="mat-ras bg-dark text-uppercase p-2 mb-4">
+              <p class="mb-0">all maturity ratings</p>
             </div>
             <p>Show titles of all maturity ratings fot this profile.</p>
             <button
-              class="prof-btn px-4 rounded-0 btn border border-secondary text-uppercase text-secondary"
+              class="prof-btn px-4 btn rounded-0 border border-secondary text-uppercase text-secondary"
             >
               edit
             </button>
             <hr />
-            <h4>Autoplay controls</h4>
+            <h4 class="mb-3">Autoplay controls</h4>
+
             <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Autoplay next episode in a series on all devices.
-              </label>
+              <div class="row align-items-center mb-3">
+                <div class="col-1 me-2 p-0">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </div>
+                <div class="col p-0">
+                  <label class="w-100 form-check-label" for="flexCheckDefault">
+                    Autoplay next episode in a series on all devices.
+                  </label>
+                </div>
+              </div>
             </div>
             <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckChecked"
-                checked
-              />
-              <label class="form-check-label" for="flexCheckChecked">
-                Autoplay previews while browsing on all devices.
-              </label>
+              <div class="row align-items-center">
+                <div class="col-1 me-2 p-0">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckChecked"
+                    checked
+                  />
+                </div>
+                <div class="col p-0">
+                  <label class="w-100 form-check-label" for="flexCheckChecked">
+                    Autoplay previews while browsing on all devices.
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
           <!--fine col-->
@@ -98,21 +111,21 @@
       <div class="row g-3">
         <div class="col">
           <button
-            class="prof-btn rounded-0 d w-100 py-2 btn border bg-light border-secondary text-uppercase text-secondary"
+            class="rounded-0 prof-btn w-100 py-2 btn border bg-light border-secondary text-uppercase text-secondary"
           >
             save
           </button>
         </div>
         <div class="col">
           <button
-            class="prof-btn rounded-0 w-100 py-2 btn border border-secondary text-uppercase text-secondary"
+            class="rounded-0 prof-btn w-100 py-2 btn border border-secondary text-uppercase text-secondary"
           >
             cancel
           </button>
         </div>
         <div class="col">
           <button
-            class="prof-btn rounded-0 d w-100 py-2 btn border border-secondary text-uppercase text-secondary"
+            class="rounded-0 prof-btn w-100 py-2 btn border border-secondary text-uppercase text-secondary"
           >
             delete profile
           </button>
