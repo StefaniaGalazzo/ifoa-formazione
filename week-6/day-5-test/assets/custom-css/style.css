@@ -1,0 +1,21 @@
+.carousel-prev {
+  left: -23px !important;
+  width: 150px;
+  background-image: linear-gradient(to right, #000 30%, #00000016);
+}
+.carousel-next {
+  right: -23px !important;
+  width: 150px;
+  background-image: linear-gradient(to left, #000 30%, #00000016);
+}
+.bg-blur {
+  backdrop-filter: blur(2px);
+  filter: drop-shadow(2px 2px 4px #00000069);
+  -webkit-backdrop-filter: blur(4px);
+}
+.card:hover {
+  transform: scale(1.4);
+  z-index: 10;
+  box-shadow: 0 0 20px 8px black;
+  transition: transform 0.3s ease;
+}
