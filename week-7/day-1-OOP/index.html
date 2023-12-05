@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body
+    style="
+      padding: 100px 25%;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+        sans-serif;
+    "
+  >
+    <h1 style="text-align: center">🐱 Il mio Pet 🐶</h1>
+    <form
+      id="petForm"
+      style="
+        padding: 20px;
+        border-radius: 8px;
+        margin: 0 auto;
+        background-color: violet;
+      "
+    >
+      <label for="petName">
+        <input type="text" placeholder="Inserisci il nome" id="petName" />
+      </label>
+      <label for="ownerName">
+        <input
+          type="text"
+          placeholder="Inserisci il nome del futuro proprietario"
+          id="ownerName"
+        />
+      </label>
+      <label for="species">
+        <input
+          type="text"
+          placeholder="Inserisci la specie del tuo pet"
+          id="species"
+        />
+      </label>
+      <label for="breed">
+        <input
+          type="text"
+          placeholder="Inserisci la razza del tuo pet"
+          id="breed"
+        />
+      </label>
+      <button type="button" id="createPet">Crea Pet</button>
+    </form>
+
+    <hr style="margin: 20px auto" />
+
+    <h2>Lista Pets</h2>
+    <ul id="listaPets"></ul>
+    <script src="assets/script.js"></script>
+  </body>
+</html>
