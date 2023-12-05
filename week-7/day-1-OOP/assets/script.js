@@ -134,12 +134,24 @@ function addPet() {
 
 // stampo i valori del form nella lista html
 function printPets() {
-  //   petsList.innerHTML = "";
-  //   petsArray.forEach((pet) => {
-  const listItem = document.createElement("li");
-  listItem.innerHTML = `Pet Name: ${petName.value}, Owner Name: ${ownerName.value}, Species: ${species.value}, Breed: ${breed.value}`;
-  petsList.appendChild(listItem);
-  //   });
+  petsList.innerHTML = "";
+  petsArray.forEach((pet, index) => {
+    const listItem = document.createElement("li");
+    // stampo i dettagli del pet
+    listItem.innerHTML = `Pet Name: ${pet.petName}, Owner Name: ${pet.ownerName}, Species: ${pet.species}, Breed: ${pet.breed}`;
+    haveSameOwner(pet, index, listItem);
+    petsList.appendChild(listItem);
+  });
+}
+
+function haveSameOwner(p, indx, list) {
+  // effettuo il confronto del metodo per i pet nell'array
+  for (let i = 0; i < petsArray.length; i++) {
+    if (i !== indx) {
+      const condividePadrone = p.condividePadrone(petsArray[i]);
+      list.innerHTML += `<br> Condivide il padrone con ${petsArray[i].petName}: ${condividePadrone}`;
+    }
+  }
 }
 function resettaForm() {
   document.getElementById("petForm").reset();
