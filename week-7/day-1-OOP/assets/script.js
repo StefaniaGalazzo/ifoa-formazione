@@ -89,10 +89,6 @@ console.log(risultatoConfronto);
 //
 /******* Form Pet *******/
 const submitBtn = document.getElementById("createPet");
-const petName = document.getElementById("petName");
-const ownerName = document.getElementById("ownerName");
-const species = document.getElementById("species");
-const breed = document.getElementById("breed");
 const petsList = document.getElementById("listaPets");
 
 const petsArray = [];
@@ -128,25 +124,22 @@ class Pet {
 
 // aggiungo all'array i valori presi dal form
 function addPet() {
-  const nuovaPet = new Pet(
-    petName.value,
-    ownerName.value,
-    species.value,
-    breed.value
-  );
+  const petName = document.getElementById("petName").value;
+  const ownerName = document.getElementById("ownerName").value;
+  const species = document.getElementById("species").value;
+  const breed = document.getElementById("breed").value;
+  const nuovaPet = new Pet(petName, ownerName, species, breed);
   petsArray.push(nuovaPet);
-  console.log(petsArray, "petsArray");
 }
 
 // stampo i valori del form nella lista html
 function printPets() {
-  console.log(petsList, "petsList");
-  petsList.innerHTML = "";
-  petsArray.forEach((pet) => {
-    const listItem = document.createElement("li");
-    listItem.innerHTML = `Pet Name: ${pet.petName}, Owner Name: ${pet.ownerName}, Species: ${pet.species}, Breed: ${pet.breed}`;
-    petsList.appendChild(listItem);
-  });
+  //   petsList.innerHTML = "";
+  //   petsArray.forEach((pet) => {
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `Pet Name: ${petName.value}, Owner Name: ${ownerName.value}, Species: ${species.value}, Breed: ${breed.value}`;
+  petsList.appendChild(listItem);
+  //   });
 }
 function resettaForm() {
   document.getElementById("petForm").reset();
