@@ -58,7 +58,6 @@ class User {
     if (!Array.isArray(altrePersone) || altrePersone.length === 0) {
       return "Devi fornire un array di almeno due utenti per il confronto.";
     }
-
     let risultato = "";
     for (let i = 0; i < altrePersone.length - 1; i++) {
       const personaA = altrePersone[i];
@@ -73,8 +72,7 @@ class User {
         }
       }
     }
-
-    return risultato.trim(); // Rimuove eventuali spazi bianchi extra alla fine
+    return risultato.trim();
   }
 }
 // uso la classe User per creare due utenti
@@ -138,7 +136,7 @@ function printPets() {
   petsArray.forEach((pet, index) => {
     const listItem = document.createElement("li");
     // stampo i dettagli del pet
-    listItem.innerHTML = `Pet Name: ${pet.petName}, Owner Name: ${pet.ownerName}, Species: ${pet.species}, Breed: ${pet.breed}`;
+    listItem.innerHTML = `Pet: ${pet.petName}, Species: ${pet.species}, Breed: ${pet.breed}, Owner: ${pet.ownerName},`;
     haveSameOwner(pet, index, listItem);
     petsList.appendChild(listItem);
   });
@@ -149,10 +147,11 @@ function haveSameOwner(p, indx, list) {
   for (let i = 0; i < petsArray.length; i++) {
     if (i !== indx) {
       const condividePadrone = p.condividePadrone(petsArray[i]);
-      list.innerHTML += `<br> Condivide il padrone con ${petsArray[i].petName}: ${condividePadrone}`;
+      list.innerHTML += `<br>Condivide il padrone con ${petsArray[i].petName}: ${condividePadrone}`;
     }
   }
 }
+
 function resettaForm() {
   document.getElementById("petForm").reset();
 }
