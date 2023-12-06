@@ -53,15 +53,3 @@ function countDown() {
     sessionStorage.setItem("countdown", countdown.toString());
   }, 1000);
 }
-// function countDown() {
-//   let countdown = 30;
-//   let myTimer = document.getElementById("countdown");
-//   myTimer.innerHTML = countdown;
-//   if (intervalId) {
-//     clearInterval(intervalId);
-//   }
-//   intervalId = setInterval(function timer() {
-//     countdown = --countdown < 0 ? 30 : countdown;
-//     myTimer.innerHTML = countdown;
-//   }, 1000);
-// }
