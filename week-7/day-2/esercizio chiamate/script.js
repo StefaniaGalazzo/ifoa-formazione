@@ -43,9 +43,7 @@ function countDown() {
   let countdown = sessionStorage.getItem("countdown") || 30;
   let myTimer = document.getElementById("countdown");
   myTimer.innerHTML = countdown;
-  if (intervalId) {
-    clearInterval(intervalId);
-  }
+  if (intervalId) clearInterval(intervalId);
   intervalId = setInterval(function timer() {
     countdown = --countdown < 0 ? 30 : countdown;
     myTimer.innerHTML = countdown;

@@ -1,34 +1,27 @@
-/* -----------------------
-GET ELEMEMNTS FROM HTML
------------------------- */
+/* ---- GET ELEMEMNTS FROM HTML AND SET GLOBAL VARIABLES---- */
 // Game panel
 const scoreCounter = document.querySelector(".score-counter");
 const grid = document.querySelector(".grid");
 const endGameScreen = document.querySelector(".end-game-screen");
-
 // Livelli
-const selectLevel = document.querySelector("#levels");
-//
+const selectLevel = document.querySelector("#level");
+selectLevel.value = "easy";
+// Narval CardS
 const bonusCard = document.querySelector(".bonus");
-//Bad Narval Card
-// const narvalCard = document.querySelector(".dead");
 const deadCardContainer = document.querySelector("#dead-card-container");
 const cardTitle = document.querySelector(".card-title");
 const cardText = document.querySelector(".bodytext");
-const cardCite = document.querySelector(".cite");
 const closeBtn = document.querySelector(".close");
-const spookyContentImg = document.querySelector("#spookyContentImg");
 // End game
 const endGameText = document.querySelector(".end-game-text");
 const playAgainButton = document.querySelector(".play-again");
-
 // Game Logic info
 let score = 0;
 const totalCells = 100;
-const totDeadNarvals = 30;
-const totHappyNarvals = 5;
-const deadNarvList = [];
 const happyNarvList = [];
+const totHappyNarvals = 5;
+let totDeadNarvals = 10;
+let deadNarvList = [];
 // Cards
 const badCardsContent = [
   {
@@ -182,32 +175,7 @@ const badCardsContent = [
     body: "",
   },
 ];
-
-// Generate random badCard in game grid
-const nums = new Set();
-while (nums.size !== badCardsContent.length) {
-  nums.add(Math.floor(Math.random() * badCardsContent.length));
-}
-
 const extractNumbers = [];
-function extraction() {
-  let randomNum = Math.floor(Math.random() * badCardsContent.length);
-  let invalidNum = extractNumbers.find((n) => n === randomNum);
-  if (invalidNum) {
-    extraction();
-  } else {
-    extractNumbers.push(randomNum);
-    cardTitle.innerText = badCardsContent[randomNum].title;
-    deadCardContainer.classList.remove("hide");
-  }
-}
-// Posiziono randomicamente le celle deadNarv
-while (deadNarvList.length < totDeadNarvals) {
-  const number = Math.floor(Math.random() * totalCells) + 1;
-  if (!deadNarvList.includes(number)) {
-    deadNarvList.push(number);
-  }
-}
 
 // Posiziono randomicamente le celle per le card bonus
 while (happyNarvList.length < totHappyNarvals) {
@@ -216,78 +184,108 @@ while (happyNarvList.length < totHappyNarvals) {
     happyNarvList.push(number);
 }
 
-/* -----------------------
-START GAME DESIGN - CREATE GRID
------------------------*/
+/* ---- START GAME DESIGN - CREATE GRID ----*/
 let isCellEven = false;
 let isRowEven = false;
+function startGame() {
+  generateDeadCell();
+  generateRandomCard();
+  for (let i = 1; i <= totalCells; i++) {
+    const cell = document.createElement("div");
+    cell.classList.add("cell");
+    isCellEven = i % 2 === 0;
 
-for (let i = 1; i <= totalCells; i++) {
-  const cell = document.createElement("div");
-  cell.classList.add("cell");
-  isCellEven = i % 2 === 0;
+    // Stile scacchiera
+    if ((isRowEven && isCellEven) || (!isRowEven && !isCellEven))
+      cell.classList.add("cell-dark");
+    if (i % 10 === 0) isRowEven = !isRowEven;
 
-  // Stile scacchiera
-  if ((isRowEven && isCellEven) || (!isRowEven && !isCellEven))
-    cell.classList.add("cell-dark");
-  if (i % 10 === 0) isRowEven = !isRowEven;
-
-  // QUANDO clicco su una casella
-  cell.addEventListener("click", function () {
-    // SE è già cliccata
-    if (
-      cell.classList.contains("cell-clicked") ||
-      cell.classList.contains("dead-narv") ||
-      cell.classList.contains("happy-narv")
-    )
-      return;
-    //   SE è un deadNarval
-    if (deadNarvList.includes(i)) {
-      // decrese score
-      score -= 5;
-      // show dead narv cell
-      cell.classList.add("dead-narv");
-      /**************** show dead card */
-      extraction();
-    } else if (happyNarvList.includes(i)) {
-      // bonus score and show popup
-      cell.classList.add("happy-narv"); // DA CREARE
-      bonusCard.classList.remove("hide");
-      score += 15;
-    } else {
-      cell.classList.add("cell-clicked");
-      score += 5;
-    }
-    // ---- HANDLE SCORE AND ENDGAME ---- //
-    if (score <= 0) {
-      score = 0;
-      scoreCounter.innerText = String(score).padStart(5, 0);
-      endGame((isVictory = false));
-    }
-    if (score > 0) {
-      scoreCounter.innerText = String(score).padStart(5, 0);
-    }
-    // controllo se le celle sono tutte cliccate
-    const clickedCells = document.querySelectorAll(".cell-clicked");
-    const totNarvCells =
-      totalCells - deadNarvList.length - happyNarvList.length;
-    if (totNarvCells === clickedCells.length) {
-      endGame((isVistory = true));
-    }
-  });
-  grid.appendChild(cell);
+    // QUANDO clicco su una casella
+    cell.addEventListener("click", function () {
+      // SE è già cliccata
+      if (
+        cell.classList.contains("cell-clicked") ||
+        cell.classList.contains("dead-narv") ||
+        cell.classList.contains("happy-narv")
+      )
+        return;
+      //   SE è un deadNarval
+      if (deadNarvList.includes(i)) {
+        // decrese score
+        score -= 5;
+        // show dead narv cell
+        cell.classList.add("dead-narv");
+        /**************** show dead card */
+        extraction();
+      } else if (happyNarvList.includes(i)) {
+        // bonus score and show popup
+        cell.classList.add("happy-narv"); // DA CREARE
+        bonusCard.classList.remove("hide");
+        score += 15;
+      } else {
+        cell.classList.add("cell-clicked");
+        score += 5;
+      }
+      // ---- HANDLE SCORE AND ENDGAME ---- //
+      if (score <= 0) {
+        score = 0;
+        scoreCounter.innerText = String(score).padStart(5, 0);
+        endGame((isVictory = false));
+      }
+      if (score > 0) {
+        scoreCounter.innerText = String(score).padStart(5, 0);
+      }
+      // controllo se le celle sono tutte cliccate
+      const clickedCells = document.querySelectorAll(".cell-clicked");
+      const totNarvCells =
+        totalCells - deadNarvList.length - happyNarvList.length;
+      if (totNarvCells === clickedCells.length) {
+        endGame((isVistory = true));
+      }
+    });
+    grid.appendChild(cell);
+  }
 }
 /*-- end game design --*/
-
-/* -------------------
-FUNC
--------------------*/
+startGame();
+/* ---- FUNZIONI ----*/
+// Generate random badCard in game grid
+function generateRandomCard() {
+  const nums = new Set();
+  while (nums.size !== totDeadNarvals) {
+    nums.add(Math.floor(Math.random() * totDeadNarvals));
+  }
+  console.log(totDeadNarvals, "badcards ");
+}
+// Posiziono randomicamente le celle deadNarv
+function generateDeadCell() {
+  deadNarvList = [];
+  while (deadNarvList.length < totDeadNarvals) {
+    const number = Math.floor(Math.random() * totalCells) + 1;
+    if (!deadNarvList.includes(number)) {
+      deadNarvList.push(number);
+    }
+  }
+  console.log(deadNarvList, "deadNarvList");
+}
 // CLOSE POPUP
 function closePopup() {
   deadCardContainer.classList.add("hide");
   bonusCard.classList.add("hide");
 }
-
+//estraction random deads card
+function extraction() {
+  let randomNum = Math.floor(Math.random() * badCardsContent.length);
+  let invalidNum = extractNumbers.find((n) => n === randomNum);
+  if (invalidNum) {
+    extraction();
+  } else {
+    extractNumbers.push(randomNum);
+    cardTitle.innerText = badCardsContent[randomNum].title;
+    cardText.innerText = badCardsContent[randomNum].body;
+    deadCardContainer.classList.remove("hide");
+  }
+}
 // SHOW END GAME LAYOUT
 function endGame(isVictory) {
   if (isVictory === true) {
@@ -298,7 +296,6 @@ function endGame(isVictory) {
   }
   endGameScreen.classList.remove("hide");
 }
-
 // reveal all narvs
 function revealAllDead() {
   // Recupero tutte le celle
@@ -311,19 +308,36 @@ function revealAllDead() {
     }
   }
 }
-
 // Play again
 function playAgain() {
   location.reload();
 }
 /*end func*/
 
-/* ---------------------
-EVENTI
------------------------*/
+/* ---- EVENTS -----*/
+// CAMBIO LIVELLO
+selectLevel.onchange = () => {
+  // selectedLevel = selectLevel.value;
+  switch (selectLevel.value) {
+    case "easy":
+      totDeadNarvals = 10;
+      break;
+    case "medium":
+      totDeadNarvals = 20;
+      break;
+    case "hard":
+      totDeadNarvals = 30;
+      break;
+    default:
+      totDeadNarvals = 10;
+      break;
+  }
+  generateDeadCell();
+  generateRandomCard();
+};
+
 // PLAY AGAIN
 playAgainButton.addEventListener("click", playAgain);
-
 // Close popup
 deadCardContainer.addEventListener("click", closePopup);
 bonusCard.addEventListener("click", closePopup);

@@ -75,11 +75,11 @@ h1 {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("images/happy-narval.svg");
+  background-image: url("../assets/images/happy-narval.svg");
 }
 
 .dead-narv {
-  background-image: url("images/dead-narval.svg");
+  background-image: url("../assets/images/dead-narval.svg");
   background-color: rgb(132, 1, 114);
   background-size: cover;
   background-repeat: no-repeat;
@@ -87,7 +87,7 @@ h1 {
 }
 
 .happy-narv {
-  background-image: url("images/happy-narval.svg");
+  background-image: url("../assets/images/happy-narval.svg");
   background-color: rgb(132, 1, 114);
   background-size: contain;
   background-repeat: no-repeat;
@@ -117,7 +117,7 @@ h1 {
 }
 .end-game-screen::after {
   position: absolute;
-  content: url("/images/dead-narval.svg");
+  content: url("../assets/images/dead-narval.svg");
   top: -50%;
   left: -55%;
   width: 800px;
@@ -128,7 +128,7 @@ h1 {
 .win::after {
   position: absolute;
   animation: upDown 3s ease-in-out infinite;
-  content: url("/images/happy-narval.svg");
+  content: url("../assets/images/happy-narval.svg");
   top: -50%;
   left: -55%;
   width: 800px;
