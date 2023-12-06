@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        padding: 100px 25%;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      input {
+        height: 20px;
+        border-radius: 3px;
+        padding: 5px;
+        border: none;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 0 auto;
+        background-color: violet;
+      }
+      /* form div {
+        display: flex;
+        flex-direction: column;
+      } */
+      button {
+        padding: 8px 21px;
+        border: none;
+        border-radius: 8px;
+        background-color: rgb(245, 204, 245);
+        margin: 10px auto;
+        display: block;
+        cursor: pointer;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        padding: 8px 21px;
+        border: none;
+        border-radius: 8px;
+        background-color: rgb(245, 204, 245);
+        margin: 10px auto;
+        margin-bottom: 5px;
+      }
+      .flex {
+        display: flex;
+        gap: 20px;
+      }
+    </style>
+    <main>
+      <div id="countdown"></div>
+      <form>
+        <label for="name">Inserisci il tuo nome:</label>
+        <input
+          id="insertName"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Insersci il tuo nome..."
+        />
+        <button id="saveData" type="button">Save Data</button>
+        <button id="clearData" type="button">Clear Data</button>
+      </form>
+      <div class="flex">
+        <div class="precedente">
+          <h3>Valore precedente:</h3>
+          <p id="printPrevValue"></p>
+        </div>
+        <div class="successivo">
+          <h3>Valore corrente:</h3>
+          <p id="printCurrentValue"></p>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
