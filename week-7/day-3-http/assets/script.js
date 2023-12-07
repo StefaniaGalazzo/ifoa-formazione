@@ -107,7 +107,7 @@ function delBookFromHome(data) {
         localStorage.setItem("prefe", JSON.stringify(favourite));
         console.log(favourite, "favourite delBookFromHome");
       }
-      // Nascondi la card corrispondente nell'HTML
+      // nascondi la card corrispondente nell'HTML
       const cardToDelete = document.querySelectorAll(".card")[index];
       if (cardToDelete) cardToDelete.style.display = "none";
     };
@@ -139,7 +139,7 @@ function delBookFromCart(data) {
   delFromCartBtns.forEach((btn, index) => {
     btn.onclick = () => {
       const selectedBook = data[index];
-      // recupero i dati dei prefe dallo storage per aggiornare l'array ed eliminare il libro scartato
+      // recupero i dati del cart dallo storage per aggiornare l'array ed eliminare il libro
       let storedCart = localStorage.getItem("cart");
       if (storedCart) {
         cart.splice(index, 1);
@@ -158,6 +158,7 @@ function delBookFromCart(data) {
     };
   });
 }
+//funzione per il numero nella cart icon
 function cartIconNum() {
   const storedCartData = localStorage.getItem("cart");
   const parsedData = JSON.parse(storedCartData);
