@@ -1,3 +1,5 @@
+printCartList();
+
 function printCartList() {
   const cartListContainer = document.querySelector("#cartList");
   const storedCart = localStorage.getItem("cart");
@@ -9,5 +11,16 @@ function printCartList() {
       cartListContainer.appendChild(listItem);
     });
   }
+  cartIconNum();
 }
-printCartList();
+function cartIconNum() {
+  const storedCartData = localStorage.getItem("cart");
+  const parsedData = JSON.parse(storedCartData);
+  const cartIconContainer = document.querySelector(".cart.fs-3");
+  const icon = document.createElement("div");
+  if (storedCartData) {
+    icon.classList.add("icon-cart");
+    icon.innerHTML = `<p>${parsedData.length}</p>`;
+    cartIconContainer.appendChild(icon);
+  }
+}

@@ -49,6 +49,25 @@
   background-color: violet;
   color: purple;
 }
+#prefeList li {
+  background-color: lightseagreen;
+  color: rgb(0, 70, 78);
+}
+.cart.fs-3 {
+  position: relative;
+}
+.icon-cart {
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 13px;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.6rem;
+}
 
 /* ANIMAZIONI */
 @keyframes fadeIn {

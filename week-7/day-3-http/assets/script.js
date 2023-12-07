@@ -130,6 +130,7 @@ function addToCart(data) {
         banner.innerText = `Hai aggiunto ${selectedBook.title} al tuo carrello!`;
         selectedCard.appendChild(banner);
       }
+      cartIconNum();
     };
   });
 }
@@ -153,6 +154,18 @@ function delBookFromCart(data) {
         banner.innerText = `Hai eliminato ${selectedBook.title} dal tuo carrello`;
         selectedCard.appendChild(banner);
       }
+      cartIconNum();
     };
   });
+}
+function cartIconNum() {
+  const storedCartData = localStorage.getItem("cart");
+  const parsedData = JSON.parse(storedCartData);
+  const cartIconContainer = document.querySelector(".cart.fs-3");
+  const icon = document.createElement("div");
+  if (storedCartData) {
+    icon.classList.add("icon-cart");
+    icon.innerHTML = `<p>${parsedData.length}</p>`;
+    cartIconContainer.appendChild(icon);
+  }
 }
