@@ -125,6 +125,7 @@ function addToCart(data) {
       const selectedCard = document.querySelectorAll(".card")[index];
       if (selectedCard) {
         const banner = document.createElement("div");
+        banner.classList.remove("banner-del");
         banner.classList.add("banner");
         banner.innerText = `Hai aggiunto ${selectedBook.title} al tuo carrello!`;
         selectedCard.appendChild(banner);
