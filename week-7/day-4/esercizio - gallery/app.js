@@ -12,7 +12,7 @@ loadSecondaryImgsBtn.onclick = () => loadIMGS("dog");
 leadBySearch.onclick = () => loadIMGS(searchImage());
 
 function loadIMGS(query) {
-  let url = `${baseURL}${query}]`;
+  let url = `${baseURL}${query}`;
   fetch(url, {
     headers: {
       Authorization: token,
@@ -41,7 +41,8 @@ function printCards(cards) {
         <img
           src=${img.src.medium}
           alt=${img.alt}
-          id='openInfo'
+          class="openInfo" 
+          data-id=${img.id} 
         />
       <div class="card-body">
         <h5 class="card-title">Photographer: ${img.photographer}</h5>
@@ -76,42 +77,34 @@ function printCards(cards) {
     </div>
   </div>`;
     imagesContainer.appendChild(imgCard);
-    getRecord(img.id);
+  });
+  const openInfoElements = document.querySelectorAll(".openInfo");
+  openInfoElements.forEach((element) => {
+    element.onclick = () => {
+      openDetails(element.getAttribute("data-id"));
+    };
   });
 }
 
-function searchImage() {
-  const input = document.getElementById("inputSearch");
-  query = input.value;
-  console.log(query, "queryyyy");
-  return query;
-}
-const openInfo = document.getElementById("openInfo");
-openInfo.onclick = () => openDetails;
-
-function openDetails() {
-  getRecord();
+function openDetails(id) {
+  const imgDetails = images.photos.find(
+    (img) => img.id.toString() === id.toString()
+  );
+  currentCard = imgDetails;
   const modalInfo = document.getElementById("imgInfo");
   modalInfo.innerHTML = `
     <div class='w-100 overflow-hidden'>
     <img
-    src=${el.src.small}
-    alt=${el.alt}
+    src=${imgDetails.src.small}
+    alt=${imgDetails.alt}
     />
     </div>
-    <h6 class="">Photographer: ${el.photographer}</h6>
-    <a class="nav-link">${el.photographer_url}</a>
-    `;
+    <h6 class="">Photographer: ${imgDetails.photographer}</h6>
+    <a class="nav-link">${imgDetails.photographer_url}</a>
+  `;
 }
-
-function getRecord(id) {
-  console.log(id);
-  const finalUrl = url + id;
-  fetch(finalUrl, {
-    headers: {
-      Authorization: token,
-      Accept: "application/json",
-    },
-  });
-  return response.json();
+function searchImage() {
+  const input = document.getElementById("inputSearch");
+  query = input.value;
+  return query;
 }
