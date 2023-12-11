@@ -1,3 +1,9 @@
+/***** OTTIMIZZAZIONI *******/
+// aggiungere delete da pg preferiti
+// gestire più item uguali in cart
+// mettere fetch in funz
+//creare array totabook fuori da fetch
+
 const dataURL = "https://striveschool-api.herokuapp.com/books";
 
 const cardsContainer = document.querySelector("#cardsContainer");
