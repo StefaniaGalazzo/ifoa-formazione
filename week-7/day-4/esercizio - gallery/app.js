@@ -21,7 +21,6 @@ function loadIMGS(query) {
     .then((response) => response.json())
     .then((data) => {
       images = data;
-      console.log(images, "images/data");
       printCards(images);
     })
     .catch((error) => console.error("Errore:", error));
@@ -35,8 +34,6 @@ function printCards(cards) {
     imgCard.classList.add("col-md-4");
     imgCard.innerHTML = `
     <div class="card mb-4 shadow-sm"
-      data-bs-toggle="modal"
-      data-bs-target="#imgDetails"
     >
         <img
           src=${img.src.medium}
@@ -58,8 +55,10 @@ function printCards(cards) {
         >
           <div class="btn-group">
             <button
+              data-bs-toggle="modal"
+              data-bs-target="#imgDetails"
               type="button"
-              class="btn btn-sm btn-outline-secondary"
+              class="view btn btn-sm btn-outline-secondary"
             >
               View
             </button>
@@ -78,11 +77,22 @@ function printCards(cards) {
   </div>`;
     imagesContainer.appendChild(imgCard);
   });
-  const openInfoElements = document.querySelectorAll(".openInfo");
-  openInfoElements.forEach((element) => {
-    element.onclick = () => {
-      openDetails(element.getAttribute("data-id"));
-    };
+
+  const viewButtons = document.querySelectorAll(".view");
+  viewButtons.forEach((button) => {
+    const dataId = button
+      .closest(".card")
+      .querySelector(".openInfo")
+      .getAttribute("data-id");
+    button.onclick = () => openDetails(dataId);
+  });
+  const onOtherPage = document.querySelectorAll(".openInfo");
+  onOtherPage.forEach((el) => {
+    const dataId = el
+      .closest(".card")
+      .querySelector(".openInfo")
+      .getAttribute("data-id");
+    el.onclick = () => goOnPage(dataId);
   });
 }
 
@@ -90,19 +100,28 @@ function openDetails(id) {
   const imgDetails = images.photos.find(
     (img) => img.id.toString() === id.toString()
   );
-  currentCard = imgDetails;
+  // currentCard = imgDetails;
   const modalInfo = document.getElementById("imgInfo");
   modalInfo.innerHTML = `
     <div class='w-100 overflow-hidden'>
     <img
-    src=${imgDetails.src.small}
+    src=${imgDetails.src.medium}
     alt=${imgDetails.alt}
+    width='100%'
     />
     </div>
-    <h6 class="">Photographer: ${imgDetails.photographer}</h6>
-    <a class="nav-link">${imgDetails.photographer_url}</a>
   `;
 }
+
+function goOnPage(id) {
+  const imgDetails = images.photos.find(
+    (img) => img.id.toString() === id.toString()
+  );
+  // currentCard = imgDetails;
+  localStorage.setItem("obj", JSON.stringify(imgDetails));
+  window.location.href = `details.html?id=${id}`;
+}
+
 function searchImage() {
   const input = document.getElementById("inputSearch");
   query = input.value;
