@@ -1,11 +1,12 @@
 const baseURL = "https://api.pexels.com/v1/search?query=";
 const token = "5qUCWpiLuQb8b6eMy0ecj4c23zDD9jbSaPnvZAktXvPMcsi8z4oEJhhz";
-let images = [];
+
 const loadMainImgsBtn = document.getElementById("loadIMGS");
 const loadSecondaryImgsBtn = document.getElementById("loadSecondaryIMGS");
 const leadBySearch = document.getElementById("searchBtn");
 
 let query = "";
+let images = [];
 loadMainImgsBtn.onclick = () => loadIMGS("cat");
 loadSecondaryImgsBtn.onclick = () => loadIMGS("dog");
 leadBySearch.onclick = () => loadIMGS(searchImage());
@@ -33,10 +34,14 @@ function printCards(cards) {
     const imgCard = document.createElement("div");
     imgCard.classList.add("col-md-4");
     imgCard.innerHTML = `
-    <div class="card mb-4 shadow-sm">
+    <div class="card mb-4 shadow-sm"
+      data-bs-toggle="modal"
+      data-bs-target="#imgDetails"
+    >
         <img
           src=${img.src.medium}
           alt=${img.alt}
+          id='openInfo'
         />
       <div class="card-body">
         <h5 class="card-title">Photographer: ${img.photographer}</h5>
@@ -71,6 +76,7 @@ function printCards(cards) {
     </div>
   </div>`;
     imagesContainer.appendChild(imgCard);
+    getRecord(img.id);
   });
 }
 
@@ -79,4 +85,33 @@ function searchImage() {
   query = input.value;
   console.log(query, "queryyyy");
   return query;
+}
+const openInfo = document.getElementById("openInfo");
+openInfo.onclick = () => openDetails;
+
+function openDetails() {
+  getRecord();
+  const modalInfo = document.getElementById("imgInfo");
+  modalInfo.innerHTML = `
+    <div class='w-100 overflow-hidden'>
+    <img
+    src=${el.src.small}
+    alt=${el.alt}
+    />
+    </div>
+    <h6 class="">Photographer: ${el.photographer}</h6>
+    <a class="nav-link">${el.photographer_url}</a>
+    `;
+}
+
+function getRecord(id) {
+  console.log(id);
+  const finalUrl = url + id;
+  fetch(finalUrl, {
+    headers: {
+      Authorization: token,
+      Accept: "application/json",
+    },
+  });
+  return response.json();
 }
