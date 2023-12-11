@@ -31,10 +31,9 @@ function printCards(cards) {
   imagesContainer.innerHTML = "";
   cards.photos.forEach((img) => {
     const imgCard = document.createElement("div");
-    imgCard.classList.add("col-md-4");
+    imgCard.classList.add("myCard", "col-md-4");
     imgCard.innerHTML = `
-    <div class="card mb-4 shadow-sm"
-    >
+    <div class="card mb-4 shadow-sm">
         <img
           src=${img.src.medium}
           alt=${img.alt}
@@ -65,7 +64,7 @@ function printCards(cards) {
             <button
               id='hide'
               type="button"
-              class="btn btn-sm btn-outline-secondary"
+              class="hide btn btn-sm btn-outline-secondary"
             >
               Hide
             </button>
@@ -76,23 +75,7 @@ function printCards(cards) {
     </div>
   </div>`;
     imagesContainer.appendChild(imgCard);
-  });
-
-  const viewButtons = document.querySelectorAll(".view");
-  viewButtons.forEach((button) => {
-    const dataId = button
-      .closest(".card")
-      .querySelector(".openInfo")
-      .getAttribute("data-id");
-    button.onclick = () => openDetails(dataId);
-  });
-  const onOtherPage = document.querySelectorAll(".openInfo");
-  onOtherPage.forEach((el) => {
-    const dataId = el
-      .closest(".card")
-      .querySelector(".openInfo")
-      .getAttribute("data-id");
-    el.onclick = () => goOnPage(dataId);
+    handleButtons();
   });
 }
 
@@ -117,7 +100,6 @@ function goOnPage(id) {
   const imgDetails = images.photos.find(
     (img) => img.id.toString() === id.toString()
   );
-  // currentCard = imgDetails;
   localStorage.setItem("obj", JSON.stringify(imgDetails));
   window.location.href = `details.html?id=${id}`;
 }
@@ -126,4 +108,31 @@ function searchImage() {
   const input = document.getElementById("inputSearch");
   query = input.value;
   return query;
+}
+
+function onHide(card) {
+  card.style.display = "none";
+}
+function handleButtons() {
+  const viewButtons = document.querySelectorAll(".view");
+  viewButtons.forEach((button) => {
+    const dataId = button
+      .closest(".card")
+      .querySelector(".openInfo")
+      .getAttribute("data-id");
+    button.onclick = () => openDetails(dataId);
+  });
+  const hideButtons = document.querySelectorAll(".hide");
+  hideButtons.forEach((button) => {
+    const card = button.closest(".myCard");
+    button.onclick = () => onHide(card);
+  });
+  const onOtherPage = document.querySelectorAll(".openInfo");
+  onOtherPage.forEach((el) => {
+    const dataId = el
+      .closest(".card")
+      .querySelector(".openInfo")
+      .getAttribute("data-id");
+    el.onclick = () => goOnPage(dataId);
+  });
 }
