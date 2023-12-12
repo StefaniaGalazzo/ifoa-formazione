@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit image</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white px-4">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html"
+            ><i class="bi bi-amazon"></i
+          ></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="backoffice.html">Backoffice</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="col-10 m-auto">
+      <h1 id="page-title" class="text-start mt-5 mb-3">
+        Modifica del prodotto
+      </h1>
+      <form id="modifyProd" class="p-3 border rounded">
+        <div class="flex-column mb-2">
+          <label for="name">Nome:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="flex-column mb-2">
+          <label for="categoria">Brand:</label>
+          <input
+            type="text"
+            id="productBrand"
+            name="productBrand"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="flex-column mb-2">
+          <label for="price">Prezzo:</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            min="1"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="flex-column mb-2">
+          <label for="description">Descrizione:</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="flex-column mb-2">
+          <label for="imgSRC">img URL:</label>
+          <input
+            type="text"
+            id="imgSRC"
+            name="imgSRC"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="col p-0">
+          <div class="row">
+            <div class="col">
+              <button
+                id="deleteProd"
+                type="button"
+                class="w-100 btn btn-light border border-dark mt-3"
+              >
+                <i class="bi bi-trash3-fill"></i>
+              </button>
+            </div>
+            <div class="col offset-4">
+              <button
+                id="resetForm"
+                type="button"
+                class="w-100 btn btn-light border border-dark mt-3"
+              >
+                Reset
+              </button>
+            </div>
+            <div class="col">
+              <button
+                id="saveForm"
+                type="button"
+                class="w-100 btn btn-warning mt-3"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- contenuto dinamico -->
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/edit.js"></script>
+  </body>
+</html>

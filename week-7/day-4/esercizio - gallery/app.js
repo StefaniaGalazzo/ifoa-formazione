@@ -104,15 +104,6 @@ function goOnPage(id) {
   window.location.href = `details.html?id=${id}`;
 }
 
-function searchImage() {
-  const input = document.getElementById("inputSearch");
-  query = input.value;
-  return query;
-}
-
-function onHide(card) {
-  card.style.display = "none";
-}
 function handleButtons() {
   const viewButtons = document.querySelectorAll(".view");
   viewButtons.forEach((button) => {
@@ -135,4 +126,12 @@ function handleButtons() {
       .getAttribute("data-id");
     el.onclick = () => goOnPage(dataId);
   });
+}
+function onHide(card) {
+  card.style.display = "none";
+}
+function searchImage() {
+  const input = document.getElementById("inputSearch");
+  query = input.value;
+  return query;
 }
