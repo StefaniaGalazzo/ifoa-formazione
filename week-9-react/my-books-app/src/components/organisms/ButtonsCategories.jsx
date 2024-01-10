@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Button } from "react-bootstrap";
-import fantasy from "../../../public/data/fantasy.json";
-import history from "../../../public/data/history";
-import horror from "../../../public/data/horror";
-import romance from "../../../public/data/romance";
-import scifi from "../../../public/data/scifi";
+import fantasy from "../../../src/data/fantasy.json";
+import history from "../../../src/data/history";
+import horror from "../../../src/data/horror";
+import romance from "../../../src/data/romance";
+import scifi from "../../../src/data/scifi";
 
 const ButtonsCategories = ({ setCategory }) => {
   const categories = [
