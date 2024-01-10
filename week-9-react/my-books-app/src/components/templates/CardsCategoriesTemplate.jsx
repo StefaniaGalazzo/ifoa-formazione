@@ -12,18 +12,19 @@ import SearchBar from "../molecules/SearchBar";
 export default function CardsCategoriesTemplate() {
   const [category, setCategory] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [message, setMessage] = useState(false);
 
   const handleSearch = (e) => {
     let term = e.target.value;
     setSearchTerm(term);
     // prevCate è una callback
     setCategory([...fantasy, ...horror, ...romance, ...scifi, ...history]);
-    console.log(category, "category handlersearch");
     setCategory((prevCategory) => {
       return prevCategory.filter((book) =>
         book.title.toLowerCase().includes(term.toLowerCase())
       );
     });
+    setMessage(category.length === 0);
   };
 
   return (
@@ -31,11 +32,10 @@ export default function CardsCategoriesTemplate() {
       <SearchBar val={searchTerm} handler={handleSearch} wdt="300px" />
       <ButtonsCategories setCategory={setCategory} />
       {category && <CardsCustom category={category} />}
-      {category.length === 0 && (
-        <h3 className="text-center">
-          Cerca un libro o seleziona una categoria!
-        </h3>
+      {category.length === 0 && !message && (
+        <h3 className="text-center">Search a book or select a category!</h3>
       )}
+      {message && <h3 className="text-center">There are no results</h3>}
     </Container>
   );
 }

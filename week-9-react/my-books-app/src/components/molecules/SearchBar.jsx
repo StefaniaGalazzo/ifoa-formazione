@@ -2,7 +2,7 @@
 import InputText from "../atoms/InputText";
 import { IoSearch } from "react-icons/io5";
 
-export default function SearchBar({ wdt, val, handler, margin }) {
+export default function SearchBar({ val, handler, margin, wdt }) {
   return (
     <div
       style={{ width: wdt ? wdt : "100%", margin: margin ? margin : "0 auto " }}
