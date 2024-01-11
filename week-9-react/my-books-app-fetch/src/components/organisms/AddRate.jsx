@@ -45,13 +45,12 @@ export default function AddRate({ bookId }) {
         value={newComment.rate}
         onChange={(e) => setComment({ ...newComment, rate: e.target.value })}
       >
-        <option>Seleziona il voto</option>
+        <option defaultValue>Seleziona il voto</option>
         <option value="3">5</option>
         <option value="3">4</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
-        <option value="0">0</option>
       </Form.Select>
       <Button
         variant="outline-primary"

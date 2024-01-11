@@ -4,7 +4,7 @@ import { Button, Card } from "react-bootstrap";
 export default function SingleCard({ book, clicked, handler }) {
   const clickedStyle = {
     border: clicked && "3px solid orange",
-    boxShadow: clicked && "0 0 18px -2px #0008",
+    boxShadow: clicked && "0 0 21px 5px #0008",
     transform: clicked && "scale(1.1)",
     position: clicked && "relative",
     zIndex: clicked && "14",

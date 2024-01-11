@@ -3,32 +3,44 @@ ul {
   padding: 0;
 }
 
-.formModal {
+#formModal {
   position: absolute;
   background-color: #f4f8ff;
-  height: 100%;
+  height: 110%;
   width: 150%;
-  top: 0;
-  right: -155%;
+  top: -5%;
+  /* right: -155%; */
   z-index: 20;
   padding: 50px 40px;
   border-radius: 13px;
   border: 3px solid orange;
-  box-shadow: 0 0 18px -2px #0008;
+  box-shadow: 0 0 21px 5px #0008;
 }
-.formModal::before {
+.posizionRightBef::before {
+  left: -26px;
   content: "";
   width: 50px;
   height: 50px;
   position: absolute;
   top: 30%;
-  left: -26px;
   transform: rotate(45deg);
   background-color: #f4f8ff;
   border-bottom: 3px solid orange;
   border-left: 3px solid orange;
   border-bottom-left-radius: 8px;
-  overflow: visible;
+}
+.posizionLeftBef::before {
+  right: -26px;
+  content: "";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 30%;
+  transform: rotate(45deg);
+  background-color: #f4f8ff;
+  border-top: 3px solid orange;
+  border-right: 3px solid orange;
+  border-top-right-radius: 8px;
 }
 .close {
   position: absolute;
