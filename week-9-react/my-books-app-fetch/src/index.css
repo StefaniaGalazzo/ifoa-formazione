@@ -1,0 +1,60 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.formModal {
+  position: absolute;
+  background-color: #f4f8ff;
+  height: 100%;
+  width: 150%;
+  top: 0;
+  right: -155%;
+  z-index: 20;
+  padding: 50px 40px;
+  border-radius: 13px;
+  border: 3px solid orange;
+  box-shadow: 0 0 18px -2px #0008;
+}
+.formModal::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 30%;
+  left: -26px;
+  transform: rotate(45deg);
+  background-color: #f4f8ff;
+  border-bottom: 3px solid orange;
+  border-left: 3px solid orange;
+  border-bottom-left-radius: 8px;
+  overflow: visible;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.scroll {
+  max-height: 50%;
+  overflow-x: visible;
+  overflow-y: scroll;
+  padding: 0 5px 5px 0;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #020c9633;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #0000002d;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  width: 5px;
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+  background-color: #ffffff65;
+}
