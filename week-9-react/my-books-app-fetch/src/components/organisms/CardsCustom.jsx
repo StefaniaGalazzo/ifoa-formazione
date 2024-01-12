@@ -66,7 +66,7 @@ export default function CardsCustom({ category }) {
                 "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTczNThhYmZlMDMxZTAwMTliYTE5ZWIiLCJpYXQiOjE3MDQ5ODQzNTUsImV4cCI6MTcwNjE5Mzk1NX0.L0q64Tk_9U7SfZmsm4fpTs3s_qm_ZEYpZGqYY9KWOSQ",
             },
           }
-        ); // Sostituisci con l'URL effettivo della tua API
+        );
         if (!response.ok) {
           throw new Error("Errore nella richiesta");
         }
