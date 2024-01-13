@@ -26,108 +26,108 @@ let deadNarvList = [];
 const badCardsContent = [
   {
     id: 0,
-    title: "Not all men (?)",
-    body: "In Italia quest anno contiamo più di 100 femminicidi.",
+    title: "🤷‍♂️ Not all narv-men (?)🤦‍♂️",
+    body: "Scopri che nonostante l'anno sia iniziato da poco si contano già troppi narvicidi. Decidi di dedicarti un attimo all'estinzione della sotto-specie Narval Alfa Cishet.",
   },
   {
     id: 1,
-    title: "Governo (anti)femminista",
-    body: "Legge di Bilancio, raddoppia l'Iva su assorbenti, pannolini e alimenti per bambini:",
+    title: "👌Governo (anti)narvala",
+    body: "Legge di Bilancio, raddoppia l'Iva sui prodotti per cuccioli e beni di prima necessità delle femmine di narvalo. Hai il mal di pancia dalla rabbia per tre giorni.",
   },
   {
     id: 2,
-    title: "☠️ Reato Universale 😱",
-    body: "26 LUGLIO 2023  la Camera dei deputati approva un ddl che propone la GPA come Reato Universale",
+    title: "👠 Passo falso! 👠",
+    body: "Naufraghi in acque in cui l'obiezione di coscienza rischia di far annegare le tue amiche in un mare di sofferenza, privandole delle cure mediche necessarie.",
   },
   {
     id: 3,
-    title: "Stop alle famiglie (🌈)",
-    body: "Il sindaco Sala ritira le trascrizioni delle famiglie omogenitoriali (ci ripensa mesi dopo) ",
+    title: "✋ Stop alle famiglie (🌈)",
+    body: "Il re dei 7 mari ritira le trascrizioni delle famiglie narva-genitoriali. Perdi tempo nel tentativo di fargli cambiare idea.",
   },
   {
     id: 4,
-    title: "☠️ Sopra la media ☠️",
-    body: "Nell'ultimo anno sono 170 le Vittime di omofobia registrate (probabilmente molte di più quelle effettive)",
+    title: "☠️ Corsa Senza Meta ☠️",
+    body: "Finisci nel vortice acquatico della disoccupazione, perdentdoti alla ricerca di lavoro in un acque ostili.",
   },
   {
     id: 5,
-    title: "IGV, questa sconosciuta.",
-    body: "Sebbene l'interruzione volontaria di gravidanza (Ivg) sia una prestazione compresa nei Lea - l'elenco di prestazioni essenziali che il Ssn è tenuto a fornire a tutti i cittadini - solo poco più della metà delle strutture ospedaliere la effettua, e la pillola abortiva (RU486) continua immotivatamente a essere considerata un farmaco rischioso col fine di ostracizzare la libertà delle donne.",
+    title: "🦄 Ippocorni in agguato! 🦄",
+    body: "Un branco di Ippocorni incantati ti sfida a una gara subacquea. Perdi e sei costretto ad essere loro schiavo per ore.",
   },
   {
     id: 6,
-    title: "🙏Madonna Ferragni salvace tu!🙏",
-    body: "Mentre i Centri Anti Violenza si vedono a combattere per evitare sgomberi o ad attendere donazioni dalla Ferragni durante Sanremo per poter mantenere attivi servizi di supporto, vediamo raddoppiare i fondi ad associazioni e iniziative antiabortiste.",
+    title: "🙏Ti influenzi!🙏",
+    body: "Scopri che i centri per narvale maltrattate ricevono fondi solo dalla Ferragni a Sanremo e non dai governi. Decidi di nuotare fino alla sua villa per organizzare assieme un colpo di Stato.",
   },
   {
     id: 7,
-    title: "Obietterei.",
-    body: "Secondo i dati del Ministero della Salute, le strutture ospedaliere che effettuano Ivg sono poco più del 60%. È inoltre obiettore di coscienza, in media, dal 36% al 90% del personale medico, degli anestesisti e dei ginecologi.",
+    title: "🦑 Oh calamari! 🦑",
+    body: "Enormi calamari sembrano minacciare le acque. Scopri che sono solo ottimi ballerini e ti trovi coinvolto in una spettacolare danza sottomarina.",
   },
   {
     id: 8,
-    title: "🌈Rainbow Europe Map 2023🌈",
-    body: "Nella Rainbow Europe Map 2023, uno strumento di benchmarking annuale che illustra la situazione dei diritti umani delle persone LGBTI in Europa e in Asia centrale, l'Italia si classifica al 34° posto su 49 Paesi.",
+    title: "🎣 Pesca maledetta! 🎣",
+    body: "Sei affamato e non riconosci un'esca. Per liberarti devi aspettare gli amici delfini, eterni ritardatari con l'ADHD.",
   },
   {
     id: 9,
-    title: "🌈IL CONTESTO GLOBALE",
-    body: "Sono 67 gli stati in cui gli atti sessuali tra persone dello stesso sesso sono criminalizzati. 11 gli stati che prevedono la pena di morte per atti sessuali tra persone dello stesso sesso. Solo 13le costituzioni che vietano la discriminazione delle persone lgbtqia+. ",
+    title: "🌀 Vertigini marine! 🌀",
+    body: "Provi a trovare senso e coerenza nei discorsi della Meloni. Ti viene il mal di testa.",
   },
   {
     id: 10,
-    title: "GOVERNO MODERNO",
-    body: "In Italia si continua a spingere verso un'economia non sostenibile, voltando le spalle ai provvedimenti europei",
+    title: "🌎GOVERNO MODERNO🌏",
+    body: "Troppi paesi continuano a muoversi verso un'economia non sostenibile. Questo ti rende molto triste ma sopratutto fa sempre più caldo e la tua corsa rallenta.",
   },
   {
     id: 11,
-    title: "GOVERNO MODERNO bis",
-    body: "Carne coltivata: eresia! Farina di insetti? Bienvenue!",
+    title: "🧜 Incantesimo marino! 🧜",
+    body: "Un gruppo di sirene e tritoni ti imbuca a una festa e ti sballi come un pesce palla! Rimani fermo tre giorni.",
   },
   {
     id: 12,
-    title: "MATTA-TOIO",
-    body: "Mentre si piangono le vittime quotidiane di femminismo, il governo fa sgomberare molte consultorie e centri antiviolenza",
+    title: "♀️ Improvvisa marea 🌊",
+    body: "Il Re dei 7 mari fa sgomberare molte consultorie e centri antiviolenza. Ti unisci alla marea di NUDM e provi a cambiare il mondo terreno.",
   },
   {
     id: 13,
-    title: "ESTREMAMENTE FROCE!",
-    body: "La Russia vieta il movimento lgbt+, accusato di “estremismo”",
+    title: "🔵Profondità ESTREMA🔵",
+    body: "In acque cariche di odio, si nega l'esistenza delle persone lgbt+, accusandole di “estremismo”. Ti unisci a una banda di attivisti anarchici e dimentichi la tua destinazione.",
   },
   {
     id: 14,
-    title: "G3N0C1D1IO",
-    body: "Dal 7 ottobre sono stati uccisi più di 14.800",
+    title: "🦈 Amico squalo 😊",
+    body: "Un tuo amico è in pericolo, rischia essere pescato per delle sciocche abitudini umane. Diventi un eroe ma rallenti il tuo viaggio.",
   },
   {
     id: 15,
     title: "☠️ Oh no! ☠️",
-    body: "Accidenti! Baby Narval è stato circondato da un gruppo di Bravi Ragazzi!",
+    body: "Accidenti! Baby Narval è stato circondato da un gruppo di 'Bravi Ragazzi' con tante 'buone intenzioni'!",
   },
   {
     id: 16,
-    title: "Omofobia, portami via!",
-    body: "Si contano ben 133 storie di odio contro persone LGBTQIA+ negli ultimi 12 mesi",
+    title: "🔴 Omofobia, portami via! 🔴",
+    body: "Negli abissi incontri Ariel, ti chiede aiuto per far accettare al padre la sua lesbicità. Nettuno è omofobo e ti fulmina. Rimani fritto per qualche giorno.",
   },
   {
     id: 17,
-    title: "UNA PRESA PER IL CULO 🍑",
-    body: "È ciò che sembra essere il piano “Educare alle relazioni” presentato dal ministro Valditara e dal Governo extracurriculare(facoltativo,su base volontaria deigli Istituti, solo 30 ore l’anno e per scuole superiori, con il consenso dei genitori)",
+    title: "✨ Portale magico! ✨",
+    body: "Apri una strana porta e finisci trasportato in RuPaul's Drag Race. Se non sfili come una vera drag queen non potrai tornare sui tuoi passi!",
   },
   {
     id: 18,
-    title: "🍯 FRATELLO ORSO (?)",
-    body: "Sono più di 7 gli orsi uccisi in trentino dall'inizio del 2023.",
+    title: "🌪️ Oh tempesta! 🌪️",
+    body: "Un vortice marino di travolge e rimani a girare e girare e girare e girare e.....",
   },
   {
     id: 19,
-    title: "☠️ Oh no! ☠️",
-    body: "A causa del cambiamento climatico la casa di Baby Narval è andata distrutta!",
+    title: "🐙 Polpo di Stato! 🐙",
+    body: "Sfidi apertamente il Re dei 7 mari, noto razzista omofobo e misogino. Riesci a farlo fuori ma finisci prigioniero dei suoi seguaci.",
   },
   {
     id: 20,
-    title: "☠️ Oh no! ☠️",
-    body: "Ti vogliono rubare il corno per venderlo al mercato nero!",
+    title: "☠️ Traffico cornuto! ☠️",
+    body: "Ti vogliono rubare il corno per venderlo al mercato nero! Ti nascondi per giorni travestendoti da Elton John.",
   },
   {
     id: 21,
@@ -141,38 +141,38 @@ const badCardsContent = [
   },
   {
     id: 23,
-    title: "card 23",
-    body: "",
+    title: "🌏 Terra Sospesa ❄️",
+    body: "Mentre esplori le acque artiche, l'accelerato scioglimento dei ghiacci minaccia il tuo viaggio.",
   },
   {
     id: 24,
-    title: "card 24",
-    body: "",
+    title: "🧱 Muraglia Virtuale 🖥️",
+    body: "Vorresti rilassarti facendo un po' di scrolling sui social ma ti scontri con la crescente censura online.",
   },
   {
     id: 25,
-    title: "card 25",
-    body: "",
+    title: "👱‍♀️ ...in a plastic world 🎶",
+    body: "Navigando nei mari del sud, rimani intrappolato in una rete di plastica abbandonata dai pescatori.",
   },
   {
     id: 26,
-    title: "card 26",
-    body: "",
+    title: "🤿 Sotto la Maschera 🎭",
+    body: "La crescente discriminazione dei narvali ti costringe a cambiare identità. Vieni scoperto e imprigionato.",
   },
   {
     id: 27,
-    title: "card 27",
-    body: "",
+    title: "🛥️Arca di Noé 🐱",
+    body: "Ti senti affondare nel dilagante problema dell'estinzione delle specie. Provi a costruire un'arca per i tuoi amici terrestri.",
   },
   {
     id: 28,
-    title: "card 28",
-    body: "",
+    title: "🫰Traffico d'Ingiustizia💸",
+    body: "Ti perdi in un mare di corruzione imbattendoti nel traffico di esseri umani. Abbandoni la tua strada e inizi ad affondare le barche dei trafficanti.",
   },
   {
     id: 29,
-    title: "card 29",
-    body: "",
+    title: "🌳 La Foresta Piange 🌴",
+    body: "Mentre nuoti nei mari tropicali, ti imbatti nella deforestazione selvaggia e vieni colpito dell'inquinamento e dai detriti.",
   },
 ];
 const extractNumbers = [];
@@ -214,19 +214,34 @@ function startGame() {
         // decrese score
         score -= 5;
         // show dead narv cell
-        cell.classList.add("dead-narv");
+        cell.classList.add("dead-narv", "cell-clicked");
+        // cell.classList.add("dead-narv");
         /**************** show dead card */
         extraction();
       } else if (happyNarvList.includes(i)) {
         // bonus score and show popup
-        cell.classList.add("happy-narv"); // DA CREARE
+        cell.classList.add("happy-narv", "cell-clicked");
+        // cell.classList.add("happy-narv"); // DA CREARE
         bonusCard.classList.remove("hide");
         score += 15;
       } else {
         cell.classList.add("cell-clicked");
-        score += 5;
+        score += 3;
       }
       // ---- HANDLE SCORE AND ENDGAME ---- //
+      // Verifico se tutte le celle delle bad cards sono state cliccate
+      const allBadCardsClicked = document.querySelectorAll(
+        `.dead-narv.cell-clicked`
+      );
+      console.log(allBadCardsClicked, "allbads clicked");
+      console.log(totDeadNarvals, "totDeadNarvals");
+
+      // Chiamo endGame con isVictory impostato su false se tutte le bad cards sono state cliccate
+      if (allBadCardsClicked.length === totDeadNarvals && score > 0) {
+        endGame(true, "Hai completato il tuo percorso nonostante le avversità");
+        console.log("game over");
+      }
+
       if (score <= 0) {
         score = 0;
         scoreCounter.innerText = String(score).padStart(5, 0);
@@ -235,11 +250,16 @@ function startGame() {
       if (score > 0) {
         scoreCounter.innerText = String(score).padStart(5, 0);
       }
+
       // controllo se le celle sono tutte cliccate
       const clickedCells = document.querySelectorAll(".cell-clicked");
-      const totNarvCells =
-        totalCells - deadNarvList.length - happyNarvList.length;
-      if (totNarvCells === clickedCells.length) {
+      console.log(clickedCells.length, "clicked");
+      // const totNarvCells =
+      totalCells - (deadNarvList.length + 1) - (happyNarvList.length + 1);
+      if (
+        clickedCells.length === totalCells ||
+        totalCells === clickedCells.length
+      ) {
         endGame((isVistory = true));
       }
     });
@@ -287,10 +307,17 @@ function extraction() {
   }
 }
 // SHOW END GAME LAYOUT
-function endGame(isVictory) {
+/*il gioco finisce quando:
+isVistori true:
+clicco su tutte le caselle evitando di cliccare su tutte le deadnarv
+clicco su tutte le caselle deadnarv ma il mio punteggio è ancora superiore a 0
+isVistore false:
+clicco su tutte le caselle morte e il mio score è <= 0
+*/
+function endGame(isVictory, extraText) {
   if (isVictory === true) {
     endGameScreen.classList.add("win");
-    endGameText.innerHTML = "YOU<br>WIN";
+    endGameText.innerHTML = `YOU<br>WIN<br>${extraText}`;
   } else {
     revealAllDead();
   }
