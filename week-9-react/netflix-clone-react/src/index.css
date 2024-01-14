@@ -19,14 +19,15 @@ body {
   background: radial-gradient(
     circle,
     rgba(40, 40, 40, 0.8) 0% 20%,
-    rgba(5, 5, 5, 0.6) 95%
+    rgb(5, 5, 5) 95%
   );
   /* overflow-x: hidden; */
 }
 footer {
-  max-height: 80px;
-
   box-shadow: 0 0 45px -5px black;
+  background-color: rgb(16, 15, 15);
+  position: relative;
+  z-index: 100;
 }
 
 /* carousell bootstrap*/
@@ -42,6 +43,9 @@ footer {
   background-size: cover;
   background-position: bottom;
   margin: 8px;
+  /* width: clamp(12rem, 15rem, 20rem); */
+  min-width: 12rem;
+  max-width: 20rem;
 }
 .carousel-prev {
   left: -48px !important;
@@ -52,4 +56,15 @@ footer {
   right: -12px !important;
   width: 150px;
   background-image: linear-gradient(to left, #000 30%, #00000016);
+}
+.title-card {
+  position: absolute;
+  bottom: 10px;
+  margin-top: 23%;
+  width: 80%;
+  max-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  user-select: none;
 }

@@ -11,7 +11,12 @@ import { FaSearch } from "react-icons/fa";
 function NavBarCustom({ bg }) {
   return (
     <>
-      <Navbar bg={bg || "dark"} data-bs-theme={bg ? "" : "dark"}>
+      <Navbar
+        bg={bg || "dark"}
+        data-bs-theme={bg ? "" : "dark"}
+        className="position-fixed top-0 w-100 bg-black"
+        style={{ zIndex: "100" }}
+      >
         <Container fluid className="ps-5 pe-5">
           <Navbar.Brand className="fw-bold" href="#home">
             <img
@@ -46,6 +51,7 @@ function NavBarCustom({ bg }) {
               id="dropdown-basic-button"
               variant="black"
               title={<img src={kidsIcon} alt="profiles" width="35px" />}
+              align="end"
             >
               <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
               <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
@@ -53,6 +59,7 @@ function NavBarCustom({ bg }) {
             </DropdownButton>
             <DropdownButton
               id="dropdown-basic-button"
+              align="end"
               variant="black"
               title={<img src={avatar} alt="profiles" width="35px" />}
             >

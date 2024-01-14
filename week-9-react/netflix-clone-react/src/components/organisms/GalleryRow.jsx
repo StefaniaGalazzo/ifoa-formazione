@@ -1,125 +1,91 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 import { Card, Col, Container } from "react-bootstrap";
-// import FilmCard from "../molecules/FilmCard";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-export default function GalleryRow() {
-  const myKey = "3f6cf538";
-  const baseURL = "http://www.omdbapi.com/";
-  const dataURL = `${baseURL}?apikey=${myKey}&s=`;
-  const [error, setError] = useState(null);
+export default function GalleryRow({ dataArr, title }) {
+  const [activeIndex, setActiveIndex] = useState(0); // traccio l'indice attivo del carousel
+  const itemsPerSlide = 5; // n di elementi del carousel per slide
+  const totalItems = dataArr.length; // tot elementi nella dataArr
+  const totalSlides = Math.ceil(totalItems / itemsPerSlide); // n tot slide necessarie
 
-  //carousel state
-  const [moviesGroup_1, setMoviesGroup_1] = useState([]);
-  const [moviesGroup_2, setMoviesGroup_2] = useState([]);
-  const [isActiveCarousell, setActiveCarousell] = useState("prev"); // bootstrap test
-
-  //fetch
-  const fetchData = (url, src, setGroup) => {
-    fetch(`${url}${src}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setGroup(data.Search);
-      })
-      .catch((error) => {
-        setError(error);
-        console.error("Errore nella richiesta:", error);
-      });
+  const handlePrev = () => {
+    setActiveIndex((prevIndex) => (prevIndex - 1 + totalSlides) % totalSlides);
   };
-  useEffect(() => {
-    let src_1 = "cia";
-    let src_2 = "lord";
-    fetchData(dataURL, src_1, setMoviesGroup_1);
-    fetchData(dataURL, src_2, setMoviesGroup_2);
-  }, []);
 
-  const hanlderCarousel = (arrow) => {
-    setActiveCarousell(arrow);
+  const handleNext = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % totalSlides);
   };
-  console.log(moviesGroup_1, "moviesGroup_1");
-  console.log(moviesGroup_2, "moviesGroup_2");
+
   return (
     <Container fluid className="position-relative mb-5 mt-5 ps-5">
-      <h5 className="mb-4 text-white">Trending now</h5>
+      <h5 className="mb-4 text-white">{title}</h5>
       <div
-        id="carouselTrending"
+        // #1 trasformare il titolo in una stringa che viene utilizzata come identificatore unico per l'id del carousel
+        id={`carousel-${title.replace(/\s+/g, "-").toLowerCase()}`}
         className="carousel slide"
         data-bs-ride="carousel"
         data-bs-interval="false"
       >
         <div className="carousel-inner overflow-hidden">
-          <div
-            className={`carousel-item ${
-              isActiveCarousell === "prev" ? "active" : ""
-            }`}
-          >
-            <div className="ms-2 g-2 row row-cols-sm-4 justify-content-center flex-nowrap row-cols-md-6">
-              {/* QUI COL CARD */}
-              {moviesGroup_1.map((film, indx) => (
-                <Col key={indx}>
-                  <Card
-                    id="movieCard"
-                    style={{
-                      backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8) 0 25%, transparent 65% 100%), url(${film.Poster})`,
-                    }}
-                  >
-                    <h4
-                      className="text-white fs-6"
-                      style={{ marginTop: "23%", width: "80%" }}
-                    >
-                      {film.Title}
-                    </h4>
-                    {error && <p>{error}</p>}
-                  </Card>
-                </Col>
-              ))}
-            </div>
-          </div>
-          <div
-            className={`carousel-item ${
-              isActiveCarousell === "next" ? "active" : ""
-            }`}
-          >
-            <div className="ms-2 g-2 row row-cols-sm-4 justify-content-center flex-nowrap row-cols-md-6">
-              {moviesGroup_2.map((film, indx) => (
-                <Col key={indx}>
-                  <Card
-                    id="movieCard"
-                    style={{
-                      backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8) 0 25%, transparent 65% 100%), url(${film.Poster})`,
-                    }}
-                  >
-                    <h4
-                      className="text-white fs-6"
-                      style={{ marginTop: "23%", width: "80%" }}
-                    >
-                      {film.Title}
-                    </h4>
+          {/* #2 */}
+          {Array.from({ length: totalSlides }).map((_, index) => {
+            const start = index * itemsPerSlide; // calcolo gli indici di inizio e fine per ogni slide
+            const end = start + itemsPerSlide;
+            const slideItems = dataArr.slice(start, end); // estraggo gli elementi da dataArr per la slide corrente
 
-                    {error && <p>{error}</p>}
-                  </Card>
-                </Col>
-              ))}
-            </div>
-          </div>
-          {/* <!-- qui più carousel-item con altre cards se necessario --> */}
+            return (
+              <div
+                key={index}
+                className={`carousel-item ${
+                  index === activeIndex ? "active" : ""
+                }`}
+              >
+                <div className="ms-2 g-2 row row-cols-sm-4 justify-content-center flex-nowrap row-cols-md-6">
+                  {slideItems.map((film, indx) => (
+                    <Col key={indx}>
+                      <Card
+                        id="movieCard"
+                        style={{
+                          backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8) 0 25%, transparent 65% 100%), url(${film.Poster})`,
+                        }}
+                      >
+                        <h4
+                          title={film.Title}
+                          className="text-white fs-6 title-card"
+                        >
+                          {film.Title}
+                        </h4>
+                      </Card>
+                    </Col>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
+        {/* Pulsante di controllo "Prev" */}
         <button
           className="carousel-control-prev ps-2 carousel-prev h-100 position-absolute shadow end-0 opacity-100 text-secondary"
           type="button"
-          data-bs-target="#carouselTrending"
+          data-bs-target={`#carousel-${title
+            .replace(/\s+/g, "-")
+            .toLowerCase()}`}
           data-bs-slide="prev"
-          onClick={() => hanlderCarousel("prev")}
+          onClick={handlePrev}
         >
           <FaChevronLeft color="white" size={"20px"} />
           <span className="visually-hidden">Previous</span>
         </button>
+        {/* Pulsante di controllo "Next" */}
         <button
           className="carousel-control-next pe-2 carousel-next h-100 position-absolute shadow end-0 opacity-100 text-secondary"
           type="button"
-          data-bs-target="#carouselTrending"
+          data-bs-target={`#carousel-${title
+            .replace(/\s+/g, "-")
+            .toLowerCase()}`}
           data-bs-slide="next"
-          onClick={() => hanlderCarousel("next")}
+          onClick={handleNext}
         >
           <FaChevronRight color="white" size={"20px"} />
           <span className="visually-hidden">Next</span>
@@ -128,3 +94,21 @@ export default function GalleryRow() {
     </Container>
   );
 }
+
+/*
+#1 title..replace(/\s+/g, "-"): 
+con il metodo replace sostituisco tutte gli spazi bianchi (\s+) con il -. 
+metodo spesso utilizzato per creare URL-friendly e identificatori unici.
+es: il titolo "Trend Now" > title.replace(/\s+/g, "-").toLowerCase() = "trend-now". 
+lo uso come parte dell'id del carousel per garantire un id unico e formattato correttamente.
+
+#2 Array.from({ length: totalSlides })
+creo un array di lunghezza totalSlides, 
+dove totalSlides è calcolato in base alla lunghezza dell'array di dati (dataArr) 
+e al numero di elementi desiderati per slide (itemsPerSlide).
+Questo nuovo array viene quindi utilizzato in un blocco di mapping per generare dinamicamente 
+i carousel items per ciascuna slide. La funzione map viene applicata su ciascun elemento dell'array 
+appena creato, e la lunghezza di totalSlides determina quante slide ci saranno nel carousel.
+L'underscore del map è utilizzato come segnaposto quando l'argomento è necessario per la sintassi ma non è realmente utilizzato nel blocco di codice.
+
+*/
