@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Card, Col, Container } from "react-bootstrap";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { Container } from "react-bootstrap";
+import FilmCard from "../molecules/FilmCard";
+import NextCarouselBtn from "../atoms/NextCarouselBtn";
+import PrevCarouselBtn from "../atoms/PrevCarouselBtn";
 
 export default function GalleryRow({ dataArr, title }) {
   const [activeIndex, setActiveIndex] = useState(0); // traccio l'indice attivo del carousel
@@ -27,13 +29,12 @@ export default function GalleryRow({ dataArr, title }) {
         data-bs-ride="carousel"
         data-bs-interval="false"
       >
-        <div className="carousel-inner overflow-hidden">
+        <div className="carousel-inner overflow-visible">
           {/* #2 */}
           {Array.from({ length: totalSlides }).map((_, index) => {
             const start = index * itemsPerSlide; // calcolo gli indici di inizio e fine per ogni slide
             const end = start + itemsPerSlide;
             const slideItems = dataArr.slice(start, end); // estraggo gli elementi da dataArr per la slide corrente
-
             return (
               <div
                 key={index}
@@ -43,53 +44,15 @@ export default function GalleryRow({ dataArr, title }) {
               >
                 <div className="ms-2 g-2 row row-cols-sm-4 justify-content-center flex-nowrap row-cols-md-6">
                   {slideItems.map((film, indx) => (
-                    <Col key={indx}>
-                      <Card
-                        id="movieCard"
-                        style={{
-                          backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8) 0 25%, transparent 65% 100%), url(${film.Poster})`,
-                        }}
-                      >
-                        <h4
-                          title={film.Title}
-                          className="text-white fs-6 title-card"
-                        >
-                          {film.Title}
-                        </h4>
-                      </Card>
-                    </Col>
+                    <FilmCard key={indx} film={film} />
                   ))}
                 </div>
               </div>
             );
           })}
         </div>
-        {/* Pulsante di controllo "Prev" */}
-        <button
-          className="carousel-control-prev ps-2 carousel-prev h-100 position-absolute shadow end-0 opacity-100 text-secondary"
-          type="button"
-          data-bs-target={`#carousel-${title
-            .replace(/\s+/g, "-")
-            .toLowerCase()}`}
-          data-bs-slide="prev"
-          onClick={handlePrev}
-        >
-          <FaChevronLeft color="white" size={"20px"} />
-          <span className="visually-hidden">Previous</span>
-        </button>
-        {/* Pulsante di controllo "Next" */}
-        <button
-          className="carousel-control-next pe-2 carousel-next h-100 position-absolute shadow end-0 opacity-100 text-secondary"
-          type="button"
-          data-bs-target={`#carousel-${title
-            .replace(/\s+/g, "-")
-            .toLowerCase()}`}
-          data-bs-slide="next"
-          onClick={handleNext}
-        >
-          <FaChevronRight color="white" size={"20px"} />
-          <span className="visually-hidden">Next</span>
-        </button>
+        <PrevCarouselBtn title={title} handlePrev={handlePrev} />
+        <NextCarouselBtn title={title} handleNext={handleNext} />
       </div>
     </Container>
   );
