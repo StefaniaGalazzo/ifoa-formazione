@@ -22,14 +22,12 @@ function App() {
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
-    console.log(query.length, "query lenght");
     if (query.length <= 2) return;
     const filteredCategory = searchedFilms.filter((film) =>
       film.title.toLowerCase().includes(query.toLowerCase())
     );
     setSearchedFilms(filteredCategory);
     fetchData(dataURL, query, setSearchedFilms, setError);
-    console.log(searchedFilms, "searched hanlder");
   };
 
   useEffect(() => {
