@@ -12,6 +12,24 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #17171733;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #0000002d;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  width: 5px;
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+  background-color: #ffffff65;
+}
+
 /* elements */
 html,
 body {
@@ -22,6 +40,7 @@ body {
     rgb(5, 5, 5) 95%
   );
   overflow-x: hidden;
+  padding-top: 50px;
 }
 footer {
   box-shadow: 0 0 45px -5px black;
@@ -30,6 +49,18 @@ footer {
   z-index: 100;
 }
 
+#searchNav,
+.search {
+  transition: all 0.5s ease-in-out;
+  animation: 0.5s ease-in-out forwards;
+  height: 30px;
+}
+.search {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 3px 25px 5px 13px;
+}
 /* carousell bootstrap*/
 #galleryContainer {
   width: 80%;
@@ -60,12 +91,12 @@ footer {
 .carousel-prev {
   left: -48px !important;
   width: 150px;
-  background-image: linear-gradient(to right, #000 30%, #00000016);
+  background-image: linear-gradient(to right, #000 30%, #00000016) !important;
 }
 .carousel-next {
-  right: -12px !important;
+  right: -15px !important;
   width: 150px;
-  background-image: linear-gradient(to left, #000 30%, #00000016);
+  background-image: linear-gradient(to left, #000 30%, #00000016) !important;
 }
 
 #itemInfo {
@@ -111,4 +142,29 @@ footer {
   border: 2px solid #3d3d3d;
   border-radius: 5px;
   width: fit-content;
+}
+
+/*animazioni*/
+@keyframes openSearch {
+  0% {
+    width: 0;
+    border: none;
+  }
+  100% {
+    width: 150px;
+    border: 1px solid #fff;
+  }
+}
+@keyframes closeSearch {
+  0% {
+    width: 150px;
+    border: 1px solid #fff;
+  }
+  90% {
+    border: 1px solid #fff;
+  }
+  100% {
+    width: 0;
+    border: none;
+  }
 }

@@ -6,9 +6,9 @@ import logo from "../../assets/media/netflix_logo.png";
 import kidsIcon from "../../assets/media/kids_icon.png";
 import avatar from "../../assets/media/avatar.png";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
+import SearchNav from "../atoms/SearchNav";
 
-function NavBarCustom({ bg }) {
+function NavBarCustom({ bg, searchVal, searchHandler }) {
   return (
     <>
       <Navbar
@@ -35,17 +35,7 @@ function NavBarCustom({ bg }) {
             <Nav.Link href="#">Series</Nav.Link>
           </Nav>
           <Nav className="d-flex align-items-center">
-            <div
-              className="border border-light rounded-pill pb-1 position-relative"
-              style={{ width: "100px", height: "30px" }}
-            >
-              <FaSearch
-                color="white"
-                size="18px"
-                className="position-absolute"
-                style={{ top: "5px", right: "5px" }}
-              />
-            </div>
+            <SearchNav searchVal={searchVal} searchHandler={searchHandler} />
 
             <DropdownButton
               id="dropdown-basic-button"
