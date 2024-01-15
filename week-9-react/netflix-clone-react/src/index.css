@@ -1,3 +1,6 @@
+#root {
+  height: 100%;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -47,8 +50,13 @@ footer {
   background-color: rgb(16, 15, 15);
   position: relative;
   z-index: 100;
+  width: 100%;
 }
-
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
 #searchNav,
 .search {
   transition: all 0.5s ease-in-out;
@@ -74,7 +82,7 @@ footer {
   border-radius: 13px;
   background-size: cover;
   background-position: bottom;
-  margin: 8px;
+  margin: 8px auto;
   min-width: 12rem;
   max-width: 20rem;
 }

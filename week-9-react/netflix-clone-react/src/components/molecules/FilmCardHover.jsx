@@ -1,10 +1,19 @@
 /* eslint-disable react/prop-types */
+// import { useEffect, useState } from "react";
 import { useState } from "react";
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
 import { IoPlayCircle } from "react-icons/io5";
-export default function FilmCardHover({ film }) {
+
+export default function FilmCardHover({ film, onRemoveCard }) {
   const [isLiked, setIsLiked] = useState(false);
+  // console.log(film, "film cardhover");
+  const handleLike = () => {
+    setIsLiked(!isLiked);
+    film.Liked = !isLiked;
+    onRemoveCard(film.imdbID);
+    console.log(film.Liked, "updatedfilm.liked");
+  };
 
   return (
     <div id="itemInfo">
@@ -19,15 +28,11 @@ export default function FilmCardHover({ film }) {
         </div>
         <div className="d-flex justify-content-between itemFooter">
           <IoPlayCircle size={"35px"} />
-          <div
-            onClick={() => {
-              setIsLiked(!isLiked);
-            }}
-          >
-            {!isLiked ? (
-              <GoHeart size={"35px"} />
-            ) : (
+          <div onClick={() => handleLike()}>
+            {film && film.Liked ? (
               <GoHeartFill size={"35px"} />
+            ) : (
+              <GoHeart size={"35px"} />
             )}
           </div>
         </div>

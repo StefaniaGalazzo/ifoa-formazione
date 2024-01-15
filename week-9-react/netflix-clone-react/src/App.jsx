@@ -6,19 +6,23 @@ import NavBarCustom from "./components/organisms/NavBarCustom";
 import Footer from "./components/organisms/Footer";
 import { useEffect, useState } from "react";
 import FilmCard from "./components/molecules/FilmCard";
+import Favorite from "./components/pages/Favorite";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const myKey = "3f6cf538";
   const baseURL = "http://www.omdbapi.com/";
   const dataURL = `${baseURL}?apikey=${myKey}&s=`;
   const [error, setError] = useState(null);
-
+  //dati per search in navcustom
+  const [query, setQuery] = useState("");
+  const [searchedFilms, setSearchedFilms] = useState([]);
+  // dati per home page
   const [movies, setMovies] = useState([]);
   const [movies_2, setMovies_2] = useState([]);
   const [movies_3, setMovies_3] = useState([]);
-
-  const [query, setQuery] = useState("");
-  const [searchedFilms, setSearchedFilms] = useState([]);
+  //dati per favorite page
+  const [allMovies, setAllMovies] = useState([]);
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
@@ -34,18 +38,28 @@ function App() {
     let src_1 = "cia";
     let src_2 = "lord";
     let src_3 = "potter";
+
     fetchData(dataURL, src_1, setMovies, setError);
     fetchData(dataURL, src_2, setMovies_2, setError);
     fetchData(dataURL, src_3, setMovies_3, setError);
   }, []);
-
+  useEffect(() => {
+    const totalMovies = [...movies, ...movies_2, ...movies_3];
+    setAllMovies(
+      totalMovies.map((obj) => ({
+        ...obj,
+        Liked: false,
+      }))
+    );
+    console.log(allMovies, "all movies");
+  }, [movies, movies_2, movies_3]);
   useEffect(() => {
     const delayedSearch = debounce(async () => {
       if (query.length >= 2) {
         const data = fetchData(dataURL, query, setSearchedFilms, setError);
         console.log(data, "searched hanlder");
       }
-    }, 500);
+    }, 800);
 
     delayedSearch();
   }, [query]);
@@ -56,7 +70,13 @@ function App() {
       {error && <p>Data Error</p>}
 
       {query.length <= 2 && (
-        <Home movies={movies} movies_2={movies_2} movies_3={movies_3} />
+        <Routes>
+          <Route index path="/" element={<Home allMovies={allMovies} />} />
+          <Route
+            path="/favourite"
+            element={<Favorite allMovies={allMovies} />}
+          />
+        </Routes>
       )}
       <div className="d-flex flex-wrap p-5 mb-5">
         {searchedFilms &&

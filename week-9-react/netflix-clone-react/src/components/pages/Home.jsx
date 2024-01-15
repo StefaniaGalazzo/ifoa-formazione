@@ -2,12 +2,15 @@
 import { Container } from "react-bootstrap";
 import GalleryRow from "../organisms/GalleryRow";
 
-export default function Home({ movies, movies_2, movies_3, error }) {
+export default function Home({ allMovies, error }) {
+  const firstGroup = allMovies.slice(0, 10);
+  const secondGroup = allMovies.slice(10, 20);
+  const thirdGroup = allMovies.slice(20, 30);
   return (
     <Container fluid className="p-0 pb-5">
-      <GalleryRow dataArr={movies} title={"Trend Now"} />
-      <GalleryRow dataArr={movies_2} title={"Watched"} />
-      <GalleryRow dataArr={movies_3} title={"For you"} />
+      <GalleryRow dataArr={firstGroup} title={"Trend Now"} />
+      <GalleryRow dataArr={secondGroup} title={"Watched"} />
+      <GalleryRow dataArr={thirdGroup} title={"For you"} />
       {error && <p>Errore nella richiesta dei dati</p>}
     </Container>
   );

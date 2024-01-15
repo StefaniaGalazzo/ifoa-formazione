@@ -3,8 +3,29 @@ import { Card, Col } from "react-bootstrap";
 import FilmCardHover from "./FilmCardHover";
 
 /* eslint-disable react/prop-types */
-export default function FilmCard({ film }) {
+export default function FilmCard({ film, onRemoveCard }) {
   const [isHovered, setIsHovered] = useState(false); // se la card è in hover
+
+  // function fetchLiked() {
+  //   fetch(`http://www.omdbapi.com/?apikey=&=i${film.imdbID}`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       filmId: film.imdbID, // Sostituisci con l'identificatore univoco del film
+  //       liked: !isLiked,
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setLikedFilms(data);
+  //       console.log("Film aggiornato con successo:", likedFilms);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Errore durante l'aggiornamento del film:", error);
+  //     });
+  // }
 
   return (
     <>
@@ -23,7 +44,7 @@ export default function FilmCard({ film }) {
             {film.Title}
           </h4>
         </Card>
-        {isHovered && <FilmCardHover film={film} />}
+        {isHovered && <FilmCardHover film={film} onRemoveCard={onRemoveCard} />}
       </Col>
     </>
   );
