@@ -38,6 +38,19 @@ function App() {
   };
   // end favorite page
 
+  // create one single data array
+  useEffect(() => {
+    const totalMovies = [...movies, ...movies_2, ...movies_3];
+    setAllMovies(
+      totalMovies.map((obj) => ({
+        ...obj,
+        Liked: false,
+      }))
+    );
+    console.log(allMovies, "all movies");
+  }, [movies, movies_2, movies_3]);
+
+  // search
   const handleSearch = (e) => {
     setQuery(e.target.value);
     if (query.length <= 2) return;
@@ -49,25 +62,6 @@ function App() {
   };
 
   useEffect(() => {
-    let src_1 = "cia";
-    let src_2 = "lord";
-    let src_3 = "potter";
-
-    fetchData(dataURL, src_1, setMovies, setError);
-    fetchData(dataURL, src_2, setMovies_2, setError);
-    fetchData(dataURL, src_3, setMovies_3, setError);
-  }, []);
-  useEffect(() => {
-    const totalMovies = [...movies, ...movies_2, ...movies_3];
-    setAllMovies(
-      totalMovies.map((obj) => ({
-        ...obj,
-        Liked: false,
-      }))
-    );
-    console.log(allMovies, "all movies");
-  }, [movies, movies_2, movies_3]);
-  useEffect(() => {
     const delayedSearch = debounce(async () => {
       if (query.length >= 2) {
         const data = fetchData(dataURL, query, setSearchedFilms, setError);
@@ -77,6 +71,17 @@ function App() {
 
     delayedSearch();
   }, [query]);
+
+  // main data
+  useEffect(() => {
+    let src_1 = "cia";
+    let src_2 = "lord";
+    let src_3 = "potter";
+
+    fetchData(dataURL, src_1, setMovies, setError);
+    fetchData(dataURL, src_2, setMovies_2, setError);
+    fetchData(dataURL, src_3, setMovies_3, setError);
+  }, []);
 
   return (
     <>

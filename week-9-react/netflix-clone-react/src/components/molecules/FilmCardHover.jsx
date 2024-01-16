@@ -7,7 +7,6 @@ import { IoPlayCircle } from "react-icons/io5";
 
 export default function FilmCardHover({ film, onRemoveCard }) {
   const [isLiked, setIsLiked] = useState(false);
-  // console.log(film, "film cardhover");
   const handleLike = () => {
     setIsLiked(!isLiked);
     film.Liked = !isLiked;

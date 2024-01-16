@@ -1,22 +1,7 @@
 /* eslint-disable react/prop-types */
-// import { useEffect, useState } from "react";
 import FilmCard from "../molecules/FilmCard";
 
 export default function Favorite({ favoriteMovies, onRemoveCard }) {
-  // const [favoriteMovies, setFavoriteMovies] = useState([]);
-
-  // useEffect(() => {
-  //   const filteredMovies = allMovies.filter((el) => el.Liked === true);
-  //   setFavoriteMovies(filteredMovies);
-  //   console.log(favoriteMovies, "favoriteMovies");
-  // }, [allMovies]);
-
-  // const handleRemoveCard = (filmId) => {
-  //   setFavoriteMovies((prevMovies) =>
-  //     prevMovies.filter((movie) => movie.imdbID !== filmId)
-  //   );
-  // };
-
   return (
     <>
       <h2 className="text-white ps-5">My favorite </h2>
