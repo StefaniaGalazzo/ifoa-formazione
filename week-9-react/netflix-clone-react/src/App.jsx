@@ -23,6 +23,20 @@ function App() {
   const [movies_3, setMovies_3] = useState([]);
   //dati per favorite page
   const [allMovies, setAllMovies] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
+
+  useEffect(() => {
+    const filteredMovies = allMovies.filter((el) => el.Liked === true);
+    setFavoriteMovies(filteredMovies);
+    console.log(favoriteMovies, "favoriteMovies");
+  }, [allMovies, favoriteMovies]);
+
+  const handleRemoveCard = (filmId) => {
+    setFavoriteMovies((prevMovies) =>
+      prevMovies.filter((movie) => movie.imdbID !== filmId)
+    );
+  };
+  // end favorite page
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
@@ -74,7 +88,7 @@ function App() {
           <Route index path="/" element={<Home allMovies={allMovies} />} />
           <Route
             path="/favourite"
-            element={<Favorite allMovies={allMovies} />}
+            element={<Favorite favoriteMovies={favoriteMovies} />}
           />
         </Routes>
       )}
@@ -83,7 +97,11 @@ function App() {
           searchedFilms.length >= 0 &&
           query.length > 2 &&
           searchedFilms.map((film, indx) => (
-            <FilmCard key={indx} film={film} />
+            <FilmCard
+              key={indx}
+              film={film}
+              onRemoveCard={() => handleRemoveCard(film.imdbID)}
+            />
           ))}
       </div>
       <Footer />
