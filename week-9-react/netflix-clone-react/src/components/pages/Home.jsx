@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Container } from "react-bootstrap";
 import GalleryRow from "../organisms/GalleryRow";
+import Hero from "../organisms/Hero";
 
 export default function Home({ allMovies, error }) {
   const firstGroup = allMovies.slice(0, 10);
@@ -8,6 +9,7 @@ export default function Home({ allMovies, error }) {
   const thirdGroup = allMovies.slice(20, 30);
   return (
     <Container fluid className="p-0 pb-5">
+      <Hero />
       <GalleryRow dataArr={firstGroup} title={"Trend Now"} />
       <GalleryRow dataArr={secondGroup} title={"Watched"} />
       <GalleryRow dataArr={thirdGroup} title={"For you"} />

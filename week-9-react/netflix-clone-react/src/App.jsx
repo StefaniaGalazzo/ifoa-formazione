@@ -23,22 +23,8 @@ function App() {
   const [movies_3, setMovies_3] = useState([]);
   //dati per favorite page
   const [allMovies, setAllMovies] = useState([]);
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
-  useEffect(() => {
-    const filteredMovies = allMovies.filter((el) => el.Liked === true);
-    setFavoriteMovies(filteredMovies);
-    console.log(favoriteMovies, "favoriteMovies");
-  }, [allMovies, favoriteMovies]);
-
-  const handleRemoveCard = (filmId) => {
-    setFavoriteMovies((prevMovies) =>
-      prevMovies.filter((movie) => movie.imdbID !== filmId)
-    );
-  };
-  // end favorite page
-
-  // create one single data array
+  // create one single data array allMovies
   useEffect(() => {
     const totalMovies = [...movies, ...movies_2, ...movies_3];
     setAllMovies(
@@ -81,6 +67,9 @@ function App() {
     fetchData(dataURL, src_1, setMovies, setError);
     fetchData(dataURL, src_2, setMovies_2, setError);
     fetchData(dataURL, src_3, setMovies_3, setError);
+
+    const storedMovies = JSON.parse(localStorage.getItem("allMovies")) || [];
+    setAllMovies(storedMovies);
   }, []);
 
   return (
@@ -93,7 +82,7 @@ function App() {
           <Route index path="/" element={<Home allMovies={allMovies} />} />
           <Route
             path="/favourite"
-            element={<Favorite favoriteMovies={favoriteMovies} />}
+            element={<Favorite allMovies={allMovies} />}
           />
         </Routes>
       )}
@@ -102,11 +91,7 @@ function App() {
           searchedFilms.length >= 0 &&
           query.length > 2 &&
           searchedFilms.map((film, indx) => (
-            <FilmCard
-              key={indx}
-              film={film}
-              onRemoveCard={() => handleRemoveCard(film.imdbID)}
-            />
+            <FilmCard key={indx} film={film} />
           ))}
       </div>
       <Footer />
