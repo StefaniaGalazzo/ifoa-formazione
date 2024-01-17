@@ -31,7 +31,7 @@ export default function FilmCard({ film, onRemoveCard }) {
     <>
       <Col
         onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        // onMouseLeave={() => setIsHovered(false)}
         className="position-relative"
       >
         <Card

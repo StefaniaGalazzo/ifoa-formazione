@@ -4,14 +4,19 @@ import { useState } from "react";
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
 import { IoPlayCircle } from "react-icons/io5";
+import { FaInfoCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-export default function FilmCardHover({ film, onRemoveCard }) {
+export default function FilmCardHover({ film }) {
   const [isLiked, setIsLiked] = useState(false);
   const handleLike = () => {
     setIsLiked(!isLiked);
     film.Liked = !isLiked;
-    onRemoveCard(film.imdbID);
-    console.log(film.Liked, "updatedfilm.liked");
+    // da importare
+    // onRemoveCard(film.Liked);
+    // console.log(film.Liked, "updatedfilm.liked");
+    // Aggiorna localStorage
+    localStorage.setItem(film.imdbID, JSON.stringify({ Liked: !isLiked }));
   };
 
   return (
@@ -26,7 +31,13 @@ export default function FilmCardHover({ film, onRemoveCard }) {
           <p className="tag">Year: {film.Year}</p>
         </div>
         <div className="d-flex justify-content-between itemFooter">
-          <IoPlayCircle size={"35px"} />
+          <div>
+            <IoPlayCircle size={"53px"} className="me-3" />
+            <Link to={`movies/${film.imdbID}`}>
+              <FaInfoCircle size={"45px"} color="#ebebeb" />
+            </Link>
+          </div>
+
           <div onClick={() => handleLike()}>
             {film && film.Liked ? (
               <GoHeartFill size={"35px"} />

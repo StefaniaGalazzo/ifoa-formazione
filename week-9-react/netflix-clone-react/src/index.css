@@ -45,6 +45,10 @@ body {
   overflow-x: hidden;
   padding-top: 35px;
 }
+ul {
+  list-style: none;
+  padding: 0;
+}
 footer {
   box-shadow: 0 0 45px -5px black;
   background-color: rgb(16, 15, 15);
@@ -167,8 +171,11 @@ footer {
   border-radius: 5px;
   width: fit-content;
 }
-
+.transition-03s {
+  transition: all 0.3s ease-in-out;
+}
 /*animazioni*/
+/* //searchbar navbar */
 @keyframes openSearch {
   0% {
     width: 0;

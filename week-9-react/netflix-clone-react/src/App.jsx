@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import FilmCard from "./components/molecules/FilmCard";
 import Favorite from "./components/pages/Favorite";
 import { Routes, Route } from "react-router-dom";
+import SingleMovie from "./components/pages/SingleMovie";
 
 function App() {
   const myKey = "3f6cf538";
@@ -23,17 +24,27 @@ function App() {
   const [movies_3, setMovies_3] = useState([]);
   //dati per favorite page
   const [allMovies, setAllMovies] = useState([]);
+  const [storedFav, setStoredFav] = useState({});
 
   // create one single data array allMovies
   useEffect(() => {
     const totalMovies = [...movies, ...movies_2, ...movies_3];
     setAllMovies(
-      totalMovies.map((obj) => ({
-        ...obj,
-        Liked: false,
-      }))
+      totalMovies.map((obj) => {
+        const sotredLiked = localStorage.getItem(obj.imdbID);
+        const parsedLiked = JSON.parse(sotredLiked);
+        if (parsedLiked) {
+          setStoredFav({
+            ...obj,
+            Liked: parsedLiked.Liked,
+          });
+        }
+        return {
+          ...obj,
+          Liked: parsedLiked ? parsedLiked.Liked : false,
+        };
+      })
     );
-    console.log(allMovies, "all movies");
   }, [movies, movies_2, movies_3]);
 
   // search
@@ -82,7 +93,11 @@ function App() {
           <Route index path="/" element={<Home allMovies={allMovies} />} />
           <Route
             path="/favourite"
-            element={<Favorite allMovies={allMovies} />}
+            element={<Favorite allMovies={allMovies} storedFav={storedFav} />}
+          />
+          <Route
+            path="/movies/:movieID"
+            element={<SingleMovie myKey={myKey} baseURL={baseURL} />}
           />
         </Routes>
       )}

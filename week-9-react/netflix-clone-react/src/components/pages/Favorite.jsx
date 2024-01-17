@@ -7,15 +7,28 @@ export default function Favorite({ allMovies }) {
 
   useEffect(() => {
     const filteredMovies = allMovies.filter((el) => el.Liked === true);
+    const storedData = favoriteMovies.map((flm) => {
+      const storedMovie = localStorage.getItem(flm.imdbID);
+      const parsedStoredMovie = JSON.parse(storedMovie);
+      if (parsedStoredMovie)
+        filteredMovies.filter((el) => el.Liked === parsedStoredMovie.Liked);
+    });
     setFavoriteMovies(filteredMovies);
     console.log(favoriteMovies, "favoriteMovies");
+    console.log(storedData, "storedData");
   }, [allMovies]);
 
-  const handleRemoveCard = (filmId) => {
+  const handleRemoveCard = (filmIdLiked) => {
     setFavoriteMovies((prevMovies) =>
-      prevMovies.filter((movie) => movie.imdbID !== filmId)
+      prevMovies.filter((el) => el.Liked === filmIdLiked)
     );
   };
+
+  // const handleRemoveCard = (filmId) => {
+  //   setFavoriteMovies((prevMovies) =>
+  //     prevMovies.filter((movie) => movie.imdbID !== filmId)
+  //   );
+  // };
   return (
     <>
       <h2 className="text-white ps-5">My favorite </h2>
