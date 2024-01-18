@@ -87,7 +87,7 @@ export default function SingleMovie() {
             <ul
               className={`border border-light overflow-auto rounded text-white transition-03s`}
               style={{
-                height: openComments ? "30%" : "10px",
+                height: openComments ? "300px" : "10px",
                 padding: !openComments ? "0" : " 1rem",
               }}
             >
