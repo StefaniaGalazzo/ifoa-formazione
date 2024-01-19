@@ -1,5 +1,6 @@
 #containerHome {
   background-size: cover;
+  background: linear-gradient(to top, #e66465 10%, #9198e5 70%);
 }
 #inYourCountry {
   #infoWeather {
@@ -30,6 +31,9 @@
       border-radius: 18px;
       background-color: rgba(129, 158, 255, 0.168);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       p {
         margin: 0;
       }

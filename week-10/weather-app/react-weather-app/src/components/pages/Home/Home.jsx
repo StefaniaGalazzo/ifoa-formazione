@@ -174,7 +174,6 @@ export default function Home() {
         return nightMoonCloud;
       } else if (lowercasedDescription.includes("clear")) {
         bgRef.current.style.backgroundImage = `url(${bgClearNight})`;
-
         return moon;
       } else {
         return;
