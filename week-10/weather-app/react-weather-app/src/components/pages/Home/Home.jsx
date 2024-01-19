@@ -184,8 +184,11 @@ export default function Home() {
         <div className="d-flex my-5">
           <div>
             <img
-              src={getWeatherImage(data.weather[0].description, data.dt)}
-              alt={data.weather[0].description}
+              src={
+                data.weather &&
+                getWeatherImage(data.weather[0].description, data.dt)
+              }
+              // alt={data.weather[0].description}
             />
           </div>
           <div className="text-center mx-5 ">
@@ -215,8 +218,11 @@ export default function Home() {
           </div>
           <div>
             <img
-              src={getWeatherImage(data.weather[0].description, data.dt)}
-              alt={data.weather[0].description}
+              src={
+                data.weather &&
+                getWeatherImage(data.weather[0].description, data.dt)
+              }
+              // alt={data.weather[0].description}
             />
           </div>
         </div>
@@ -265,7 +271,10 @@ export default function Home() {
                     </h6>
                     <img
                       id="cardImage"
-                      src={getWeatherImage(day?.weather[0].description, day.dt)}
+                      src={
+                        day?.weather &&
+                        getWeatherImage(day?.weather[0].description, day.dt)
+                      }
                       alt="weather-mood"
                       width={"80px"}
                     />
