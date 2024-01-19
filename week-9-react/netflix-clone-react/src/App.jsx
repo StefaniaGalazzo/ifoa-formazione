@@ -24,7 +24,21 @@ function App() {
   const [movies_3, setMovies_3] = useState([]);
   //dati per favorite page
   const [allMovies, setAllMovies] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [storedFav, setStoredFav] = useState({});
+
+  const updateLiked = (imdbID, liked) => {
+    setAllMovies((prevMovies) =>
+      prevMovies.map((movie) =>
+        movie.imdbID === imdbID ? { ...movie, Liked: liked } : movie
+      )
+    );
+
+    setStoredFav((prevStoredFav) => ({
+      ...prevStoredFav,
+      [imdbID]: { Liked: liked },
+    }));
+  };
 
   // create one single data array allMovies
   useEffect(() => {
@@ -93,7 +107,9 @@ function App() {
           <Route index path="/" element={<Home allMovies={allMovies} />} />
           <Route
             path="/favourite"
-            element={<Favorite allMovies={allMovies} storedFav={storedFav} />}
+            element={
+              <Favorite allMovies={allMovies} updateLiked={updateLiked} />
+            }
           />
           <Route
             path="/movies/:movieID"

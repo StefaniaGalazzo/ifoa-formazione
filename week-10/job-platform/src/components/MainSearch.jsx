@@ -93,7 +93,6 @@ const mapStateToProps = (state) => ({
   favorites: state.favorites,
 });
 
-// Aggiungi la funzione removeFromFavorites a mapDispatchToProps
 const mapDispatchToProps = (dispatch) => ({
   addToFavorites: (company) => dispatch(addToFavorites(company)),
   removeFromFavorites: (company) => dispatch(removeFromFavorites(company)),

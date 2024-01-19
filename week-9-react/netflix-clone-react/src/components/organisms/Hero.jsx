@@ -29,7 +29,7 @@ export default function Hero({ img, video }) {
     <Container
       fluid
       className="p-0 overflow-hidden position-relative"
-      style={{ height: "80vh" }}
+      style={{ height: "85vh" }}
     >
       {video && (
         <Button

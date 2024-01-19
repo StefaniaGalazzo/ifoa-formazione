@@ -37,11 +37,12 @@
 html,
 body {
   height: 100%;
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle,
     rgba(40, 40, 40, 0.8) 0% 20%,
     rgb(5, 5, 5) 95%
-  );
+  ); */
+  background-color: rgb(13, 13, 13);
   overflow-x: hidden;
   padding-top: 35px;
 }
@@ -59,10 +60,10 @@ footer {
 /* // hero home */
 .overlay {
   width: 100%;
-  height: 80vh;
+  height: 85vh;
   background-image: linear-gradient(
     to top,
-    rgba(0, 0, 0, 100),
+    rgba(13, 13, 13, 100),
     rgba(0, 0, 0, 0)
   );
   position: absolute;
@@ -130,24 +131,40 @@ footer {
 #itemInfo {
   position: absolute;
   top: -50px;
-  right: -20px;
+  right: 0;
   z-index: 30;
   border: 2px solid #3d3d3d;
-  width: 300px;
-  height: 270px;
+  width: 125%;
+  height: 300px;
   border-radius: 8px;
   background-color: rgb(16, 15, 15);
   overflow: hidden;
   color: #fff;
   box-shadow: 0 0 50px -8px black;
+  /* transform: scale(1.1); */
 }
 .itemTop {
-  height: 40%;
+  height: 46%;
   opacity: 0.8;
   overflow: hidden;
+  position: relative;
 }
 .itemBottom {
-  padding: 21px 13px;
+  padding: 0px 13px;
+}
+.itemTop::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    rgba(13, 13, 13, 100) 5%,
+    rgba(0, 0, 0, 0)
+  );
+  z-index: 30;
+  top: 0;
+  left: 0;
 }
 .itemBottom h6 {
   font-size: 18px;

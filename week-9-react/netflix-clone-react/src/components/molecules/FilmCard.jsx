@@ -3,7 +3,7 @@ import { Card, Col } from "react-bootstrap";
 import FilmCardHover from "./FilmCardHover";
 
 /* eslint-disable react/prop-types */
-export default function FilmCard({ film, onRemoveCard }) {
+export default function FilmCard({ film, handleUpdFavorite }) {
   const [isHovered, setIsHovered] = useState(false); // se la card è in hover
 
   // function fetchLiked() {
@@ -44,7 +44,9 @@ export default function FilmCard({ film, onRemoveCard }) {
             {film.Title}
           </h4>
         </Card>
-        {isHovered && <FilmCardHover film={film} onRemoveCard={onRemoveCard} />}
+        {isHovered && (
+          <FilmCardHover film={film} handleUpdFavorite={handleUpdFavorite} />
+        )}
       </Col>
     </>
   );

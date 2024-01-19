@@ -1,0 +1,38 @@
+#inYourCountry {
+  #infoWeather {
+    p {
+      padding: 0px 8px;
+      border-left: 1px solid;
+      &:nth-last-child(1) {
+        border-right: 1px solid;
+      }
+    }
+  }
+}
+#scrollY {
+  width: 100%;
+  overflow-y: auto;
+  margin-bottom: 300px;
+  .weatherDaysWrapper {
+    overflow: hidden;
+    overflow: auto;
+    grid-auto-flow: column;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    padding-bottom: 10px;
+    .cardWeaterDay {
+      width: 120px;
+      padding: 10px;
+      border-radius: 18px;
+      background-color: rgba(129, 158, 255, 0.168);
+      text-align: center;
+      p {
+        margin: 0;
+      }
+      img {
+        margin: 10px auto;
+      }
+    }
+  }
+}

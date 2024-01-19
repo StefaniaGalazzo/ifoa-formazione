@@ -25,6 +25,7 @@ export default function AnimatedM() {
     // Pulisci l'intervallo quando il componente si smonta
     return () => clearInterval(intervalOpacity.current);
   }, []); // Esegui l'effetto solo al mount del componente
+
   return (
     <div id="letters">
       <svg

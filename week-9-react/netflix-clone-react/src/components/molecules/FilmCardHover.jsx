@@ -7,15 +7,12 @@ import { IoPlayCircle } from "react-icons/io5";
 import { FaInfoCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default function FilmCardHover({ film }) {
+export default function FilmCardHover({ film, handleUpdFavorite }) {
   const [isLiked, setIsLiked] = useState(false);
   const handleLike = () => {
     setIsLiked(!isLiked);
     film.Liked = !isLiked;
-    // da importare
-    // onRemoveCard(film.Liked);
-    // console.log(film.Liked, "updatedfilm.liked");
-    // Aggiorna localStorage
+    handleUpdFavorite();
     localStorage.setItem(film.imdbID, JSON.stringify({ Liked: !isLiked }));
   };
 
