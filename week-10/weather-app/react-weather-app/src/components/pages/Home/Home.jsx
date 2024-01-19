@@ -1,5 +1,18 @@
 import SearchNav from "../../molecules/SearchNav/SearchNav";
 import { Container } from "react-bootstrap";
+import { WiSunrise } from "react-icons/wi";
+import { WiSunset } from "react-icons/wi";
+import { LiaTemperatureLowSolid } from "react-icons/lia";
+import { MdLineWeight } from "react-icons/md";
+import { WiHumidity } from "react-icons/wi";
+import { TiWeatherWindyCloudy } from "react-icons/ti";
+import bgRainyDay from "../../../assets/imgs/rainy-day.jpg";
+import bgRainyNight from "../../../assets/imgs/rainy-night.jpg";
+import bgClearNight from "../../../assets/imgs/clear-night.jpg";
+import bgClearDay from "../../../assets/imgs/clear-day.jpg";
+import bgCloudyDay from "../../../assets/imgs/cloudy-day.jpg";
+import bgCloudyNight from "../../../assets/imgs/cloudy-night.jpg";
+
 import dayCloud from "../../../assets/imgs/very-cloudy.png";
 import nightMoonCloud from "../../../assets/imgs/nightCloud.png";
 import rainy from "../../../assets/imgs/very-rainy.png";
@@ -7,23 +20,25 @@ import sun from "../../../assets/imgs/sun.png";
 import moon from "../../../assets/imgs/moon.png";
 import styles from "./Home.module.scss";
 import { FaLocationDot } from "react-icons/fa6";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
   const [data, setData] = useState({
-    name: "Your Country",
-    main: {
-      temp: 150,
-      feels_like: 150,
-      temp_min: 150,
-      temp_max: 150,
-      pressure: 1029,
-      humidity: 62,
-    },
+    // name: "Your Country",
+    // main: {
+    //   temp: 150,
+    //   feels_like: 150,
+    //   temp_min: 150,
+    //   temp_max: 150,
+    //   pressure: 1029,
+    //   humidity: 62,
+    // },
     dt: 1705687200,
   });
   const [forecastData, setForecastData] = useState({});
   const [query, setQuery] = useState("");
+
+  const bgRef = useRef();
 
   const fetchLocation = async () => {
     const key = "1d67fb207de28d398c4e807b944d3e93";
@@ -136,23 +151,30 @@ export default function Home() {
     console.log(lowercasedDescription, "lowercasedDescription");
     if (hours < referenceHour) {
       if (lowercasedDescription.includes("rain")) {
+        bgRef.current.style.backgroundImage = `url(${bgRainyDay})`;
         return rainy;
       } else if (lowercasedDescription.includes("cloud")) {
+        bgRef.current.style.backgroundImage = `url(${bgCloudyDay})`;
         return dayCloud;
       } else if (
         lowercasedDescription.includes("sun") ||
         lowercasedDescription.includes("clear")
       ) {
+        bgRef.current.style.backgroundImage = `url(${bgClearDay})`;
         return sun;
       } else {
         return;
       }
     } else if (hours > referenceHour) {
       if (lowercasedDescription.includes("rain")) {
+        bgRef.current.style.backgroundImage = `url(${bgRainyNight})`;
         return rainy;
       } else if (lowercasedDescription.includes("cloud")) {
+        bgRef.current.style.backgroundImage = `url(${bgCloudyNight})`;
         return nightMoonCloud;
       } else if (lowercasedDescription.includes("clear")) {
+        bgRef.current.style.backgroundImage = `url(${bgClearNight})`;
+
         return moon;
       } else {
         return;
@@ -161,8 +183,8 @@ export default function Home() {
   }
 
   return (
-    <>
-      <div className="w-100 d-flex align-items-center flex-column justify-content-center mt-5">
+    <div id={styles.containerHome} className="pt-5" ref={bgRef}>
+      <div className="w-100 d-flex align-items-center flex-column justify-content-center">
         <h1 className="text-secondary mb-3">Weather App</h1>
         <h6 className="text-light mb-3 fw-light">
           Discover weater in your country
@@ -231,26 +253,27 @@ export default function Home() {
           id={styles.infoWeather}
         >
           <p className="text-secondary">
-            Sunrise:
+            <WiSunrise size={"25px"} /> Sunrise:
             {data.sys ? getTimeFromSeconds(data.sys.sunrise) : "00:00"}
           </p>
           <p className="text-secondary">
-            Sunset:
+            <WiSunset size={"25px"} /> Sunset:
             {(data?.sys && getTimeFromSeconds(data?.sys?.sunset)) || "00:00"}
           </p>
           <p className="text-secondary">
-            Feels like:
+            <LiaTemperatureLowSolid size={"25px"} /> Feels like:
             {(data?.main && convertKelvinToCelsius(data?.main?.feels_like)) ||
               0}
           </p>
           <p className="text-secondary">
-            Pressure: {data?.main?.pressure || 0}
+            <MdLineWeight size={"25px"} /> Pressure: {data?.main?.pressure || 0}
           </p>
           <p className="text-secondary">
-            Humidity: {data?.main?.humidity || 0}
+            <WiHumidity size={"30px"} /> Humidity: {data?.main?.humidity || 0}
           </p>
           <p className="text-secondary">
-            Wind: speed {data?.wind?.speed || 0} / deg: {data?.wind?.deg || 0}
+            <TiWeatherWindyCloudy size={"25px"} /> Wind: speed{" "}
+            {data?.wind?.speed || 0} / deg: {data?.wind?.deg || 0}
           </p>
         </div>
       </div>
@@ -295,6 +318,6 @@ export default function Home() {
           </div>
         </div>
       </Container>
-    </>
+    </div>
   );
 }
