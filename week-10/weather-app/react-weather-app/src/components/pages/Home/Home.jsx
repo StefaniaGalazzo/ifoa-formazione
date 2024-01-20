@@ -12,7 +12,8 @@ import bgClearNight from "../../../assets/imgs/clear-night.jpg";
 import bgClearDay from "../../../assets/imgs/clear-day.jpg";
 import bgCloudyDay from "../../../assets/imgs/cloudy-day.jpg";
 import bgCloudyNight from "../../../assets/imgs/cloudy-night.jpg";
-
+import bgSnow from "../../../assets/imgs/bg-snow.jpg";
+import snow from "../../../assets/imgs/snow.png";
 import dayCloud from "../../../assets/imgs/very-cloudy.png";
 import nightMoonCloud from "../../../assets/imgs/nightCloud.png";
 import rainy from "../../../assets/imgs/very-rainy.png";
@@ -146,37 +147,72 @@ export default function Home() {
   function getWeatherImage(description, totalSeconds) {
     const lowercasedDescription = description.toLowerCase().trim();
     const hours = getHoursFromSeconds(totalSeconds);
-    const referenceHour = 12;
-    console.log(hours, "HOURS");
-    console.log(lowercasedDescription, "lowercasedDescription");
-    if (hours < referenceHour) {
+    const referenceHour = 16;
+    if (hours <= referenceHour) {
       if (lowercasedDescription.includes("rain")) {
+        console.log("RAIN");
+        console.log(lowercasedDescription, "lowercasedDescription");
+        console.log(hours, "HOURS");
         bgRef.current.style.backgroundImage = `url(${bgRainyDay})`;
         return rainy;
       } else if (lowercasedDescription.includes("cloud")) {
+        console.log(hours, "HOURS");
+        console.log("CLOUD ");
+        console.log(lowercasedDescription, "lowercasedDescription");
+
         bgRef.current.style.backgroundImage = `url(${bgCloudyDay})`;
         return dayCloud;
       } else if (
-        lowercasedDescription.includes("sun") ||
-        lowercasedDescription.includes("clear")
+        lowercasedDescription.includes("clear") ||
+        lowercasedDescription.includes("sun")
       ) {
+        console.log(hours, "HOURS");
+        console.log("CLEAR OR SUNNY ");
+        console.log(lowercasedDescription, "lowercasedDescription");
+
         bgRef.current.style.backgroundImage = `url(${bgClearDay})`;
         return sun;
+      } else if (lowercasedDescription.includes("snow")) {
+        console.log(hours, "HOURS");
+        console.log("SNOW");
+        console.log(lowercasedDescription, "lowercasedDescription");
+
+        bgRef.current.style.backgroundImage = `url(${bgSnow})`;
+        return snow;
       } else {
-        return;
+        return sun;
       }
     } else if (hours > referenceHour) {
       if (lowercasedDescription.includes("rain")) {
+        console.log(hours, "-- HOURS");
+        console.log("-- RAIN ");
+        console.log(lowercasedDescription, "lowercasedDescription");
+
         bgRef.current.style.backgroundImage = `url(${bgRainyNight})`;
         return rainy;
       } else if (lowercasedDescription.includes("cloud")) {
+        console.log(hours, "-- HOURS");
+        console.log("-- CLOUD ");
+        console.log(lowercasedDescription, "lowercasedDescription");
+
         bgRef.current.style.backgroundImage = `url(${bgCloudyNight})`;
         return nightMoonCloud;
+      } else if (lowercasedDescription.includes("snow")) {
+        console.log(hours, "-- HOURS");
+        console.log("-- CLEAR ");
+        console.log(lowercasedDescription, "lowercasedDescription");
+
+        bgRef.current.style.backgroundImage = `url(${bgSnow})`;
+        return snow;
       } else if (lowercasedDescription.includes("clear")) {
+        console.log(hours, "-- HOURS");
+        console.log("-- CLEAR ");
+        console.log(lowercasedDescription, "lowercasedDescription");
+
         bgRef.current.style.backgroundImage = `url(${bgClearNight})`;
         return moon;
       } else {
-        return;
+        return moon;
       }
     }
   }
