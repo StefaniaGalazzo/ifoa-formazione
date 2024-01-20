@@ -290,15 +290,15 @@ export default function Home() {
             id={styles.infoWeather}
           >
             <p>
-              <WiSunrise size={"25px"} /> Sunrise:
+              <WiSunrise size={"25px"} /> Sunrise:{" "}
               {data.sys ? getTimeFromSeconds(data.sys.sunrise) : "00:00"}
             </p>
             <p>
-              <WiSunset size={"25px"} /> Sunset:
+              <WiSunset size={"25px"} /> Sunset:{" "}
               {(data?.sys && getTimeFromSeconds(data?.sys?.sunset)) || "00:00"}
             </p>
             <p>
-              <LiaTemperatureLowSolid size={"25px"} /> Feels like:
+              <LiaTemperatureLowSolid size={"25px"} /> Feels like:{" "}
               {(data?.main && convertKelvinToCelsius(data?.main?.feels_like)) ||
                 0}
             </p>
@@ -308,6 +308,7 @@ export default function Home() {
             </p>
             <p>
               <WiHumidity size={"30px"} /> Humidity: {data?.main?.humidity || 0}
+              %
             </p>
             <p>
               <TiWeatherWindyCloudy size={"25px"} /> Wind: speed{" "}
