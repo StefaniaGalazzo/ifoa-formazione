@@ -1,35 +1,63 @@
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+// eslint-disable-next-line react/prop-types
+/* eslint-disable react/prop-types */
+// import { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import {
+  Chart,
+  LinearScale,
+  CategoryScale,
+  PointElement,
+  LineElement,
+} from "chart.js";
+import { useEffect, useState } from "react";
 
-export default function LineChart() {
-  const data = {
-    labels: ["Data1", "Data2", "Data3"], // Sostituisci con le tue date
+Chart.register(LinearScale, CategoryScale, PointElement, LineElement);
+
+const ChartComponent = ({
+  forecastData,
+  getDateFromSeconds,
+  convertKelvinToCelsius,
+}) => {
+  const [data, setData] = useState({
+    labels: [],
     datasets: [
       {
         label: "Variazioni di temperatura",
-        data: ["temp1", "temperatura2", "temperatura3"], // Sostituisci con le tue temperature
+        data: [],
+        borderColor: "rgb(255, 255, 255)",
         fill: false,
-        borderColor: "rgb(75, 192, 192)",
-        tension: 0.1,
       },
     ],
-  };
-  const options = {
-    scales: {
-      x: {
-        type: "linear",
-        position: "bottom",
-      },
-      y: {
-        min: 0, // Sostituisci con il tuo valore minimo di temperatura
-        max: 100, // Sostituisci con il tuo valore massimo di temperatura
-      },
-    },
-  };
+  });
+
+  console.log(forecastData, "forecast");
+
+  useEffect(() => {
+    if (forecastData && forecastData.length > 0) {
+      const labels = forecastData.map((day) => getDateFromSeconds(day.dt));
+      const temperatureData = forecastData.map((day) =>
+        convertKelvinToCelsius(day.main.temp)
+      );
+
+      setData({
+        labels: labels,
+        datasets: [
+          {
+            label: "Variazioni di temperatura",
+            data: temperatureData,
+            borderColor: "rgb(255, 255, 255)",
+            fill: false,
+          },
+        ],
+      });
+    }
+  }, [forecastData]);
 
   return (
-    <div>
-      <Line data={data} options={options} />
-    </div>
+    <>
+      <Line id="your-chart-id" data={data} />;
+    </>
   );
-}
+};
+
+export default ChartComponent;

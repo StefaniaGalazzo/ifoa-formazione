@@ -22,6 +22,7 @@ import moon from "../../../assets/imgs/moon.png";
 import styles from "./Home.module.scss";
 import { FaLocationDot } from "react-icons/fa6";
 import { useRef, useState } from "react";
+import LineChart from "../../LineChart/LineChart";
 
 export default function Home() {
   const [data, setData] = useState({
@@ -281,7 +282,7 @@ export default function Home() {
                   data.weather &&
                   getWeatherImage(data.weather[0].description, data.dt)
                 }
-                // alt={data.weather[0].description}
+                alt={data.weather && data.weather[0].description}
               />
             </div>
           </div>
@@ -356,6 +357,13 @@ export default function Home() {
               )}
             </div>
           </div>
+        </Container>
+        <Container>
+          <LineChart
+            forecastData={forecastData}
+            convertKelvinToCelsius={convertKelvinToCelsius}
+            getDateFromSeconds={getDateFromSeconds}
+          />
         </Container>
       </div>
     </div>
