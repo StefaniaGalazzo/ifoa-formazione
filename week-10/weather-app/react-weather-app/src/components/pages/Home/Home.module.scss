@@ -1,6 +1,23 @@
 #containerHome {
-  background-size: cover;
+  position: relative;
+  background-size: cover !important;
+  background-position: center;
   background: linear-gradient(to top, #e66465 10%, #9198e5 70%);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: radial-gradient(rgba(166, 166, 166, 0.571), rgb(0 0 0 / 65%));
+    z-index: 0;
+  }
+  & > div {
+    position: relative;
+    z-index: 10;
+  }
 }
 #inYourCountry {
   #infoWeather {
@@ -29,7 +46,10 @@
       width: 120px;
       padding: 10px;
       border-radius: 18px;
-      background-color: rgba(129, 158, 255, 0.168);
+      background: rgba(194, 233, 254, 0.063);
+      box-shadow: 0 8px 16px -3px rgb(0 2 26 / 50%);
+      backdrop-filter: blur(9.5px);
+      -webkit-backdrop-filter: blur(9.5px);
       text-align: center;
       display: flex;
       flex-direction: column;

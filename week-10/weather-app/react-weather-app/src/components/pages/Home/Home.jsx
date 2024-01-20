@@ -218,141 +218,145 @@ export default function Home() {
   }
 
   return (
-    <div id={styles.containerHome} className="pt-5" ref={bgRef}>
-      <div className="w-100 d-flex align-items-center flex-column justify-content-center">
-        <h1 className="text-secondary mb-3">Weather App</h1>
-        <h6 className="text-light mb-3 fw-light">
-          Discover weater in your country
-        </h6>
-        <SearchNav
-          searchVal={query}
-          searchHandler={handleSearch}
-          placeholder={data.name || "Search location and press enter"}
-          cleanInput={cleanInput}
-        />
-      </div>
-      <div
-        id={styles.inYourCountry}
-        className="my-5 d-flex flex-column align-items-center justify-content-center"
-      >
-        <h3 className="text-white display-1">
-          {(data.dt && getDateFromSeconds(data.dt)) || "00/00/00"}
-        </h3>
-        <div className="d-flex my-5">
-          <div>
-            <img
-              src={
-                data.weather &&
-                getWeatherImage(data.weather[0].description, data.dt)
-              }
-              // alt={data.weather[0].description}
-            />
-          </div>
-          <div className="text-center mx-5 ">
-            <h3 className="text-white ">
-              {data?.name || "Location"} <FaLocationDot />
-            </h3>
-            <h4 className="display-4 text-white">
-              {convertKelvinToCelsius(data?.main?.temp) || 0}°C
-            </h4>
-            <p className="fs-4 text-white m-0">
-              {(data?.weather &&
-                data?.weather[0] &&
-                data?.weather[0].description) ||
-                "Description"}
-            </p>
-            <p className="text-white m-0">
-              min/max:
-              {data?.main?.temp_min
-                ? convertKelvinToCelsius(data?.main?.temp_min)
-                : 0}
-              /
-              {data?.main?.temp_max
-                ? convertKelvinToCelsius(data?.main?.temp_max)
-                : 0}
-              °C
-            </p>
-          </div>
-          <div>
-            <img
-              src={
-                data.weather &&
-                getWeatherImage(data.weather[0].description, data.dt)
-              }
-              // alt={data.weather[0].description}
-            />
-          </div>
+    <div id={styles.wrapperOverlay}>
+      <div className={styles.overlay}></div>
+      <div id={styles.containerHome} className="pt-5" ref={bgRef}>
+        <div className="w-100 d-flex align-items-center flex-column justify-content-center">
+          <h1 className="text-light mb-3">Weather App</h1>
+          <h6 className="text-light mb-3 fw-light">
+            Discover weater in your country
+          </h6>
+          <SearchNav
+            searchVal={query}
+            searchHandler={handleSearch}
+            placeholder={data.name || "Search location and press enter"}
+            cleanInput={cleanInput}
+          />
         </div>
         <div
-          className="d-flex g-3 m-4 align-items-center justify-content-center"
-          id={styles.infoWeather}
+          id={styles.inYourCountry}
+          className="my-5 d-flex flex-column align-items-center justify-content-center"
         >
-          <p className="text-secondary">
-            <WiSunrise size={"25px"} /> Sunrise:
-            {data.sys ? getTimeFromSeconds(data.sys.sunrise) : "00:00"}
-          </p>
-          <p className="text-secondary">
-            <WiSunset size={"25px"} /> Sunset:
-            {(data?.sys && getTimeFromSeconds(data?.sys?.sunset)) || "00:00"}
-          </p>
-          <p className="text-secondary">
-            <LiaTemperatureLowSolid size={"25px"} /> Feels like:
-            {(data?.main && convertKelvinToCelsius(data?.main?.feels_like)) ||
-              0}
-          </p>
-          <p className="text-secondary">
-            <MdLineWeight size={"25px"} /> Pressure: {data?.main?.pressure || 0}
-          </p>
-          <p className="text-secondary">
-            <WiHumidity size={"30px"} /> Humidity: {data?.main?.humidity || 0}
-          </p>
-          <p className="text-secondary">
-            <TiWeatherWindyCloudy size={"25px"} /> Wind: speed{" "}
-            {data?.wind?.speed || 0} / deg: {data?.wind?.deg || 0}
-          </p>
-        </div>
-      </div>
-      <Container fluid>
-        <h3 className="text-white ps-5 ms-5"> Forecast</h3>
-        <hr />
-        <div id={styles.scrollY}>
-          <div className={`ps-5 ${styles.weatherDaysWrapper}`}>
-            {forecastData && forecastData.length > 0 ? (
-              forecastData?.map((day) => {
-                const formattedDate = getDateFromSeconds(day.dt);
-                const toCelsius = convertKelvinToCelsius(day.main.temp);
-
-                return (
-                  <div key={day.dt} className={`${styles.cardWeaterDay}`}>
-                    <h6 className="text-white text-center">
-                      {formattedDate.toString()}
-                    </h6>
-                    <img
-                      id="cardImage"
-                      src={
-                        day?.weather &&
-                        getWeatherImage(day?.weather[0].description, day.dt)
-                      }
-                      alt="weather-mood"
-                      width={"80px"}
-                    />
-                    <p className="text-white text-center">{toCelsius}°C</p>
-                  </div>
-                );
-              })
-            ) : (
-              <div
-                className={`m-auto ${styles.cardWeaterDay}`}
-                style={{ width: "90vw" }}
-              >
-                <h6 className="text-white display-4 text-center">
-                  Search a location and discover the weather!
-                </h6>
-              </div>
-            )}
+          <h3 className="text-white display-1">
+            {(data.dt && getDateFromSeconds(data.dt)) || "00/00/00"}
+          </h3>
+          <div className="d-flex my-5">
+            <div>
+              <img
+                src={
+                  data.weather &&
+                  getWeatherImage(data.weather[0].description, data.dt)
+                }
+                // alt={data.weather[0].description}
+              />
+            </div>
+            <div className="text-center mx-5 ">
+              <h3 className="text-white ">
+                {data?.name || "Location"} <FaLocationDot />
+              </h3>
+              <h4 className="display-4 text-white">
+                {convertKelvinToCelsius(data?.main?.temp) || 0}°C
+              </h4>
+              <p className="fs-4 text-white m-0">
+                {(data?.weather &&
+                  data?.weather[0] &&
+                  data?.weather[0].description) ||
+                  "Description"}
+              </p>
+              <p className="text-white m-0">
+                min/max:
+                {data?.main?.temp_min
+                  ? convertKelvinToCelsius(data?.main?.temp_min)
+                  : 0}
+                /
+                {data?.main?.temp_max
+                  ? convertKelvinToCelsius(data?.main?.temp_max)
+                  : 0}
+                °C
+              </p>
+            </div>
+            <div>
+              <img
+                src={
+                  data.weather &&
+                  getWeatherImage(data.weather[0].description, data.dt)
+                }
+                // alt={data.weather[0].description}
+              />
+            </div>
+          </div>
+          <div
+            className="d-flex g-3 m-4 align-items-center justify-content-center text-white"
+            id={styles.infoWeather}
+          >
+            <p>
+              <WiSunrise size={"25px"} /> Sunrise:
+              {data.sys ? getTimeFromSeconds(data.sys.sunrise) : "00:00"}
+            </p>
+            <p>
+              <WiSunset size={"25px"} /> Sunset:
+              {(data?.sys && getTimeFromSeconds(data?.sys?.sunset)) || "00:00"}
+            </p>
+            <p>
+              <LiaTemperatureLowSolid size={"25px"} /> Feels like:
+              {(data?.main && convertKelvinToCelsius(data?.main?.feels_like)) ||
+                0}
+            </p>
+            <p>
+              <MdLineWeight size={"25px"} /> Pressure:{" "}
+              {data?.main?.pressure || 0}
+            </p>
+            <p>
+              <WiHumidity size={"30px"} /> Humidity: {data?.main?.humidity || 0}
+            </p>
+            <p>
+              <TiWeatherWindyCloudy size={"25px"} /> Wind: speed{" "}
+              {data?.wind?.speed || 0} / deg: {data?.wind?.deg || 0}
+            </p>
           </div>
         </div>
-      </Container>
+        <Container fluid>
+          <h3 className="text-white ps-5 ms-5"> Forecast</h3>
+          <hr />
+          <div id={styles.scrollY}>
+            <div className={`ps-5 ${styles.weatherDaysWrapper}`}>
+              {forecastData && forecastData.length > 0 ? (
+                forecastData?.map((day) => {
+                  const formattedDate = getDateFromSeconds(day.dt);
+                  const toCelsius = convertKelvinToCelsius(day.main.temp);
+
+                  return (
+                    <div key={day.dt} className={`${styles.cardWeaterDay}`}>
+                      <h6 className="text-white text-center">
+                        {formattedDate.toString()}
+                      </h6>
+                      <img
+                        id="cardImage"
+                        src={
+                          day?.weather &&
+                          getWeatherImage(day?.weather[0].description, day.dt)
+                        }
+                        alt="weather-mood"
+                        width={"80px"}
+                      />
+                      <p className="text-white text-center">{toCelsius}°C</p>
+                    </div>
+                  );
+                })
+              ) : (
+                <div
+                  className={`m-auto ${styles.cardWeaterDay}`}
+                  style={{ width: "90vw" }}
+                >
+                  <h6 className="text-white display-4 text-center">
+                    Search a location and discover the weather!
+                  </h6>
+                </div>
+              )}
+            </div>
+          </div>
+        </Container>
+      </div>
     </div>
   );
 }
