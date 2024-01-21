@@ -54,9 +54,9 @@ export default function Home() {
       }
       const result = await response.json();
       setData(result);
-      console.log(result, "result");
+      // console.log(result, "result");
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
   const fetchForecast = async () => {
@@ -151,15 +151,15 @@ export default function Home() {
     const referenceHour = 16;
     if (hours <= referenceHour) {
       if (lowercasedDescription.includes("rain")) {
-        console.log("RAIN");
-        console.log(lowercasedDescription, "lowercasedDescription");
-        console.log(hours, "HOURS");
+        // console.log("RAIN");
+        // console.log(lowercasedDescription, "lowercasedDescription");
+        // console.log(hours, "HOURS");
         bgRef.current.style.backgroundImage = `url(${bgRainyDay})`;
         return rainy;
       } else if (lowercasedDescription.includes("cloud")) {
-        console.log(hours, "HOURS");
-        console.log("CLOUD ");
-        console.log(lowercasedDescription, "lowercasedDescription");
+        // console.log(hours, "HOURS");
+        // console.log("CLOUD ");
+        // console.log(lowercasedDescription, "lowercasedDescription");
 
         bgRef.current.style.backgroundImage = `url(${bgCloudyDay})`;
         return dayCloud;
@@ -167,16 +167,16 @@ export default function Home() {
         lowercasedDescription.includes("clear") ||
         lowercasedDescription.includes("sun")
       ) {
-        console.log(hours, "HOURS");
-        console.log("CLEAR OR SUNNY ");
-        console.log(lowercasedDescription, "lowercasedDescription");
+        // console.log(hours, "HOURS");
+        // console.log("CLEAR OR SUNNY ");
+        // console.log(lowercasedDescription, "lowercasedDescription");
 
         bgRef.current.style.backgroundImage = `url(${bgClearDay})`;
         return sun;
       } else if (lowercasedDescription.includes("snow")) {
-        console.log(hours, "HOURS");
-        console.log("SNOW");
-        console.log(lowercasedDescription, "lowercasedDescription");
+        // console.log(hours, "HOURS");
+        // console.log("SNOW");
+        // console.log(lowercasedDescription, "lowercasedDescription");
 
         bgRef.current.style.backgroundImage = `url(${bgSnow})`;
         return snow;
@@ -185,30 +185,30 @@ export default function Home() {
       }
     } else if (hours > referenceHour) {
       if (lowercasedDescription.includes("rain")) {
-        console.log(hours, "-- HOURS");
-        console.log("-- RAIN ");
-        console.log(lowercasedDescription, "lowercasedDescription");
+        // console.log(hours, "-- HOURS");
+        // console.log("-- RAIN ");
+        // console.log(lowercasedDescription, "lowercasedDescription");
 
         bgRef.current.style.backgroundImage = `url(${bgRainyNight})`;
         return rainy;
       } else if (lowercasedDescription.includes("cloud")) {
-        console.log(hours, "-- HOURS");
-        console.log("-- CLOUD ");
-        console.log(lowercasedDescription, "lowercasedDescription");
+        // console.log(hours, "-- HOURS");
+        // console.log("-- CLOUD ");
+        // console.log(lowercasedDescription, "lowercasedDescription");
 
         bgRef.current.style.backgroundImage = `url(${bgCloudyNight})`;
         return nightMoonCloud;
       } else if (lowercasedDescription.includes("snow")) {
-        console.log(hours, "-- HOURS");
-        console.log("-- CLEAR ");
-        console.log(lowercasedDescription, "lowercasedDescription");
+        // console.log(hours, "-- HOURS");
+        // console.log("-- CLEAR ");
+        // console.log(lowercasedDescription, "lowercasedDescription");
 
         bgRef.current.style.backgroundImage = `url(${bgSnow})`;
         return snow;
       } else if (lowercasedDescription.includes("clear")) {
-        console.log(hours, "-- HOURS");
-        console.log("-- CLEAR ");
-        console.log(lowercasedDescription, "lowercasedDescription");
+        // console.log(hours, "-- HOURS");
+        // console.log("-- CLEAR ");
+        // console.log(lowercasedDescription, "lowercasedDescription");
 
         bgRef.current.style.backgroundImage = `url(${bgClearNight})`;
         return moon;
